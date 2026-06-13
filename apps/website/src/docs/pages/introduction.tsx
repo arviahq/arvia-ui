@@ -18,18 +18,21 @@ export function IntroductionPage() {
         <code>.arv</code> files; each framework package adds thin wrappers for semantics, accessibility, and
         composition.
       </DocP>
-      <DocH2>Two packages, one design system</DocH2>
+      <DocH2>One package to install</DocH2>
       <DocUl>
         <DocLi>
-          <strong>@arviahq/ui-styles</strong> — theme tokens, recipes, and component style definitions
+          <strong>@arviahq/ui-react</strong> — the only package you install: React 18+ components plus
+          their bundled, pre-compiled CSS
         </DocLi>
         <DocLi>
-          <strong>@arviahq/ui-react</strong> — React 18+ components that map props to Arvia class names
+          <strong>@arviahq/ui-styles</strong> — the shared <code>.arv</code> theme tokens, recipes, and
+          component styles. Compiled into <code>@arviahq/ui-react</code> at publish time, so consumers
+          never install it directly
         </DocLi>
       </DocUl>
       <DocP>
         Future framework targets follow the same pattern: <code>@arviahq/ui-vue</code>,{" "}
-        <code>@arviahq/ui-preact</code>, each depending on the shared styles package.
+        <code>@arviahq/ui-preact</code>, each bundling the shared styles at publish time.
       </DocP>
       <DocH2>Not a runtime CSS library</DocH2>
       <DocP>

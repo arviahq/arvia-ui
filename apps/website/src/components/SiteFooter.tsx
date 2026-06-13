@@ -1,60 +1,59 @@
 import { Link as RouterLink } from "@tanstack/react-router";
-import { Divider, Link, Stack, Text } from "@arviahq/ui-react";
-import { SitePage } from "../site.arv";
+import { SiteFooterBar } from "../site.arv";
 
 export function SiteFooter() {
-  const page = SitePage();
+  const footer = SiteFooterBar();
 
   return (
-    <footer style={{ borderTop: "1px solid var(--arvia-color-border, #e7e5e4)", marginTop: 48 }}>
-      <div className={page.root} style={{ paddingTop: 32, paddingBottom: 32 }}>
-        <Stack gap="4">
-          <Stack direction="row" gap="4" wrap="yes" justify="between" align="start">
-            <Stack gap="2">
-              <Text weight="semibold">arvia-ui</Text>
-              <Text size="sm" tone="muted">
-                Crafted components on Arvia.
-              </Text>
-            </Stack>
-            <Stack direction="row" gap="5">
-              <Stack gap="2">
-                <Text size="sm" weight="medium">
-                  Docs
-                </Text>
-                <RouterLink to="/docs/$slug" params={{ slug: "introduction" }}>
-                  <Link as="span" tone="muted" size="sm">
-                    Introduction
-                  </Link>
-                </RouterLink>
-                <RouterLink to="/docs/$slug" params={{ slug: "getting-started" }}>
-                  <Link as="span" tone="muted" size="sm">
-                    Getting started
-                  </Link>
-                </RouterLink>
-              </Stack>
-              <Stack gap="2">
-                <Text size="sm" weight="medium">
-                  Ecosystem
-                </Text>
-                <a href="https://github.com/arviahq/arvia" target="_blank" rel="noreferrer">
-                  <Link href="https://github.com/arviahq/arvia" tone="muted" size="sm">
-                    Arvia compiler
-                  </Link>
-                </a>
-                <a href="https://github.com/arviahq/arvia-ui" target="_blank" rel="noreferrer">
-                  <Link href="https://github.com/arviahq/arvia-ui" tone="muted" size="sm">
-                    GitHub
-                  </Link>
-                </a>
-              </Stack>
-            </Stack>
-          </Stack>
-          <Divider spacing="sm" />
-          <Text size="sm" tone="subtle">
-            MIT License · Built with Arvia
-          </Text>
-        </Stack>
+    <footer className={footer.root}>
+      <div className={footer.inner}>
+        <div className={footer.brand}>
+          <span className={footer.brandText}>arvia-ui</span>
+          <p className={footer.tagline}>
+            Beautiful, crafted React components built on Arvia. Zero-config install, full theme
+            control.
+          </p>
+        </div>
+
+        <div className={footer.cols}>
+          <div className={footer.col}>
+            <p className={footer.colTitle}>Docs</p>
+            <RouterLink
+              to="/docs/$slug"
+              params={{ slug: "introduction" }}
+              className={footer.link}
+            >
+              Introduction
+            </RouterLink>
+            <RouterLink
+              to="/docs/$slug"
+              params={{ slug: "getting-started" }}
+              className={footer.link}
+            >
+              Getting started
+            </RouterLink>
+            <RouterLink to="/docs/$slug" params={{ slug: "components" }} className={footer.link}>
+              Components
+            </RouterLink>
+          </div>
+
+          <div className={footer.col}>
+            <p className={footer.colTitle}>Ecosystem</p>
+            <a href="https://github.com/arviahq/arvia" className={footer.link} target="_blank" rel="noreferrer">
+              Arvia compiler
+            </a>
+            <a
+              href="https://github.com/arviahq/arvia-ui"
+              className={footer.link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
       </div>
+      <div className={footer.bottom}>MIT License · Built with Arvia</div>
     </footer>
   );
 }

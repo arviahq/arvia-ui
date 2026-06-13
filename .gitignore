@@ -3,6 +3,7 @@ dist
 .arvia
 storybook-static
 stories/generated
+packages/ui-react/generated
 *.tsbuildinfo
 .DS_Store
 

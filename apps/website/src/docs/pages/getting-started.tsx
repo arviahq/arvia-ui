@@ -5,7 +5,7 @@ import type { DocPageMeta } from "../registry";
 export const gettingStartedMeta: DocPageMeta = {
   slug: "getting-started",
   title: "Getting started",
-  description: "Install arvia-ui in a Vite + React project and render your first components.",
+  description: "Install arvia-ui in any React project and render your first components.",
 };
 
 export function GettingStartedPage() {
@@ -13,26 +13,17 @@ export function GettingStartedPage() {
     <DocProse>
       <DocHeader {...gettingStartedMeta} />
       <DocH2>Install</DocH2>
-      <DocPre>{`npm install @arviahq/ui-react @arviahq/ui-styles @arviahq/vite-plugin-react`}</DocPre>
-      <DocH2>Configure Vite</DocH2>
+      <DocPre>{`npm install @arviahq/ui-react`}</DocPre>
       <DocP>
-        Add the Arvia plugin before the React plugin. Point it at the shared theme from{" "}
-        <code>@arviahq/ui-styles</code>:
+        That is all you need. Styles are pre-compiled and bundled with the package — no Vite plugin,
+        no <code>vite.config.ts</code> change, and no theme import. React 18+ is the only peer
+        dependency, so it works with any bundler.
       </DocP>
-      <DocPre>{`import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { arvia } from "@arviahq/vite-plugin-react";
-
-export default defineConfig({
-  plugins: [
-    arvia({ theme: "node_modules/@arviahq/ui-styles/src/theme.arv" }),
-    react(),
-  ],
-});`}</DocPre>
-      <DocH2>Import the theme</DocH2>
-      <DocP>Import the global theme once in your app entry so tokens, modes, and base styles apply:</DocP>
-      <DocPre>{`import "@arviahq/ui-styles/theme.arv";`}</DocPre>
       <DocH2>Use components</DocH2>
+      <DocP>
+        Importing from <code>@arviahq/ui-react</code> automatically includes the component styles
+        (via <code>sideEffects</code>):
+      </DocP>
       <DocPre>{`import { Button, Stack, Text } from "@arviahq/ui-react";
 
 export function App() {
@@ -43,21 +34,20 @@ export function App() {
     </Stack>
   );
 }`}</DocPre>
-      <DocH3>TypeScript</DocH3>
+      <DocH2>Theme modes</DocH2>
       <DocP>
-        Add <code>rootDirs</code> so <code>tsc</code> resolves generated <code>.arv</code> types if you import
-        style files directly:
+        Both light and dark CSS are baked into the package. Switch at runtime with{" "}
+        <code>setTheme</code>, which sets <code>data-arvia-theme</code> on <code>&lt;html&gt;</code>:
       </DocP>
-      <DocPre>{`{
-  "compilerOptions": {
-    "rootDirs": ["src", "node_modules/@arviahq/ui-styles/.arvia/types"]
-  }
-}`}</DocPre>
-      <DocH2>Monorepo consumers</DocH2>
+      <DocPre>{`import { setTheme } from "@arviahq/ui-react";
+
+setTheme("dark");
+setTheme("light");`}</DocPre>
+      <DocH3>Advanced: fork the theme</DocH3>
       <DocP>
-        If you vendor the packages locally, depend on <code>@arviahq/ui-react</code> and{" "}
-        <code>@arviahq/ui-styles</code> via workspace protocol and point the Vite theme at{" "}
-        <code>packages/styles/src/theme.arv</code>.
+        To author your own <code>.arv</code> components or fork the theme tokens, compile{" "}
+        <code>.arv</code> at build time with <code>@arviahq/vite-plugin-react</code>. This is for
+        design-system authors — it is not required to use arvia-ui.
       </DocP>
     </DocProse>
   );

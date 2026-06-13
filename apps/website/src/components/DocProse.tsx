@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Prose } from "../site.arv";
+import { CodeBlock } from "./CodeBlock";
 
 export function DocProse(props: { children: ReactNode }) {
   const prose = Prose();
@@ -36,7 +37,6 @@ export function DocCode(props: { children: ReactNode }) {
   return <code className={prose.code}>{props.children}</code>;
 }
 
-export function DocPre(props: { children: string }) {
-  const prose = Prose();
-  return <pre className={prose.pre}>{props.children}</pre>;
+export function DocPre(props: { children: string; lang?: string }) {
+  return <CodeBlock lang={props.lang}>{props.children}</CodeBlock>;
 }
