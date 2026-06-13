@@ -1,5 +1,8 @@
 import { forwardRef, type ReactNode } from "react";
-import { Heading as headingStyles, type HeadingProps as ArviaHeadingProps } from "@arviahq/ui-styles/components/heading.arv";
+import {
+  Heading as headingStyles,
+  type HeadingProps as ArviaHeadingProps,
+} from "@arviahq/ui-styles/components/heading.arv";
 
 const LEVEL_TAGS = {
   "1": "h1",

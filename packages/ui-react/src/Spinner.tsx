@@ -1,5 +1,8 @@
 import { forwardRef, type HTMLAttributes } from "react";
-import { Spinner as spinnerStyles, type SpinnerProps as ArviaSpinnerProps } from "@arviahq/ui-styles/components/spinner.arv";
+import {
+  Spinner as spinnerStyles,
+  type SpinnerProps as ArviaSpinnerProps,
+} from "@arviahq/ui-styles/components/spinner.arv";
 
 export type SpinnerProps = ArviaSpinnerProps &
   Omit<HTMLAttributes<HTMLSpanElement>, "children"> & {

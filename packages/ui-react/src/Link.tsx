@@ -1,5 +1,8 @@
 import { forwardRef, type AnchorHTMLAttributes, type ReactNode } from "react";
-import { Link as linkStyles, type LinkProps as ArviaLinkProps } from "@arviahq/ui-styles/components/link.arv";
+import {
+  Link as linkStyles,
+  type LinkProps as ArviaLinkProps,
+} from "@arviahq/ui-styles/components/link.arv";
 
 export type LinkProps = ArviaLinkProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "children"> & {

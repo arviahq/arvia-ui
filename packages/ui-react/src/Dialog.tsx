@@ -38,7 +38,9 @@ type ClickableProps = { onClick?: (event: MouseEvent) => void };
 /** Clone a single child element, composing our handler with the child's own onClick. */
 function cloneWithClick(child: ReactNode, handler: (event: MouseEvent) => void, extra?: object) {
   if (!isValidElement(child)) {
-    throw new Error("Dialog.Trigger / Dialog.Close with `asChild` expects a single React element child.");
+    throw new Error(
+      "Dialog.Trigger / Dialog.Close with `asChild` expects a single React element child.",
+    );
   }
   const element = child as ReactElement<ClickableProps>;
   return cloneElement(element, {
@@ -69,7 +71,9 @@ function DialogRoot({ open, defaultOpen, onChange, children }: DialogProps) {
   });
 
   return (
-    <DialogContext.Provider value={{ open: value, setOpen, baseId }}>{children}</DialogContext.Provider>
+    <DialogContext.Provider value={{ open: value, setOpen, baseId }}>
+      {children}
+    </DialogContext.Provider>
   );
 }
 
@@ -145,13 +149,21 @@ function DialogTitle({ children, className, ...props }: HTMLAttributes<HTMLHeadi
   const styles = dialogStyles();
   const ctx = useDialogContext("Title");
   return (
-    <h2 id={`${ctx.baseId}-title`} className={className ? `${styles.title} ${className}` : styles.title} {...props}>
+    <h2
+      id={`${ctx.baseId}-title`}
+      className={className ? `${styles.title} ${className}` : styles.title}
+      {...props}
+    >
       {children}
     </h2>
   );
 }
 
-function DialogDescription({ children, className, ...props }: HTMLAttributes<HTMLParagraphElement>) {
+function DialogDescription({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLParagraphElement>) {
   const styles = dialogStyles();
   const ctx = useDialogContext("Description");
   return (

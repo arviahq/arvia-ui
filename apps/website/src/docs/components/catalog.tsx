@@ -32,16 +32,44 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
   {
     slug: "button",
     title: "Button",
-    description: "Primary interactive control with tone and size variants, optional icon slot, and full button semantics.",
+    description:
+      "Primary interactive control with tone and size variants, optional icon slot, and full button semantics.",
     importName: "Button",
     props: [
-      { name: "tone", type: '"primary" | "secondary" | "ghost" | "danger"', default: '"primary"', description: "Visual style of the button." },
-      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Padding and font size." },
-      { name: "icon", type: "ReactNode", description: "Optional leading icon rendered in the icon slot." },
+      {
+        name: "tone",
+        type: '"primary" | "secondary" | "ghost" | "danger"',
+        default: '"primary"',
+        description: "Visual style of the button.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Padding and font size.",
+      },
+      {
+        name: "icon",
+        type: "ReactNode",
+        description: "Optional leading icon rendered in the icon slot.",
+      },
       { name: "children", type: "ReactNode", description: "Button label content." },
-      { name: "disabled", type: "boolean", description: "Disables interaction and applies disabled styles." },
-      { name: "type", type: '"button" | "submit" | "reset"', default: '"button"', description: "Native button type." },
-      { name: "className", type: "string", description: "Additional CSS class merged onto the root element." },
+      {
+        name: "disabled",
+        type: "boolean",
+        description: "Disables interaction and applies disabled styles.",
+      },
+      {
+        name: "type",
+        type: '"button" | "submit" | "reset"',
+        default: '"button"',
+        description: "Native button type.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class merged onto the root element.",
+      },
       htmlAttrs("Button"),
     ],
     usage: `import { Button } from "@arviahq/ui-react";
@@ -76,7 +104,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Compact label for status, counts, and categories.",
     importName: "Badge",
     props: [
-      { name: "tone", type: '"neutral" | "primary" | "success" | "warning" | "danger"', default: '"neutral"', description: "Semantic color of the badge." },
+      {
+        name: "tone",
+        type: '"neutral" | "primary" | "success" | "warning" | "danger"',
+        default: '"neutral"',
+        description: "Semantic color of the badge.",
+      },
       { name: "size", type: '"sm" | "md"', default: '"md"', description: "Font size and padding." },
       { name: "children", type: "ReactNode", description: "Badge label text." },
       { name: "className", type: "string", description: "Additional CSS class on the root span." },
@@ -101,15 +134,40 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
   {
     slug: "box",
     title: "Box",
-    description: "Universal layout primitive — a polymorphic container with padding, radius, and background variants.",
+    description:
+      "Universal layout primitive — a polymorphic container with padding, radius, and background variants.",
     importName: "Box",
     props: [
-      { name: "padding", type: '"none" | "1" | "2" | "3" | "4" | "5" | "6"', default: '"none"', description: "Inner padding from the space scale." },
-      { name: "radius", type: '"none" | "sm" | "md" | "lg" | "xl" | "full"', default: '"none"', description: "Border radius token." },
-      { name: "background", type: '"transparent" | "surface" | "raised" | "muted"', default: '"transparent"', description: "Background color token." },
-      { name: "as", type: "ElementType", default: '"div"', description: "Polymorphic element to render." },
+      {
+        name: "padding",
+        type: '"none" | "1" | "2" | "3" | "4" | "5" | "6"',
+        default: '"none"',
+        description: "Inner padding from the space scale.",
+      },
+      {
+        name: "radius",
+        type: '"none" | "sm" | "md" | "lg" | "xl" | "full"',
+        default: '"none"',
+        description: "Border radius token.",
+      },
+      {
+        name: "background",
+        type: '"transparent" | "surface" | "raised" | "muted"',
+        default: '"transparent"',
+        description: "Background color token.",
+      },
+      {
+        name: "as",
+        type: "ElementType",
+        default: '"div"',
+        description: "Polymorphic element to render.",
+      },
       { name: "children", type: "ReactNode", description: "Child content." },
-      { name: "className", type: "string", description: "Additional CSS class on the root element." },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the root element.",
+      },
       htmlAttrs("HTML"),
     ],
     usage: `import { Box } from "@arviahq/ui-react";
@@ -126,17 +184,52 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
   {
     slug: "stack",
     title: "Stack",
-    description: "Flexbox layout primitive for vertical or horizontal stacks with gap, alignment, and wrap control.",
+    description:
+      "Flexbox layout primitive for vertical or horizontal stacks with gap, alignment, and wrap control.",
     importName: "Stack",
     props: [
-      { name: "direction", type: '"row" | "column"', default: '"column"', description: "Flex direction." },
-      { name: "gap", type: '"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8"', default: '"3"', description: "Gap between children from the space scale." },
-      { name: "align", type: '"start" | "center" | "end" | "stretch" | "baseline"', default: '"stretch"', description: "align-items value." },
-      { name: "justify", type: '"start" | "center" | "end" | "between" | "around"', default: '"start"', description: "justify-content value." },
-      { name: "wrap", type: '"yes" | "no"', default: '"no"', description: "Whether flex items wrap." },
-      { name: "as", type: "ElementType", default: '"div"', description: "Polymorphic element to render." },
+      {
+        name: "direction",
+        type: '"row" | "column"',
+        default: '"column"',
+        description: "Flex direction.",
+      },
+      {
+        name: "gap",
+        type: '"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8"',
+        default: '"3"',
+        description: "Gap between children from the space scale.",
+      },
+      {
+        name: "align",
+        type: '"start" | "center" | "end" | "stretch" | "baseline"',
+        default: '"stretch"',
+        description: "align-items value.",
+      },
+      {
+        name: "justify",
+        type: '"start" | "center" | "end" | "between" | "around"',
+        default: '"start"',
+        description: "justify-content value.",
+      },
+      {
+        name: "wrap",
+        type: '"yes" | "no"',
+        default: '"no"',
+        description: "Whether flex items wrap.",
+      },
+      {
+        name: "as",
+        type: "ElementType",
+        default: '"div"',
+        description: "Polymorphic element to render.",
+      },
       { name: "children", type: "ReactNode", description: "Child elements." },
-      { name: "className", type: "string", description: "Additional CSS class on the root element." },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the root element.",
+      },
       htmlAttrs("HTML"),
     ],
     usage: `import { Stack } from "@arviahq/ui-react";
@@ -147,17 +240,29 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 </Stack>`,
     Preview: () => (
       <Stack gap="2" style={{ width: 200 }}>
-        <Box padding="2" radius="sm" background="muted"><Text size="sm">Item 1</Text></Box>
-        <Box padding="2" radius="sm" background="muted"><Text size="sm">Item 2</Text></Box>
-        <Box padding="2" radius="sm" background="muted"><Text size="sm">Item 3</Text></Box>
+        <Box padding="2" radius="sm" background="muted">
+          <Text size="sm">Item 1</Text>
+        </Box>
+        <Box padding="2" radius="sm" background="muted">
+          <Text size="sm">Item 2</Text>
+        </Box>
+        <Box padding="2" radius="sm" background="muted">
+          <Text size="sm">Item 3</Text>
+        </Box>
       </Stack>
     ),
     Examples: () => (
       <LivePreview label="Horizontal">
         <Stack direction="row" gap="2">
-          <Box padding="2" radius="sm" background="raised"><Text size="sm">A</Text></Box>
-          <Box padding="2" radius="sm" background="raised"><Text size="sm">B</Text></Box>
-          <Box padding="2" radius="sm" background="raised"><Text size="sm">C</Text></Box>
+          <Box padding="2" radius="sm" background="raised">
+            <Text size="sm">A</Text>
+          </Box>
+          <Box padding="2" radius="sm" background="raised">
+            <Text size="sm">B</Text>
+          </Box>
+          <Box padding="2" radius="sm" background="raised">
+            <Text size="sm">C</Text>
+          </Box>
         </Stack>
       </LivePreview>
     ),
@@ -168,12 +273,36 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Typography primitive with size, weight, and tone variants.",
     importName: "Text",
     props: [
-      { name: "size", type: '"xs" | "sm" | "md" | "lg" | "xl"', default: '"md"', description: "Font size token." },
-      { name: "weight", type: '"regular" | "medium" | "semibold" | "bold"', default: '"regular"', description: "Font weight." },
-      { name: "tone", type: '"default" | "muted" | "subtle" | "primary" | "danger" | "success"', default: '"default"', description: "Text color token." },
-      { name: "as", type: "ElementType", default: '"p"', description: "Polymorphic element (p, span, label, etc.)." },
+      {
+        name: "size",
+        type: '"xs" | "sm" | "md" | "lg" | "xl"',
+        default: '"md"',
+        description: "Font size token.",
+      },
+      {
+        name: "weight",
+        type: '"regular" | "medium" | "semibold" | "bold"',
+        default: '"regular"',
+        description: "Font weight.",
+      },
+      {
+        name: "tone",
+        type: '"default" | "muted" | "subtle" | "primary" | "danger" | "success"',
+        default: '"default"',
+        description: "Text color token.",
+      },
+      {
+        name: "as",
+        type: "ElementType",
+        default: '"p"',
+        description: "Polymorphic element (p, span, label, etc.).",
+      },
       { name: "children", type: "ReactNode", description: "Text content." },
-      { name: "className", type: "string", description: "Additional CSS class on the root element." },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the root element.",
+      },
       htmlAttrs("HTML"),
     ],
     usage: `import { Text } from "@arviahq/ui-react";
@@ -197,10 +326,24 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Semantic heading styles mapped to h1–h6 elements via the level variant.",
     importName: "Heading",
     props: [
-      { name: "level", type: '"1" | "2" | "3" | "4" | "5" | "6"', default: '"2"', description: "Heading level — renders the matching h1–h6 element." },
-      { name: "tone", type: '"default" | "muted" | "primary"', default: '"default"', description: "Text color token." },
+      {
+        name: "level",
+        type: '"1" | "2" | "3" | "4" | "5" | "6"',
+        default: '"2"',
+        description: "Heading level — renders the matching h1–h6 element.",
+      },
+      {
+        name: "tone",
+        type: '"default" | "muted" | "primary"',
+        default: '"default"',
+        description: "Text color token.",
+      },
       { name: "children", type: "ReactNode", description: "Heading text." },
-      { name: "className", type: "string", description: "Additional CSS class on the heading element." },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the heading element.",
+      },
     ],
     usage: `import { Heading } from "@arviahq/ui-react";
 
@@ -222,7 +365,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Inline navigation link with tone and size variants.",
     importName: "Link",
     props: [
-      { name: "tone", type: '"primary" | "muted" | "danger"', default: '"primary"', description: "Link color style." },
+      {
+        name: "tone",
+        type: '"primary" | "muted" | "danger"',
+        default: '"primary"',
+        description: "Link color style.",
+      },
       { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Font size." },
       { name: "href", type: "string", description: "Destination URL." },
       { name: "children", type: "ReactNode", description: "Link text." },
@@ -237,8 +385,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <LivePreview label="Tones">
         <Stack direction="row" gap="3">
           <Link href="#">Primary</Link>
-          <Link href="#" tone="muted">Muted</Link>
-          <Link href="#" tone="danger">Danger</Link>
+          <Link href="#" tone="muted">
+            Muted
+          </Link>
+          <Link href="#" tone="danger">
+            Danger
+          </Link>
         </Stack>
       </LivePreview>
     ),
@@ -249,8 +401,18 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Raised surface container with configurable padding and shadow.",
     importName: "Card",
     props: [
-      { name: "padding", type: '"none" | "sm" | "md" | "lg"', default: '"md"', description: "Inner padding." },
-      { name: "shadow", type: '"none" | "sm" | "md" | "lg"', default: '"sm"', description: "Box shadow elevation." },
+      {
+        name: "padding",
+        type: '"none" | "sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Inner padding.",
+      },
+      {
+        name: "shadow",
+        type: '"none" | "sm" | "md" | "lg"',
+        default: '"sm"',
+        description: "Box shadow elevation.",
+      },
       { name: "children", type: "ReactNode", description: "Card content." },
       { name: "className", type: "string", description: "Additional CSS class on the root div." },
       htmlAttrs("HTML"),
@@ -264,7 +426,9 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <Card padding="lg" shadow="md" style={{ width: 280 }}>
         <Stack gap="2">
           <Text weight="semibold">Card title</Text>
-          <Text size="sm" tone="muted">Supporting description text.</Text>
+          <Text size="sm" tone="muted">
+            Supporting description text.
+          </Text>
         </Stack>
       </Card>
     ),
@@ -275,13 +439,35 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Text field with size variants and built-in focus, disabled, and invalid states.",
     importName: "Input",
     props: [
-      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Height and font size. Named size — not the native HTML size attribute." },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Height and font size. Named size — not the native HTML size attribute.",
+      },
       { name: "placeholder", type: "string", description: "Placeholder text." },
       { name: "disabled", type: "boolean", description: "Disables the input." },
-      { name: "aria-invalid", type: '"true" | "false"', description: 'Set to "true" for error styling.' },
-      { name: "type", type: "string", default: '"text"', description: "Native input type (text, email, password, etc.)." },
-      { name: "className", type: "string", description: "Additional CSS class on the input element." },
-      { name: "...inputProps", type: "InputHTMLAttributes", description: "Standard input attributes are forwarded." },
+      {
+        name: "aria-invalid",
+        type: '"true" | "false"',
+        description: 'Set to "true" for error styling.',
+      },
+      {
+        name: "type",
+        type: "string",
+        default: '"text"',
+        description: "Native input type (text, email, password, etc.).",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the input element.",
+      },
+      {
+        name: "...inputProps",
+        type: "InputHTMLAttributes",
+        description: "Standard input attributes are forwarded.",
+      },
     ],
     usage: `import { Input } from "@arviahq/ui-react";
 
@@ -305,7 +491,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Horizontal rule for separating content sections.",
     importName: "Divider",
     props: [
-      { name: "spacing", type: '"none" | "sm" | "md" | "lg"', default: '"md"', description: "Vertical margin around the rule." },
+      {
+        name: "spacing",
+        type: '"none" | "sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Vertical margin around the rule.",
+      },
       { name: "className", type: "string", description: "Additional CSS class on the hr element." },
       htmlAttrs("HTML"),
     ],
@@ -326,8 +517,18 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Loading indicator with accessible status role and configurable size.",
     importName: "Spinner",
     props: [
-      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Spinner dimensions." },
-      { name: "label", type: "string", default: '"Loading"', description: "Accessible label via aria-label." },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Spinner dimensions.",
+      },
+      {
+        name: "label",
+        type: "string",
+        default: '"Loading"',
+        description: "Accessible label via aria-label.",
+      },
       { name: "className", type: "string", description: "Additional CSS class on the span." },
       htmlAttrs("HTML"),
     ],
@@ -353,11 +554,31 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     importName: "Tabs",
     props: [
       { name: "value", type: "string", description: "Active tab value (controlled)." },
-      { name: "defaultValue", type: "string", description: "Initial active tab value (uncontrolled)." },
-      { name: "onChange", type: "(value: string) => void", description: "Called when the active tab changes." },
-      { name: "Tabs.Tab value", type: "string", description: "Required — links a tab to its panel of the same value." },
-      { name: "Tabs.Panel value", type: "string", description: "Required — links a panel to its tab of the same value." },
-      { name: "className", type: "string", description: "Additional CSS class on the part's root element." },
+      {
+        name: "defaultValue",
+        type: "string",
+        description: "Initial active tab value (uncontrolled).",
+      },
+      {
+        name: "onChange",
+        type: "(value: string) => void",
+        description: "Called when the active tab changes.",
+      },
+      {
+        name: "Tabs.Tab value",
+        type: "string",
+        description: "Required — links a tab to its panel of the same value.",
+      },
+      {
+        name: "Tabs.Panel value",
+        type: "string",
+        description: "Required — links a panel to its tab of the same value.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the part's root element.",
+      },
     ],
     usage: `import { Tabs } from "@arviahq/ui-react";
 
@@ -377,13 +598,19 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           <Tabs.Tab value="props">Props</Tabs.Tab>
         </Tabs.List>
         <Tabs.Panel value="overview">
-          <Text size="sm" tone="muted">Compound tabs with full keyboard support.</Text>
+          <Text size="sm" tone="muted">
+            Compound tabs with full keyboard support.
+          </Text>
         </Tabs.Panel>
         <Tabs.Panel value="usage">
-          <Text size="sm" tone="muted">Arrow keys move between tabs; Home/End jump to ends.</Text>
+          <Text size="sm" tone="muted">
+            Arrow keys move between tabs; Home/End jump to ends.
+          </Text>
         </Tabs.Panel>
         <Tabs.Panel value="props">
-          <Text size="sm" tone="muted">Controlled via value, or uncontrolled via defaultValue.</Text>
+          <Text size="sm" tone="muted">
+            Controlled via value, or uncontrolled via defaultValue.
+          </Text>
         </Tabs.Panel>
       </Tabs>
     ),
@@ -395,12 +622,34 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       "Compound disclosure list — single or multiple open sections with full keyboard and ARIA support.",
     importName: "Accordion",
     props: [
-      { name: "type", type: '"single" | "multiple"', default: '"single"', description: "Whether one or many items can be open at once." },
-      { name: "defaultValue", type: "string | string[]", description: "Initially open item(s) (uncontrolled)." },
+      {
+        name: "type",
+        type: '"single" | "multiple"',
+        default: '"single"',
+        description: "Whether one or many items can be open at once.",
+      },
+      {
+        name: "defaultValue",
+        type: "string | string[]",
+        description: "Initially open item(s) (uncontrolled).",
+      },
       { name: "value", type: "string | string[]", description: "Open item(s) (controlled)." },
-      { name: "onChange", type: "(value: string | string[]) => void", description: "Called when the open item(s) change." },
-      { name: "collapsible", type: "boolean", default: "true", description: "For type=\"single\", allow closing the open item." },
-      { name: "Accordion.Item value", type: "string", description: "Required — identifies each item." },
+      {
+        name: "onChange",
+        type: "(value: string | string[]) => void",
+        description: "Called when the open item(s) change.",
+      },
+      {
+        name: "collapsible",
+        type: "boolean",
+        default: "true",
+        description: 'For type="single", allow closing the open item.',
+      },
+      {
+        name: "Accordion.Item value",
+        type: "string",
+        description: "Required — identifies each item.",
+      },
     ],
     usage: `import { Accordion } from "@arviahq/ui-react";
 
@@ -414,11 +663,15 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       <Accordion type="single" defaultValue="what" style={{ width: 340 }}>
         <Accordion.Item value="what">
           <Accordion.Trigger>What is arvia-ui?</Accordion.Trigger>
-          <Accordion.Content>A React component library built on Arvia with a zero-config install.</Accordion.Content>
+          <Accordion.Content>
+            A React component library built on Arvia with a zero-config install.
+          </Accordion.Content>
         </Accordion.Item>
         <Accordion.Item value="how">
           <Accordion.Trigger>How are styles handled?</Accordion.Trigger>
-          <Accordion.Content>Pre-compiled .arv styles, bundled into one stylesheet at publish time.</Accordion.Content>
+          <Accordion.Content>
+            Pre-compiled .arv styles, bundled into one stylesheet at publish time.
+          </Accordion.Content>
         </Accordion.Item>
       </Accordion>
     ),
@@ -432,9 +685,21 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     props: [
       { name: "open", type: "boolean", description: "Open state (controlled)." },
       { name: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
-      { name: "onChange", type: "(open: boolean) => void", description: "Called when the open state changes." },
-      { name: "Dialog.Trigger", type: "ReactElement", description: "Clones its child element to open the dialog on click." },
-      { name: "Dialog.Close asChild", type: "boolean", description: "Render the close behavior on a child element (e.g. a Button)." },
+      {
+        name: "onChange",
+        type: "(open: boolean) => void",
+        description: "Called when the open state changes.",
+      },
+      {
+        name: "Dialog.Trigger",
+        type: "ReactElement",
+        description: "Clones its child element to open the dialog on click.",
+      },
+      {
+        name: "Dialog.Close asChild",
+        type: "boolean",
+        description: "Render the close behavior on a child element (e.g. a Button).",
+      },
     ],
     usage: `import { Dialog, Button } from "@arviahq/ui-react";
 
@@ -482,9 +747,18 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "User image with automatic initials fallback and size variants.",
     importName: "Avatar",
     props: [
-      { name: "src", type: "string", description: "Image URL; falls back to initials if missing or it fails to load." },
+      {
+        name: "src",
+        type: "string",
+        description: "Image URL; falls back to initials if missing or it fails to load.",
+      },
       { name: "name", type: "string", description: "Used to derive fallback initials." },
-      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Avatar dimensions." },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Avatar dimensions.",
+      },
       { name: "alt", type: "string", description: "Image alt text." },
     ],
     usage: `import { Avatar } from "@arviahq/ui-react";
@@ -527,7 +801,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     importName: "Checkbox",
     props: [
       { name: "checked", type: "boolean", description: "Checked state (controlled)." },
-      { name: "defaultChecked", type: "boolean", description: "Initial checked state (uncontrolled)." },
+      {
+        name: "defaultChecked",
+        type: "boolean",
+        description: "Initial checked state (uncontrolled).",
+      },
       { name: "onChange", type: "(checked: boolean) => void", description: "Called when toggled." },
       { name: "disabled", type: "boolean", description: "Disables the checkbox." },
     ],
@@ -568,7 +846,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description: "Inline status message with info, success, warning, and danger tones.",
     importName: "Alert",
     props: [
-      { name: "tone", type: '"info" | "success" | "warning" | "danger"', default: '"info"', description: "Semantic tone (sets icon + accent)." },
+      {
+        name: "tone",
+        type: '"info" | "success" | "warning" | "danger"',
+        default: '"info"',
+        description: "Semantic tone (sets icon + accent).",
+      },
       { name: "title", type: "ReactNode", description: "Heading line." },
       { name: "icon", type: "ReactNode", description: "Override the default tone icon." },
       { name: "children", type: "ReactNode", description: "Body content." },
@@ -578,15 +861,23 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
 <Alert tone="success" title="Saved">Your changes are live.</Alert>`,
     Preview: () => (
       <Stack gap="2" style={{ width: 380 }}>
-        <Alert tone="info" title="Heads up">Styles compile at build time.</Alert>
-        <Alert tone="success" title="Saved">Your changes are live.</Alert>
+        <Alert tone="info" title="Heads up">
+          Styles compile at build time.
+        </Alert>
+        <Alert tone="success" title="Saved">
+          Your changes are live.
+        </Alert>
       </Stack>
     ),
     Examples: () => (
       <LivePreview label="Tones">
         <Stack gap="2" style={{ width: 380 }}>
-          <Alert tone="warning" title="Careful">This can&rsquo;t be undone.</Alert>
-          <Alert tone="danger" title="Error">Something went wrong.</Alert>
+          <Alert tone="warning" title="Careful">
+            This can&rsquo;t be undone.
+          </Alert>
+          <Alert tone="danger" title="Error">
+            Something went wrong.
+          </Alert>
         </Stack>
       </LivePreview>
     ),

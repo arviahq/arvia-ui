@@ -1,5 +1,8 @@
 import { forwardRef, useState, type HTMLAttributes, type ReactNode } from "react";
-import { Avatar as avatarStyles, type AvatarProps as ArviaAvatarProps } from "@arviahq/ui-styles/components/avatar.arv";
+import {
+  Avatar as avatarStyles,
+  type AvatarProps as ArviaAvatarProps,
+} from "@arviahq/ui-styles/components/avatar.arv";
 
 function initials(name?: string): string {
   if (!name) return "";

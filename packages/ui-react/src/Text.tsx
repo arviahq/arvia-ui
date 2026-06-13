@@ -1,5 +1,8 @@
 import { forwardRef, type ElementType, type HTMLAttributes, type ReactNode } from "react";
-import { Text as textStyles, type TextProps as ArviaTextProps } from "@arviahq/ui-styles/components/text.arv";
+import {
+  Text as textStyles,
+  type TextProps as ArviaTextProps,
+} from "@arviahq/ui-styles/components/text.arv";
 
 export type TextProps = ArviaTextProps &
   Omit<HTMLAttributes<HTMLElement>, "children" | "className"> & {
@@ -14,7 +17,11 @@ export const Text = forwardRef<HTMLElement, TextProps>(function Text(
 ) {
   const styles = textStyles({ size, weight, tone });
   return (
-    <Component ref={ref} className={className ? `${styles.root} ${className}` : styles.root} {...props}>
+    <Component
+      ref={ref}
+      className={className ? `${styles.root} ${className}` : styles.root}
+      {...props}
+    >
       {children}
     </Component>
   );

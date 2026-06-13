@@ -10,6 +10,10 @@
     "url": "git+https://github.com/arviahq/arvia-ui.git",
     "directory": "packages/styles"
   },
+  "files": [
+    "src",
+    ".arvia/types"
+  ],
   "type": "module",
   "sideEffects": [
     "**/*.arv",
@@ -97,10 +101,6 @@
       "default": "./src/components/tooltip.arv"
     }
   },
-  "files": [
-    "src",
-    ".arvia/types"
-  ],
   "scripts": {
     "gen": "arvia gen src",
     "prepare": "arvia gen src",

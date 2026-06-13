@@ -5,7 +5,8 @@ import type { DocPageMeta } from "../registry";
 export const introductionMeta: DocPageMeta = {
   slug: "introduction",
   title: "Introduction",
-  description: "What arvia-ui is, how it relates to Arvia, and why the architecture is split across packages.",
+  description:
+    "What arvia-ui is, how it relates to Arvia, and why the architecture is split across packages.",
 };
 
 export function IntroductionPage() {
@@ -15,19 +16,19 @@ export function IntroductionPage() {
       <DocP>
         arvia-ui is a collection of beautiful, crafted UI components built on{" "}
         <a href="https://github.com/arviahq/arvia">Arvia</a>. Styles live in shared{" "}
-        <code>.arv</code> files; each framework package adds thin wrappers for semantics, accessibility, and
-        composition.
+        <code>.arv</code> files; each framework package adds thin wrappers for semantics,
+        accessibility, and composition.
       </DocP>
       <DocH2>One package to install</DocH2>
       <DocUl>
         <DocLi>
-          <strong>@arviahq/ui-react</strong> — the only package you install: React 18+ components plus
-          their bundled, pre-compiled CSS
+          <strong>@arviahq/ui-react</strong> — the only package you install: React 18+ components
+          plus their bundled, pre-compiled CSS
         </DocLi>
         <DocLi>
-          <strong>@arviahq/ui-styles</strong> — the shared <code>.arv</code> theme tokens, recipes, and
-          component styles. Compiled into <code>@arviahq/ui-react</code> at publish time, so consumers
-          never install it directly
+          <strong>@arviahq/ui-styles</strong> — the shared <code>.arv</code> theme tokens, recipes,
+          and component styles. Compiled into <code>@arviahq/ui-react</code> at publish time, so
+          consumers never install it directly
         </DocLi>
       </DocUl>
       <DocP>
@@ -36,13 +37,15 @@ export function IntroductionPage() {
       </DocP>
       <DocH2>Not a runtime CSS library</DocH2>
       <DocP>
-        Arvia compiles variants and states to static CSS at build time. Your app ships optimized styles — no
-        runtime style injection, no boolean prop explosion. Dynamic values use CSS variables via theme tokens.
+        Arvia compiles variants and states to static CSS at build time. Your app ships optimized
+        styles — no runtime style injection, no boolean prop explosion. Dynamic values use CSS
+        variables via theme tokens.
       </DocP>
       <DocH2>v0.1 components</DocH2>
       <DocP>
-        The first release ships layout primitives (Box, Stack, Text, Heading) and essential UI (Button, Badge,
-        Link, Card, Input, Divider, Spinner). More components and frameworks are on the way.
+        The first release ships layout primitives (Box, Stack, Text, Heading) and essential UI
+        (Button, Badge, Link, Card, Input, Divider, Spinner). More components and frameworks are on
+        the way.
       </DocP>
     </DocProse>
   );

@@ -1,5 +1,8 @@
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
-import { Alert as alertStyles, type AlertProps as ArviaAlertProps } from "@arviahq/ui-styles/components/alert.arv";
+import {
+  Alert as alertStyles,
+  type AlertProps as ArviaAlertProps,
+} from "@arviahq/ui-styles/components/alert.arv";
 
 type Tone = NonNullable<ArviaAlertProps["tone"]>;
 

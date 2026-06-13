@@ -1,5 +1,5 @@
 import { DocHeader } from "../../components/DocsShell";
-import { DocH2, DocH3, DocP, DocPre, DocProse, DocUl, DocLi } from "../../components/DocProse";
+import { DocH2, DocH3, DocP, DocPre, DocProse } from "../../components/DocProse";
 import type { DocPageMeta } from "../registry";
 
 export const gettingStartedMeta: DocPageMeta = {
@@ -37,7 +37,8 @@ export function App() {
       <DocH2>Theme modes</DocH2>
       <DocP>
         Both light and dark CSS are baked into the package. Switch at runtime with{" "}
-        <code>setTheme</code>, which sets <code>data-arvia-theme</code> on <code>&lt;html&gt;</code>:
+        <code>setTheme</code>, which sets <code>data-arvia-theme</code> on <code>&lt;html&gt;</code>
+        :
       </DocP>
       <DocPre>{`import { setTheme } from "@arviahq/ui-react";
 
