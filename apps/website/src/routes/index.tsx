@@ -1,14 +1,7 @@
 import type { ReactNode } from "react";
 import { Link as RouterLink, createFileRoute } from "@tanstack/react-router";
 import { Badge, Button } from "@arviahq/ui-react";
-import {
-  FeatureCard,
-  FeatureGrid,
-  Hero,
-  HeroShell,
-  SectionHead,
-  SitePage,
-} from "../site.arv";
+import { FeatureCard, FeatureGrid, Hero, HeroShell, SectionHead, SitePage } from "../site.arv";
 import { HeroBackground } from "../components/HeroBackground";
 import { usePageMeta } from "../page-meta";
 
@@ -64,7 +57,7 @@ const FEATURES: { icon: ReactNode; title: string; body: string }[] = [
       </Icon>
     ),
     title: "Light & dark modes",
-    body: "Both modes ship in the CSS. setTheme(\"dark\") flips a data attribute and every component follows — no flash, no extra config.",
+    body: 'Both modes ship in the CSS. setTheme("dark") flips a data attribute and every component follows — no flash, no extra config.',
   },
   {
     icon: (

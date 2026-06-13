@@ -8,7 +8,8 @@ export default defineConfig({
     alias: {
       // @arviahq/ui-react ships pre-compiled dist/. For local docs dev, use its
       // source so component/.arv edits hot-reload through the arvia plugin below.
-      "@arviahq/ui-react": new URL("../../packages/ui-react/src/index.ts", import.meta.url).pathname,
+      "@arviahq/ui-react": new URL("../../packages/ui-react/src/index.ts", import.meta.url)
+        .pathname,
     },
   },
   plugins: [

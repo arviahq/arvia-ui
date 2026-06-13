@@ -1,0 +1,82 @@
+// Radio: a single radio (button[role=radio]) — used standalone or inside RadioGroup.
+// The root is the clickable row (control circle + label); sizes use CSS variables.
+
+component Radio {
+  base {
+    --r-control: 18px;
+    --r-dot: 8px;
+    --r-font: font.sm;
+    appearance: none;
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 2px;
+    font: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: space.2;
+    cursor: pointer;
+    text-align: left;
+    font-size: var(--r-font);
+    color: color.text;
+    border-radius: radius.sm;
+
+    &:focus-visible {
+      outline: 2px solid color.focus;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    control {
+      flex-shrink: 0;
+      width: var(--r-control);
+      height: var(--r-control);
+      border-radius: radius.full;
+      border: 1px solid color.borderStrong;
+      background: color.surface;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color duration.fast easing.default;
+
+      &[data-state="checked"] {
+        border-color: color.primary;
+      }
+    }
+
+    dot {
+      width: var(--r-dot);
+      height: var(--r-dot);
+      border-radius: radius.full;
+      background: color.primary;
+      transform: scale(0);
+      transition: transform duration.fast easing.out;
+
+      &[data-state="checked"] {
+        transform: scale(1);
+      }
+    }
+  }
+
+  variants {
+    size {
+      sm { --r-control: 16px; --r-dot: 7px; --r-font: font.xs; }
+      md { --r-control: 18px; --r-dot: 8px; --r-font: font.sm; }
+      lg { --r-control: 22px; --r-dot: 10px; --r-font: font.md; }
+    }
+  }
+
+  defaults {
+    size: md;
+  }
+
+  slots {
+    root {}
+    control {}
+    dot {}
+  }
+}

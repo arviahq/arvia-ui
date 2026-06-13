@@ -1,0 +1,26 @@
+// Skeleton: content placeholder, optionally pulsing.
+
+component Skeleton {
+  base {
+    display: block;
+    background: color-mix(in srgb, color.muted 22%, color.surfaceRaised);
+    border-radius: radius.sm;
+  }
+
+  variants {
+    animated {
+      yes {
+        animation: keyframes.pulse 1.4s ease-in-out infinite alternate;
+      }
+      no {}
+    }
+  }
+
+  defaults {
+    animated: yes;
+  }
+
+  slots {
+    root {}
+  }
+}

@@ -10,6 +10,10 @@
     "url": "git+https://github.com/arviahq/arvia-ui.git",
     "directory": "packages/styles"
   },
+  "files": [
+    "src",
+    ".arvia/types"
+  ],
   "type": "module",
   "sideEffects": [
     "**/*.arv",
@@ -19,6 +23,18 @@
     "./theme.arv": {
       "types": "./.arvia/types/theme.arv.d.ts",
       "default": "./src/theme.arv"
+    },
+    "./components/accordion.arv": {
+      "types": "./.arvia/types/components/accordion.arv.d.ts",
+      "default": "./src/components/accordion.arv"
+    },
+    "./components/alert.arv": {
+      "types": "./.arvia/types/components/alert.arv.d.ts",
+      "default": "./src/components/alert.arv"
+    },
+    "./components/avatar.arv": {
+      "types": "./.arvia/types/components/avatar.arv.d.ts",
+      "default": "./src/components/avatar.arv"
     },
     "./components/badge.arv": {
       "types": "./.arvia/types/components/badge.arv.d.ts",
@@ -35,6 +51,18 @@
     "./components/card.arv": {
       "types": "./.arvia/types/components/card.arv.d.ts",
       "default": "./src/components/card.arv"
+    },
+    "./components/checkbox.arv": {
+      "types": "./.arvia/types/components/checkbox.arv.d.ts",
+      "default": "./src/components/checkbox.arv"
+    },
+    "./components/checkbox-group.arv": {
+      "types": "./.arvia/types/components/checkbox-group.arv.d.ts",
+      "default": "./src/components/checkbox-group.arv"
+    },
+    "./components/dialog.arv": {
+      "types": "./.arvia/types/components/dialog.arv.d.ts",
+      "default": "./src/components/dialog.arv"
     },
     "./components/divider.arv": {
       "types": "./.arvia/types/components/divider.arv.d.ts",
@@ -60,15 +88,67 @@
       "types": "./.arvia/types/components/stack.arv.d.ts",
       "default": "./src/components/stack.arv"
     },
+    "./components/switch.arv": {
+      "types": "./.arvia/types/components/switch.arv.d.ts",
+      "default": "./src/components/switch.arv"
+    },
+    "./components/tabs.arv": {
+      "types": "./.arvia/types/components/tabs.arv.d.ts",
+      "default": "./src/components/tabs.arv"
+    },
     "./components/text.arv": {
       "types": "./.arvia/types/components/text.arv.d.ts",
       "default": "./src/components/text.arv"
+    },
+    "./components/tooltip.arv": {
+      "types": "./.arvia/types/components/tooltip.arv.d.ts",
+      "default": "./src/components/tooltip.arv"
+    },
+    "./components/breadcrumb.arv": {
+      "types": "./.arvia/types/components/breadcrumb.arv.d.ts",
+      "default": "./src/components/breadcrumb.arv"
+    },
+    "./components/progress.arv": {
+      "types": "./.arvia/types/components/progress.arv.d.ts",
+      "default": "./src/components/progress.arv"
+    },
+    "./components/progress-circle.arv": {
+      "types": "./.arvia/types/components/progress-circle.arv.d.ts",
+      "default": "./src/components/progress-circle.arv"
+    },
+    "./components/radio.arv": {
+      "types": "./.arvia/types/components/radio.arv.d.ts",
+      "default": "./src/components/radio.arv"
+    },
+    "./components/radiogroup.arv": {
+      "types": "./.arvia/types/components/radiogroup.arv.d.ts",
+      "default": "./src/components/radiogroup.arv"
+    },
+    "./components/skeleton.arv": {
+      "types": "./.arvia/types/components/skeleton.arv.d.ts",
+      "default": "./src/components/skeleton.arv"
+    },
+    "./components/slider.arv": {
+      "types": "./.arvia/types/components/slider.arv.d.ts",
+      "default": "./src/components/slider.arv"
+    },
+    "./components/popover.arv": {
+      "types": "./.arvia/types/components/popover.arv.d.ts",
+      "default": "./src/components/popover.arv"
+    },
+    "./components/menu.arv": {
+      "types": "./.arvia/types/components/menu.arv.d.ts",
+      "default": "./src/components/menu.arv"
+    },
+    "./components/select.arv": {
+      "types": "./.arvia/types/components/select.arv.d.ts",
+      "default": "./src/components/select.arv"
+    },
+    "./components/toast.arv": {
+      "types": "./.arvia/types/components/toast.arv.d.ts",
+      "default": "./src/components/toast.arv"
     }
   },
-  "files": [
-    "src",
-    ".arvia/types"
-  ],
   "scripts": {
     "gen": "arvia gen src",
     "prepare": "arvia gen src",

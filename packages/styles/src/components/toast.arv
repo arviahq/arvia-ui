@@ -1,0 +1,97 @@
+// Toast: transient notification. Slots applied by the React provider/items.
+
+component Toast {
+  base {
+    viewport {
+      position: fixed;
+      bottom: space.4;
+      right: space.4;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: space.2;
+      width: 360px;
+      max-width: calc(100vw - space.7);
+      pointer-events: none;
+    }
+
+    toast {
+      pointer-events: auto;
+      display: flex;
+      align-items: flex-start;
+      gap: space.3;
+      padding: space.3 space.4;
+      border-radius: radius.md;
+      background: color.surface;
+      border: 1px solid color.border;
+      box-shadow: shadow.lg;
+      color: color.muted;
+      animation: keyframes.toastIn duration.normal easing.out;
+
+      &[data-tone="info"] { color: color.primary; }
+      &[data-tone="success"] { color: color.success; }
+      &[data-tone="warning"] { color: color.warning; }
+      &[data-tone="danger"] { color: color.danger; }
+    }
+
+    icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: inherit;
+      display: inline-flex;
+    }
+
+    content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    title {
+      font-weight: 600;
+      font-size: font.sm;
+      color: color.text;
+      margin: 0;
+    }
+
+    description {
+      font-size: font.sm;
+      color: color.muted;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    close {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: color.subtle;
+      cursor: pointer;
+      padding: 2px;
+      border-radius: radius.sm;
+      flex-shrink: 0;
+
+      &:hover {
+        color: color.text;
+      }
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  slots {
+    root {}
+    viewport {}
+    toast {}
+    icon {}
+    content {}
+    title {}
+    description {}
+    close {}
+  }
+}

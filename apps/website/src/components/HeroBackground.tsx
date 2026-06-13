@@ -151,7 +151,10 @@ export function HeroBackground() {
       readTheme();
       paint(frame);
     });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-arvia-theme"] });
+    mo.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-arvia-theme"],
+    });
 
     return () => {
       cancelAnimationFrame(raf);

@@ -12,12 +12,12 @@ Storybook: `pnpm storybook` → [http://localhost:6007](http://localhost:6007)
 
 ## Packages
 
-| Package | Import | Status |
-|---------|--------|--------|
-| `@arviahq/ui-styles` | internal | Shared `.arv` theme + components |
-| `@arviahq/ui-react` | `@arviahq/ui-react` | React 18+ (v0.1) |
-| `@arviahq/ui-vue` | `@arviahq/ui-vue` | Planned |
-| `@arviahq/ui-preact` | `@arviahq/ui-preact` | Planned |
+| Package              | Import               | Status                           |
+| -------------------- | -------------------- | -------------------------------- |
+| `@arviahq/ui-styles` | internal             | Shared `.arv` theme + components |
+| `@arviahq/ui-react`  | `@arviahq/ui-react`  | React 18+ (v0.1)                 |
+| `@arviahq/ui-vue`    | `@arviahq/ui-vue`    | Planned                          |
+| `@arviahq/ui-preact` | `@arviahq/ui-preact` | Planned                          |
 
 ## Usage (React)
 

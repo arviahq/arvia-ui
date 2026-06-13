@@ -1,0 +1,44 @@
+// Progress: linear determinate progress bar.
+
+component Progress {
+  base {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    border-radius: radius.full;
+    background: color.border;
+    overflow: hidden;
+    color: color.primary;
+
+    bar {
+      height: 100%;
+      border-radius: radius.full;
+      background: currentColor;
+      transition: width duration.normal easing.out;
+    }
+  }
+
+  variants {
+    tone {
+      primary { color: color.primary; }
+      success { color: color.success; }
+      warning { color: color.warning; }
+      danger { color: color.danger; }
+    }
+    size {
+      sm { height: 4px; }
+      md { height: 8px; }
+      lg { height: 12px; }
+    }
+  }
+
+  defaults {
+    tone: primary;
+    size: md;
+  }
+
+  slots {
+    root {}
+    bar {}
+  }
+}

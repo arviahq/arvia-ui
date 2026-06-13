@@ -1,0 +1,63 @@
+// Alert: inline status message with tone.
+
+component Alert {
+  base {
+    display: flex;
+    gap: space.3;
+    align-items: flex-start;
+    padding: space.4;
+    border-radius: radius.md;
+    border: 1px solid color.border;
+    background: color.surfaceRaised;
+    color: color.muted;
+
+    icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: inherit;
+      display: inline-flex;
+    }
+
+    content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    title {
+      font-weight: 600;
+      font-size: font.sm;
+      color: color.text;
+      margin: 0;
+    }
+
+    body {
+      font-size: font.sm;
+      color: color.muted;
+      line-height: 1.55;
+      margin: 0;
+    }
+  }
+
+  variants {
+    tone {
+      info { color: color.primary; border-color: color-mix(in srgb, color.primary 35%, color.border); }
+      success { color: color.success; border-color: color-mix(in srgb, color.success 35%, color.border); }
+      warning { color: color.warning; border-color: color-mix(in srgb, color.warning 35%, color.border); }
+      danger { color: color.danger; border-color: color-mix(in srgb, color.danger 35%, color.border); }
+    }
+  }
+
+  defaults {
+    tone: info;
+  }
+
+  slots {
+    root {}
+    icon {}
+    content {}
+    title {}
+    body {}
+  }
+}

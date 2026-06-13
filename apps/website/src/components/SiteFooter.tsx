@@ -18,11 +18,7 @@ export function SiteFooter() {
         <div className={footer.cols}>
           <div className={footer.col}>
             <p className={footer.colTitle}>Docs</p>
-            <RouterLink
-              to="/docs/$slug"
-              params={{ slug: "introduction" }}
-              className={footer.link}
-            >
+            <RouterLink to="/docs/$slug" params={{ slug: "introduction" }} className={footer.link}>
               Introduction
             </RouterLink>
             <RouterLink
@@ -39,7 +35,12 @@ export function SiteFooter() {
 
           <div className={footer.col}>
             <p className={footer.colTitle}>Ecosystem</p>
-            <a href="https://github.com/arviahq/arvia" className={footer.link} target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/arviahq/arvia"
+              className={footer.link}
+              target="_blank"
+              rel="noreferrer"
+            >
               Arvia compiler
             </a>
             <a

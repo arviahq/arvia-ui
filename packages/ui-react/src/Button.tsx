@@ -1,5 +1,8 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
-import { Button as buttonStyles, type ButtonProps as ArviaButtonProps } from "@arviahq/ui-styles/components/button.arv";
+import {
+  Button as buttonStyles,
+  type ButtonProps as ArviaButtonProps,
+} from "@arviahq/ui-styles/components/button.arv";
 
 export type ButtonProps = ArviaButtonProps &
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {

@@ -1,5 +1,8 @@
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
-import { Card as cardStyles, type CardProps as ArviaCardProps } from "@arviahq/ui-styles/components/card.arv";
+import {
+  Card as cardStyles,
+  type CardProps as ArviaCardProps,
+} from "@arviahq/ui-styles/components/card.arv";
 
 export type CardProps = ArviaCardProps &
   Omit<HTMLAttributes<HTMLDivElement>, "children" | "className"> & {

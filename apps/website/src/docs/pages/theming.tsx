@@ -13,8 +13,8 @@ export function ThemingPage() {
     <DocProse>
       <DocHeader {...themingMeta} />
       <DocP>
-        arvia-ui ships with a warm teal and stone palette defined in <code>@arviahq/ui-styles</code>. The theme
-        supports <strong>light</strong> and <strong>dark</strong> modes out of the box.
+        arvia-ui ships with a warm teal and stone palette defined in <code>@arviahq/ui-styles</code>
+        . The theme supports <strong>light</strong> and <strong>dark</strong> modes out of the box.
       </DocP>
       <DocH2>How modes work</DocH2>
       <DocP>
@@ -24,7 +24,8 @@ export function ThemingPage() {
       <DocPre>{`<html data-arvia-theme="dark">`}</DocPre>
       <DocH2>setTheme helper</DocH2>
       <DocP>
-        <code>@arviahq/ui-react</code> exports <code>setTheme(mode)</code> which updates the attribute for you:
+        <code>@arviahq/ui-react</code> exports <code>setTheme(mode)</code> which updates the
+        attribute for you:
       </DocP>
       <DocPre>{`import { setTheme } from "@arviahq/ui-react";
 
@@ -48,9 +49,9 @@ setTheme("light");`}</DocPre>
       </DocUl>
       <DocH2>Custom themes</DocH2>
       <DocP>
-        Fork <code>theme.arv</code> from <code>@arviahq/ui-styles</code> or extend tokens in your own theme file
-        passed to the Vite plugin. Component <code>.arv</code> files reference tokens — swap the theme, keep the
-        components.
+        Fork <code>theme.arv</code> from <code>@arviahq/ui-styles</code> or extend tokens in your
+        own theme file passed to the Vite plugin. Component <code>.arv</code> files reference tokens
+        — swap the theme, keep the components.
       </DocP>
     </DocProse>
   );

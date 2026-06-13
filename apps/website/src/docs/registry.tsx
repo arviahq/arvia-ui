@@ -36,10 +36,9 @@ export const DOC_PAGES: DocEntry[] = [
   ...componentPages,
 ];
 
-export const docBySlug = Object.fromEntries(DOC_PAGES.map((entry) => [entry.meta.slug, entry])) as Record<
-  DocSlug,
-  DocEntry
->;
+export const docBySlug = Object.fromEntries(
+  DOC_PAGES.map((entry) => [entry.meta.slug, entry]),
+) as Record<DocSlug, DocEntry>;
 
 export const DOC_NAV: { title: string; items: { slug: DocSlug; title: string }[] }[] = [
   {

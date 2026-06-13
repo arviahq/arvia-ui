@@ -1,0 +1,70 @@
+// Switch: on/off toggle (button[role=switch]). Sizes via CSS variables on the root.
+
+component Switch {
+  base {
+    --sw-w: 40px;
+    --sw-h: 24px;
+    --sw-thumb: 20px;
+    --sw-pad: 2px;
+    appearance: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: var(--sw-w);
+    height: var(--sw-h);
+    border-radius: radius.full;
+    background: color.borderStrong;
+    transition: background-color duration.fast easing.default;
+
+    &:focus-visible {
+      outline: 2px solid color.focus;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-state="checked"] {
+      background: color.primary;
+
+      thumb {
+        transform: translateX(calc(var(--sw-w) - var(--sw-thumb) - var(--sw-pad) * 2));
+      }
+    }
+
+    thumb {
+      position: absolute;
+      left: var(--sw-pad);
+      top: var(--sw-pad);
+      width: var(--sw-thumb);
+      height: var(--sw-thumb);
+      border-radius: radius.full;
+      background: #ffffff;
+      box-shadow: shadow.sm;
+      transition: transform duration.fast easing.out;
+    }
+  }
+
+  variants {
+    size {
+      sm { --sw-w: 32px; --sw-h: 18px; --sw-thumb: 14px; }
+      md { --sw-w: 40px; --sw-h: 24px; --sw-thumb: 20px; }
+      lg { --sw-w: 48px; --sw-h: 28px; --sw-thumb: 24px; }
+    }
+  }
+
+  defaults {
+    size: md;
+  }
+
+  slots {
+    root {}
+    thumb {}
+  }
+}

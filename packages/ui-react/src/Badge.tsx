@@ -1,5 +1,8 @@
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
-import { Badge as badgeStyles, type BadgeProps as ArviaBadgeProps } from "@arviahq/ui-styles/components/badge.arv";
+import {
+  Badge as badgeStyles,
+  type BadgeProps as ArviaBadgeProps,
+} from "@arviahq/ui-styles/components/badge.arv";
 
 export type BadgeProps = ArviaBadgeProps &
   Omit<HTMLAttributes<HTMLSpanElement>, "children"> & {

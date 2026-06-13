@@ -1,0 +1,61 @@
+// Slider: custom range control. Slots applied by the React component.
+
+component Slider {
+  base {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    user-select: none;
+    touch-action: none;
+
+    &[data-disabled="true"] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 6px;
+      border-radius: radius.full;
+      background: color.border;
+    }
+
+    range {
+      position: absolute;
+      left: 0;
+      height: 6px;
+      border-radius: radius.full;
+      background: color.primary;
+    }
+
+    thumb {
+      position: absolute;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      border-radius: radius.full;
+      background: color.surface;
+      border: 2px solid color.primary;
+      box-shadow: shadow.sm;
+      transform: translateX(-50%);
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  slots {
+    root {}
+    track {}
+    range {}
+    thumb {}
+  }
+}

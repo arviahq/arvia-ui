@@ -1,0 +1,31 @@
+// Tooltip: hover/focus hint positioned above its trigger.
+
+component Tooltip {
+  base {
+    position: relative;
+    display: inline-flex;
+
+    bubble {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 60;
+      padding: space.1 space.2;
+      border-radius: radius.sm;
+      background: color.text;
+      color: color.surface;
+      font-size: font.xs;
+      font-weight: 500;
+      line-height: 1.4;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: shadow.md;
+    }
+  }
+
+  slots {
+    root {}
+    bubble {}
+  }
+}

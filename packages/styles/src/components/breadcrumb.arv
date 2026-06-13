@@ -1,0 +1,58 @@
+// Breadcrumb: navigation trail. Slots applied by the React parts.
+
+component Breadcrumb {
+  base {
+    list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: space.2;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: font.sm;
+    }
+
+    item {
+      display: inline-flex;
+      align-items: center;
+      gap: space.2;
+    }
+
+    link {
+      color: color.muted;
+      text-decoration: none;
+      transition: color duration.fast easing.default;
+
+      &:hover {
+        color: color.text;
+      }
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 2px;
+        border-radius: radius.sm;
+      }
+    }
+
+    current {
+      color: color.text;
+      font-weight: 500;
+    }
+
+    separator {
+      color: color.subtle;
+      display: inline-flex;
+      user-select: none;
+    }
+  }
+
+  slots {
+    root {}
+    list {}
+    item {}
+    link {}
+    current {}
+    separator {}
+  }
+}

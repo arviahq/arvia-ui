@@ -12,6 +12,9 @@
     "url": "git+https://github.com/arviahq/arvia-ui.git",
     "directory": "packages/ui-react"
   },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "sideEffects": [
     "**/*.css",
@@ -24,9 +27,6 @@
     },
     "./styles.css": "./dist/styles.css"
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "compile-styles": "node scripts/compile-styles.mjs",
     "pretypecheck": "pnpm --filter @arviahq/ui-styles gen",
@@ -37,11 +37,8 @@
     "build": "pnpm --filter @arviahq/ui-styles gen && pnpm run compile-styles && tsdown",
     "prepublishOnly": "pnpm run build"
   },
-  "peerDependencies": {
-    "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
-  },
   "devDependencies": {
+    "@arviahq/react-primitives": "workspace:*",
     "@arviahq/ui-styles": "workspace:*",
     "@arviahq/vite-plugin-react": "^0.6.0",
     "@storybook/react": "^9.0.0",
@@ -55,5 +52,9 @@
     "tsdown": "^0.22.2",
     "typescript": "^5.8.3",
     "vite": "^7.3.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   }
 }

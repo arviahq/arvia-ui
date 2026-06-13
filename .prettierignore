@@ -1,0 +1,4 @@
+# Generated files — owned by their generators, not hand-formatted.
+**/*.gen.ts
+**/.arvia/
+**/dist/
