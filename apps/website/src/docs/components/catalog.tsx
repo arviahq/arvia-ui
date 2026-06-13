@@ -47,6 +47,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description:
       "Primary interactive control with tone and size variants, optional icon slot, and full button semantics.",
     importName: "Button",
+    playground: { Component: Button, args: { children: "Save changes" } },
     props: [
       {
         name: "tone",
@@ -115,6 +116,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Badge",
     description: "Compact label for status, counts, and categories.",
     importName: "Badge",
+    playground: { Component: Badge, args: { children: "Badge" } },
     props: [
       {
         name: "tone",
@@ -149,6 +151,10 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     description:
       "Universal layout primitive — a polymorphic container with padding, radius, and background variants.",
     importName: "Box",
+    playground: {
+      Component: Box,
+      args: { children: "Box content", padding: "4", radius: "md", background: "raised" },
+    },
     props: [
       {
         name: "padding",
@@ -284,6 +290,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Text",
     description: "Typography primitive with size, weight, and tone variants.",
     importName: "Text",
+    playground: { Component: Text, args: { children: "The quick brown fox." } },
     props: [
       {
         name: "size",
@@ -337,6 +344,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Heading",
     description: "Semantic heading styles mapped to h1–h6 elements via the level variant.",
     importName: "Heading",
+    playground: { Component: Heading, args: { children: "Page title" } },
     props: [
       {
         name: "level",
@@ -376,6 +384,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Link",
     description: "Inline navigation link with tone and size variants.",
     importName: "Link",
+    playground: { Component: Link, args: { href: "#", children: "Read the docs" } },
     props: [
       {
         name: "tone",
@@ -412,6 +421,10 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Card",
     description: "Raised surface container with configurable padding and shadow.",
     importName: "Card",
+    playground: {
+      Component: Card,
+      args: { children: "Card content", padding: "lg", shadow: "md" },
+    },
     props: [
       {
         name: "padding",
@@ -450,6 +463,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Input",
     description: "Text field with size variants and built-in focus, disabled, and invalid states.",
     importName: "Input",
+    playground: { Component: Input, args: { placeholder: "you@example.com" } },
     props: [
       {
         name: "size",
@@ -528,6 +542,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Spinner",
     description: "Loading indicator with accessible status role and configurable size.",
     importName: "Spinner",
+    playground: { Component: Spinner },
     props: [
       {
         name: "size",
@@ -758,6 +773,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Avatar",
     description: "User image with automatic initials fallback and size variants.",
     importName: "Avatar",
+    playground: { Component: Avatar, args: { name: "Ada Lovelace" } },
     props: [
       {
         name: "src",
@@ -789,6 +805,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Switch",
     description: "On/off toggle (role=switch) with controlled or uncontrolled state.",
     importName: "Switch",
+    playground: {
+      Component: Switch,
+      controls: ["checked", "size", "disabled"],
+      args: { checked: true },
+    },
     props: [
       { name: "checked", type: "boolean", description: "On state (controlled)." },
       { name: "defaultChecked", type: "boolean", description: "Initial on state (uncontrolled)." },
@@ -826,6 +847,11 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Checkbox",
     description: "Boolean control (role=checkbox) with controlled or uncontrolled state.",
     importName: "Checkbox",
+    playground: {
+      Component: Checkbox,
+      controls: ["checked", "size", "disabled", "children"],
+      args: { checked: true, children: "Accept terms" },
+    },
     props: [
       { name: "checked", type: "boolean", description: "Checked state (controlled)." },
       {
@@ -905,6 +931,15 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Tooltip",
     description: "Hover/focus hint positioned above its trigger, with an accessible role=tooltip.",
     importName: "Tooltip",
+    playground: {
+      controls: ["label", "children"],
+      args: { label: "Saves your changes", children: "Hover me" },
+      render: (a) => (
+        <Tooltip label={String(a.label ?? "")}>
+          <Button tone="secondary">{String(a.children ?? "")}</Button>
+        </Tooltip>
+      ),
+    },
     props: [
       { name: "label", type: "ReactNode", description: "Content shown on hover/focus." },
       { name: "children", type: "ReactNode", description: "The trigger element." },
@@ -925,6 +960,10 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Alert",
     description: "Inline status message with info, success, warning, and danger tones.",
     importName: "Alert",
+    playground: {
+      Component: Alert,
+      args: { title: "Heads up", children: "Something worth noting." },
+    },
     props: [
       {
         name: "tone",
@@ -1025,6 +1064,23 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Slider",
     description: "Custom range control with pointer and keyboard input.",
     importName: "Slider",
+    playground: {
+      controls: ["value", "min", "max", "step", "disabled"],
+      args: { value: 40 },
+      render: (a) => (
+        <div style={{ width: 260 }}>
+          <Slider
+            value={Number(a.value)}
+            min={a.min === undefined ? undefined : Number(a.min)}
+            max={a.max === undefined ? undefined : Number(a.max)}
+            step={a.step === undefined ? undefined : Number(a.step)}
+            disabled={Boolean(a.disabled)}
+            onChange={() => {}}
+            aria-label="Slider"
+          />
+        </div>
+      ),
+    },
     props: [
       { name: "value", type: "number", description: "Current value (controlled)." },
       { name: "defaultValue", type: "number", description: "Initial value (uncontrolled)." },
@@ -1089,6 +1145,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Skeleton",
     description: "Content placeholder, animated by default.",
     importName: "Skeleton",
+    playground: { Component: Skeleton, args: { width: 220, height: 16 } },
     props: [
       { name: "animated", type: "boolean", default: "true", description: "Pulse animation." },
       { name: "width", type: "number | string", description: "Width." },
@@ -1119,6 +1176,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "Progress",
     description: "Linear determinate progress bar.",
     importName: "Progress",
+    playground: { Component: Progress, args: { value: 60 } },
     props: [
       { name: "value", type: "number", description: "Current value." },
       { name: "max", type: "number", default: "100", description: "Maximum value." },
@@ -1155,6 +1213,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     title: "ProgressCircle",
     description: "Circular determinate progress indicator.",
     importName: "ProgressCircle",
+    playground: { Component: ProgressCircle, args: { value: 72 } },
     props: [
       { name: "value", type: "number", description: "Current value." },
       { name: "max", type: "number", default: "100", description: "Maximum value." },

@@ -752,3 +752,102 @@ component PropsTable {
     typeCell {}
   }
 }
+
+component Controls {
+  base {
+    margin-bottom: space.3;
+    border: 1px solid color.border;
+    border-radius: radius.lg;
+    overflow: hidden;
+    background: color.surface;
+
+    preview {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: space.3;
+      min-height: 152px;
+      padding: space.6;
+      background: color.background;
+      border-bottom: 1px solid color.border;
+    }
+
+    panel {
+      display: flex;
+      flex-direction: column;
+    }
+
+    row {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr);
+      gap: space.4;
+      align-items: center;
+      padding: space.3 space.4;
+      border-bottom: 1px solid color.border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    name {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: font.xs;
+      font-weight: 500;
+      color: color.text;
+    }
+
+    control {
+      display: flex;
+      align-items: center;
+      gap: space.2;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+
+    segmented {
+      display: inline-flex;
+      gap: 2px;
+      padding: 2px;
+      background: color.background;
+      border: 1px solid color.border;
+      border-radius: radius.md;
+    }
+
+    segment {
+      appearance: none;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+      font-size: font.xs;
+      font-weight: 500;
+      padding: 4px space.2;
+      border-radius: radius.sm;
+      color: color.muted;
+      transition: color duration.fast easing.default, background-color duration.fast easing.default;
+
+      &:hover {
+        color: color.text;
+      }
+
+      &[data-active="true"] {
+        background: color.surface;
+        color: color.primary;
+        box-shadow: shadow.sm;
+      }
+    }
+  }
+
+  slots {
+    root {}
+    preview {}
+    panel {}
+    row {}
+    name {}
+    control {}
+    segmented {}
+    segment {}
+  }
+}

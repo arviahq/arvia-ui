@@ -2,6 +2,7 @@ import { DocHeader } from "./DocsShell";
 import { DocH2, DocP, DocPre, DocProse } from "./DocProse";
 import { LivePreview } from "./LivePreview";
 import { PropsTable } from "./PropsTable";
+import { Controls } from "./Controls";
 import type { ComponentDoc } from "../docs/components/types";
 
 export function ComponentDocPage(props: { doc: ComponentDoc }) {
@@ -13,10 +14,20 @@ export function ComponentDocPage(props: { doc: ComponentDoc }) {
     <DocProse>
       <DocHeader title={doc.title} description={doc.description} />
 
-      <DocH2>Preview</DocH2>
-      <LivePreview>
-        <Preview />
-      </LivePreview>
+      {doc.playground ? (
+        <>
+          <DocH2>Playground</DocH2>
+          <DocP>Tweak the props below — the preview and code update live.</DocP>
+          <Controls importName={doc.importName} propDefs={doc.props} playground={doc.playground} />
+        </>
+      ) : (
+        <>
+          <DocH2>Preview</DocH2>
+          <LivePreview>
+            <Preview />
+          </LivePreview>
+        </>
+      )}
 
       {Examples ? (
         <>
