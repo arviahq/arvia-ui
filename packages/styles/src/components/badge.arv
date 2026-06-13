@@ -1,0 +1,57 @@
+// Badge: compact status label.
+
+component Badge {
+  base {
+    display: inline-flex;
+    align-items: center;
+    gap: space.1;
+    padding: 2px space.2;
+    border-radius: radius.full;
+    font-size: font.xs;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  variants {
+    tone {
+      neutral {
+        background: color.background;
+        color: color.muted;
+        border: 1px solid color.border;
+      }
+      primary {
+        background: color.primarySubtle;
+        color: color.primary;
+      }
+      success {
+        background: color.successSubtle;
+        color: color.success;
+      }
+      warning {
+        background: color.warningSubtle;
+        color: color.warning;
+      }
+      danger {
+        background: color.dangerSubtle;
+        color: color.danger;
+      }
+    }
+
+    size {
+      sm {
+        font-size: 11px;
+        padding: 1px space.2;
+      }
+      md {
+        font-size: font.xs;
+        padding: 2px space.2;
+      }
+    }
+  }
+
+  defaults {
+    tone: neutral;
+    size: md;
+  }
+}

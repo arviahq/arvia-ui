@@ -1,0 +1,32 @@
+// Spinner: loading indicator.
+
+component Spinner {
+  base {
+    display: inline-block;
+    border-radius: radius.full;
+    border: 2px solid color.border;
+    border-top-color: color.primary;
+    animation: keyframes.spin duration.slow linear infinite;
+  }
+
+  variants {
+    size {
+      sm {
+        width: 16px;
+        height: 16px;
+      }
+      md {
+        width: 24px;
+        height: 24px;
+      }
+      lg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+
+  defaults {
+    size: md;
+  }
+}

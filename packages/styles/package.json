@@ -1,0 +1,80 @@
+{
+  "name": "@arviahq/ui-styles",
+  "version": "0.0.0",
+  "private": false,
+  "description": "Shared Arvia style definitions for @arviahq/ui-* framework packages.",
+  "homepage": "https://github.com/arviahq/arvia-ui#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arviahq/arvia-ui.git",
+    "directory": "packages/styles"
+  },
+  "type": "module",
+  "sideEffects": [
+    "**/*.arv",
+    "**/*.css"
+  ],
+  "exports": {
+    "./theme.arv": {
+      "types": "./.arvia/types/theme.arv.d.ts",
+      "default": "./src/theme.arv"
+    },
+    "./components/badge.arv": {
+      "types": "./.arvia/types/components/badge.arv.d.ts",
+      "default": "./src/components/badge.arv"
+    },
+    "./components/box.arv": {
+      "types": "./.arvia/types/components/box.arv.d.ts",
+      "default": "./src/components/box.arv"
+    },
+    "./components/button.arv": {
+      "types": "./.arvia/types/components/button.arv.d.ts",
+      "default": "./src/components/button.arv"
+    },
+    "./components/card.arv": {
+      "types": "./.arvia/types/components/card.arv.d.ts",
+      "default": "./src/components/card.arv"
+    },
+    "./components/divider.arv": {
+      "types": "./.arvia/types/components/divider.arv.d.ts",
+      "default": "./src/components/divider.arv"
+    },
+    "./components/heading.arv": {
+      "types": "./.arvia/types/components/heading.arv.d.ts",
+      "default": "./src/components/heading.arv"
+    },
+    "./components/input.arv": {
+      "types": "./.arvia/types/components/input.arv.d.ts",
+      "default": "./src/components/input.arv"
+    },
+    "./components/link.arv": {
+      "types": "./.arvia/types/components/link.arv.d.ts",
+      "default": "./src/components/link.arv"
+    },
+    "./components/spinner.arv": {
+      "types": "./.arvia/types/components/spinner.arv.d.ts",
+      "default": "./src/components/spinner.arv"
+    },
+    "./components/stack.arv": {
+      "types": "./.arvia/types/components/stack.arv.d.ts",
+      "default": "./src/components/stack.arv"
+    },
+    "./components/text.arv": {
+      "types": "./.arvia/types/components/text.arv.d.ts",
+      "default": "./src/components/text.arv"
+    }
+  },
+  "files": [
+    "src",
+    ".arvia/types"
+  ],
+  "scripts": {
+    "gen": "arvia gen src",
+    "prepare": "arvia gen src",
+    "typecheck": "arvia gen src"
+  },
+  "devDependencies": {
+    "@arviahq/vite-plugin-react": "^0.6.0"
+  }
+}

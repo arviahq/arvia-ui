@@ -1,0 +1,98 @@
+// Button: primary interactive primitive.
+
+component Button {
+  base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: space.2;
+    border: none;
+    border-radius: radius.md;
+    font-weight: 500;
+    font-family: inherit;
+    line-height: 1;
+    cursor: pointer;
+    transition: background duration.fast easing.default,
+                color duration.fast easing.default,
+                border-color duration.fast easing.default,
+                box-shadow duration.fast easing.default;
+    use PressEffect;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    icon {
+      display: inline-flex;
+      flex-shrink: 0;
+    }
+
+    label {
+      display: inline-flex;
+    }
+  }
+
+  slots {
+    root {}
+    icon {}
+    label {}
+  }
+
+  variants {
+    size {
+      sm {
+        font-size: font.sm;
+        padding: space.2 space.3;
+        min-height: 32px;
+      }
+      md {
+        font-size: font.sm;
+        padding: space.2 space.4;
+        min-height: 36px;
+      }
+      lg {
+        font-size: font.md;
+        padding: space.3 space.5;
+        min-height: 44px;
+      }
+    }
+
+    tone {
+      primary {
+        background: color.primary;
+        color: white;
+        &:hover:not(:disabled) {
+          background: color.primaryHover;
+        }
+      }
+      secondary {
+        background: color.surface;
+        color: color.text;
+        border: 1px solid color.borderStrong;
+        &:hover:not(:disabled) {
+          background: color.background;
+        }
+      }
+      ghost {
+        background: transparent;
+        color: color.text;
+        &:hover:not(:disabled) {
+          background: color.background;
+        }
+      }
+      danger {
+        background: color.danger;
+        color: white;
+        &:hover:not(:disabled) {
+          background: color.dangerHover;
+        }
+      }
+    }
+  }
+
+  defaults {
+    size: md;
+    tone: primary;
+  }
+}

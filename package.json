@@ -1,0 +1,23 @@
+{
+  "name": "arvia-ui-monorepo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @arviahq/ui-react storybook",
+    "storybook": "pnpm --filter @arviahq/ui-react storybook",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.54.0",
+    "oxlint": "^1.69.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=24.16.0"
+  },
+  "packageManager": "pnpm@9.1.2"
+}

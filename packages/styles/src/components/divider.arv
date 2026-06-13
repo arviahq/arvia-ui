@@ -1,0 +1,24 @@
+// Divider: horizontal rule.
+
+component Divider {
+  base {
+    display: block;
+    height: 1px;
+    border: none;
+    background: color.border;
+    margin: 0;
+  }
+
+  variants {
+    spacing {
+      none { margin: 0; }
+      sm { margin: space.2 0; }
+      md { margin: space.4 0; }
+      lg { margin: space.6 0; }
+    }
+  }
+
+  defaults {
+    spacing: md;
+  }
+}

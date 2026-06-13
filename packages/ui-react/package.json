@@ -1,0 +1,63 @@
+{
+  "name": "@arviahq/ui-react",
+  "version": "0.0.0",
+  "description": "Beautiful, crafted React components built on Arvia.",
+  "homepage": "https://github.com/arviahq/arvia-ui#readme",
+  "bugs": {
+    "url": "https://github.com/arviahq/arvia-ui/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arviahq/arvia-ui.git",
+    "directory": "packages/ui-react"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "pretypecheck": "pnpm --filter @arviahq/ui-styles gen",
+    "typecheck": "tsc --noEmit",
+    "prestorybook": "pnpm --filter @arviahq/ui-styles gen",
+    "storybook": "storybook dev -p 6007",
+    "build-storybook": "storybook build",
+    "build": "pnpm --filter @arviahq/ui-styles gen && tsc --emitDeclarationOnly --declaration --outDir dist --rootDir src src/index.ts"
+  },
+  "dependencies": {
+    "@arviahq/ui-styles": "workspace:*"
+  },
+  "peerDependencies": {
+    "@arviahq/vite-plugin-react": ">=0.6.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "vite": "^5.0.0 || ^6.0.0 || ^7.0.0"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@arviahq/vite-plugin-react": "^0.6.0",
+    "@storybook/react": "^9.0.0",
+    "@storybook/react-vite": "^9.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "storybook": "^9.0.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.3.0"
+  }
+}

@@ -1,0 +1,175 @@
+// arvia-ui design tokens — fresh visual language.
+// Multi-mode theme: set via data-arvia-theme on <html>.
+
+theme {
+  modes: light | dark;
+
+  color {
+    primary = #0f766e doc "Brand primary — actions and emphasis";
+    primaryHover = #0d9488;
+    primarySubtle = #ccfbf1;
+    accent = #d97706 doc "Secondary accent";
+    danger = #dc2626 doc "Destructive actions";
+    dangerHover = #b91c1c;
+    dangerSubtle = #fee2e2;
+    success = #16a34a doc "Positive feedback";
+    successSubtle = #dcfce7;
+    warning = #ca8a04 doc "Caution states";
+    warningSubtle = #fef9c3;
+    text = #1c1917;
+    muted = #78716c;
+    subtle = #a8a29e;
+    surface = #ffffff;
+    surfaceRaised = #fafaf9;
+    background = #f5f5f4;
+    border = #e7e5e4;
+    borderStrong = #d6d3d1;
+    focus = #0f766e;
+
+    @dark {
+      primary = #2dd4bf;
+      primaryHover = #5eead4;
+      primarySubtle = #134e4a;
+      dangerSubtle = #450a0a;
+      successSubtle = #14532d;
+      warningSubtle = #422006;
+      text = #fafaf9;
+      muted = #a8a29e;
+      subtle = #78716c;
+      surface = #1c1917;
+      surfaceRaised = #292524;
+      background = #0c0a09;
+      border = #292524;
+      borderStrong = #44403c;
+      focus = #2dd4bf;
+    }
+  }
+
+  space {
+    1 = 4px;
+    2 = 8px;
+    3 = 12px;
+    4 = 16px;
+    5 = 20px;
+    6 = 24px;
+    7 = 32px;
+    8 = 40px;
+    9 = 48px;
+  }
+
+  radius {
+    sm = 6px;
+    md = 8px;
+    lg = 12px;
+    xl = 16px;
+    full = 999px;
+  }
+
+  font {
+    xs = 12px;
+    sm = 14px;
+    md = 16px;
+    lg = 18px;
+    xl = 20px;
+    2xl = 24px;
+    3xl = 30px;
+    4xl = 36px;
+  }
+
+  shadow {
+    sm = 0 1px 2px rgba(28, 25, 23, 0.05);
+    md = 0 4px 12px rgba(28, 25, 23, 0.08);
+    lg = 0 8px 24px rgba(28, 25, 23, 0.12);
+  }
+
+  duration {
+    fast = 120ms;
+    normal = 200ms;
+    slow = 320ms;
+  }
+
+  easing {
+    default = ease;
+    out = cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  breakpoint {
+    sm = 640px;
+    md = 768px;
+    lg = 1024px;
+    xl = 1280px;
+  }
+
+  container {
+    narrow = 320px;
+    wide = 560px;
+  }
+}
+
+keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+keyframes pulse {
+  from { opacity: 1; }
+  to { opacity: 0.4; }
+}
+
+global {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: color.background;
+    color: color.text;
+    font-size: font.md;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+recipe Surface {
+  background: color.surface;
+  border: 1px solid color.border;
+  border-radius: radius.lg;
+}
+
+recipe SurfaceRaised {
+  use Surface;
+  background: color.surfaceRaised;
+  box-shadow: shadow.sm;
+}
+
+recipe FocusRing {
+  outline: none;
+
+  &:focus-visible {
+    outline: 2px solid color.focus;
+    outline-offset: 2px;
+  }
+}
+
+recipe PressEffect {
+  use FocusRing;
+  transition: transform duration.fast easing.default;
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+}
+
+style divider {
+  display: block;
+  height: 1px;
+  border: none;
+  background: color.border;
+  margin: space.4 0;
+}

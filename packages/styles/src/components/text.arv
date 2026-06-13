@@ -1,0 +1,39 @@
+// Text: typography primitive.
+
+component Text {
+  base {
+    margin: 0;
+  }
+
+  variants {
+    size {
+      xs { font-size: font.xs; }
+      sm { font-size: font.sm; }
+      md { font-size: font.md; }
+      lg { font-size: font.lg; }
+      xl { font-size: font.xl; }
+    }
+
+    weight {
+      regular { font-weight: 400; }
+      medium { font-weight: 500; }
+      semibold { font-weight: 600; }
+      bold { font-weight: 700; }
+    }
+
+    tone {
+      default { color: color.text; }
+      muted { color: color.muted; }
+      subtle { color: color.subtle; }
+      primary { color: color.primary; }
+      danger { color: color.danger; }
+      success { color: color.success; }
+    }
+  }
+
+  defaults {
+    size: md;
+    weight: regular;
+    tone: default;
+  }
+}

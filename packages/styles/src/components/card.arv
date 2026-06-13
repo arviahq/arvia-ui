@@ -1,0 +1,28 @@
+// Card: surfaced content container.
+
+component Card {
+  base {
+    use SurfaceRaised;
+  }
+
+  variants {
+    padding {
+      none { padding: 0; }
+      sm { padding: space.3; }
+      md { padding: space.4; }
+      lg { padding: space.6; }
+    }
+
+    shadow {
+      none { box-shadow: none; }
+      sm { box-shadow: shadow.sm; }
+      md { box-shadow: shadow.md; }
+      lg { box-shadow: shadow.lg; }
+    }
+  }
+
+  defaults {
+    padding: md;
+    shadow: sm;
+  }
+}

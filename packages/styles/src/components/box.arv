@@ -1,0 +1,39 @@
+// Box: universal layout primitive.
+
+component Box {
+  base {}
+
+  variants {
+    padding {
+      none { padding: 0; }
+      1 { padding: space.1; }
+      2 { padding: space.2; }
+      3 { padding: space.3; }
+      4 { padding: space.4; }
+      5 { padding: space.5; }
+      6 { padding: space.6; }
+    }
+
+    radius {
+      none { border-radius: 0; }
+      sm { border-radius: radius.sm; }
+      md { border-radius: radius.md; }
+      lg { border-radius: radius.lg; }
+      xl { border-radius: radius.xl; }
+      full { border-radius: radius.full; }
+    }
+
+    background {
+      transparent { background: transparent; }
+      surface { background: color.surface; }
+      raised { background: color.surfaceRaised; }
+      muted { background: color.background; }
+    }
+  }
+
+  defaults {
+    padding: none;
+    radius: none;
+    background: transparent;
+  }
+}
