@@ -1,0 +1,353 @@
+// Site-specific layout styles layered on @arviahq/ui-styles tokens.
+
+component SitePage {
+  base {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 space.6;
+  }
+}
+
+component SiteHeader {
+  base {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid color.border;
+    background: color-mix(in srgb, color.surface 88%, transparent);
+    backdrop-filter: blur(12px);
+
+    inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: space.4;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: space.3 space.6;
+      min-height: 56px;
+    }
+  }
+
+  slots {
+    root {}
+    inner {}
+  }
+}
+
+component Hero {
+  base {
+    padding: space.9 0 space.8;
+    text-align: center;
+
+    badge {
+      display: inline-flex;
+      margin-bottom: space.4;
+    }
+
+    title {
+      font-size: font.4xl;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: color.text;
+      margin: 0 0 space.4;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    lead {
+      font-size: font.lg;
+      color: color.muted;
+      line-height: 1.6;
+      margin: 0 auto space.6;
+      max-width: 560px;
+    }
+
+    actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: space.3;
+      justify-content: center;
+    }
+  }
+
+  slots {
+    root {}
+    badge {}
+    title {}
+    lead {}
+    actions {}
+  }
+}
+
+component FeatureGrid {
+  base {
+    display: grid;
+    gap: space.4;
+    grid-template-columns: 1fr;
+    padding: space.8 0 space.9;
+  }
+
+  variants {
+    cols {
+      one { root { grid-template-columns: 1fr; } }
+      two { root { grid-template-columns: repeat(2, 1fr); } }
+      three { root { grid-template-columns: repeat(3, 1fr); } }
+    }
+  }
+
+  defaults {
+    cols: one;
+  }
+
+  responsive {
+    md { cols: two; }
+    lg { cols: three; }
+  }
+}
+
+component FeatureCard {
+  base {
+    use SurfaceRaised;
+    padding: space.5;
+    transition: box-shadow duration.normal easing.out, transform duration.normal easing.out;
+
+    &:hover {
+      box-shadow: shadow.md;
+      transform: translateY(-2px);
+    }
+
+    icon {
+      font-size: font.xl;
+      margin-bottom: space.3;
+    }
+
+    title {
+      font-size: font.md;
+      font-weight: 600;
+      color: color.text;
+      margin: 0 0 space.2;
+    }
+
+    body {
+      font-size: font.sm;
+      color: color.muted;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  slots {
+    root {}
+    icon {}
+    title {}
+    body {}
+  }
+}
+
+component DocsLayout {
+  base {
+    display: grid;
+    gap: space.6;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: space.6;
+    align-items: start;
+  }
+
+  slots {
+    root {}
+    sidebar {
+      position: sticky;
+      top: 72px;
+    }
+    content {
+      min-width: 0;
+    }
+  }
+
+  variants {
+    cols {
+      one {
+        root { grid-template-columns: 1fr; }
+        sidebar { display: none; }
+      }
+      two {
+        root { grid-template-columns: 220px minmax(0, 1fr); }
+        sidebar { display: block; }
+      }
+    }
+  }
+
+  defaults {
+    cols: one;
+  }
+
+  responsive {
+    lg { cols: two; }
+  }
+}
+
+component Prose {
+  base {
+    font-size: font.md;
+    line-height: 1.7;
+    color: color.text;
+
+    h2 {
+      font-size: font.2xl;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: space.7 0 space.3;
+      color: color.text;
+    }
+
+    h3 {
+      font-size: font.lg;
+      font-weight: 600;
+      margin: space.5 0 space.2;
+      color: color.text;
+    }
+
+    p {
+      margin: 0 0 space.4;
+      color: color.muted;
+    }
+
+    ul {
+      margin: 0 0 space.4;
+      padding-left: space.5;
+      color: color.muted;
+    }
+
+    li {
+      margin-bottom: space.2;
+    }
+
+    code {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.9em;
+      background: color.background;
+      border: 1px solid color.border;
+      border-radius: radius.sm;
+      padding: 1px space.1;
+      color: color.primary;
+    }
+
+    pre {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: font.sm;
+      background: color.surfaceRaised;
+      border: 1px solid color.border;
+      border-radius: radius.lg;
+      padding: space.4;
+      overflow-x: auto;
+      margin: 0 0 space.4;
+      color: color.text;
+      line-height: 1.5;
+    }
+  }
+
+  slots {
+    root {}
+    h2 {}
+    h3 {}
+    p {}
+    ul {}
+    li {}
+    code {}
+    pre {}
+  }
+}
+
+component DemoPanel {
+  base {
+    use SurfaceRaised;
+    padding: space.5;
+    margin: space.4 0 space.5;
+
+    label {
+      font-size: font.xs;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: color.subtle;
+      margin-bottom: space.3;
+      display: block;
+    }
+
+    preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: space.3;
+      align-items: center;
+    }
+  }
+
+  slots {
+    root {}
+    label {}
+    preview {}
+  }
+}
+
+component PropsTable {
+  base {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: font.sm;
+    margin: space.4 0 space.6;
+
+    th {
+      text-align: left;
+      font-weight: 600;
+      color: color.text;
+      padding: space.2 space.3;
+      border-bottom: 2px solid color.borderStrong;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: space.3;
+      border-bottom: 1px solid color.border;
+      color: color.muted;
+      vertical-align: top;
+    }
+
+    code {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: font.xs;
+      background: color.background;
+      border: 1px solid color.border;
+      border-radius: radius.sm;
+      padding: 1px space.1;
+      color: color.primary;
+    }
+
+    propName {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: font.xs;
+      color: color.text;
+      font-weight: 500;
+    }
+
+    typeCell {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 11px;
+      color: color.primary;
+      line-height: 1.5;
+    }
+  }
+
+  slots {
+    root {}
+    th {}
+    td {}
+    code {}
+    propName {}
+    typeCell {}
+  }
+}

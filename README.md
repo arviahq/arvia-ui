@@ -4,10 +4,11 @@ Beautiful, crafted UI components built on [Arvia](https://github.com/arviahq/arv
 
 ```bash
 pnpm install
-pnpm storybook
+pnpm website
 ```
 
-Storybook runs at [http://localhost:6007](http://localhost:6007).
+Website dev server: [http://localhost:5173](http://localhost:5173)  
+Storybook: `pnpm storybook` → [http://localhost:6007](http://localhost:6007)
 
 ## Packages
 
@@ -60,6 +61,8 @@ export function App() {
 
 ```
 arvia-ui/
+  apps/
+    website/         # Marketing + docs site (dogfoods @arviahq/ui-react)
   packages/
     styles/          # @arviahq/ui-styles — shared theme.arv + components/*.arv
     ui-react/        # @arviahq/ui-react — React wrappers + Storybook

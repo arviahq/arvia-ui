@@ -1,0 +1,29 @@
+{
+  "name": "website",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pretypecheck": "pnpm --filter @arviahq/ui-styles gen && pnpm exec arvia gen --theme ../../packages/styles/src/theme.arv src",
+    "typecheck": "tsc --noEmit",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@arviahq/ui-react": "workspace:*",
+    "@arviahq/ui-styles": "workspace:*",
+    "@tanstack/react-router": "^1.170.15",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@arviahq/vite-plugin-react": "^0.6.0",
+    "@tanstack/router-plugin": "^1.168.18",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.3.0"
+  }
+}
