@@ -1,0 +1,42 @@
+// ProgressCircle: circular determinate progress (SVG).
+
+component ProgressCircle {
+  base {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: color.primary;
+
+    track {
+      stroke: color.border;
+      fill: none;
+    }
+
+    indicator {
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      transition: stroke-dashoffset duration.normal easing.out;
+    }
+  }
+
+  variants {
+    tone {
+      primary { color: color.primary; }
+      success { color: color.success; }
+      warning { color: color.warning; }
+      danger { color: color.danger; }
+    }
+  }
+
+  defaults {
+    tone: primary;
+  }
+
+  slots {
+    root {}
+    track {}
+    indicator {}
+  }
+}

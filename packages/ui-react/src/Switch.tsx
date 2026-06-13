@@ -9,14 +9,15 @@ export type SwitchProps = Omit<
   checked?: boolean;
   defaultChecked?: boolean;
   onChange?: (checked: boolean) => void;
+  size?: "sm" | "md" | "lg";
   className?: string;
 };
 
 export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch(
-  { checked, defaultChecked, onChange, disabled, className, onClick, ...props },
+  { checked, defaultChecked, onChange, size, disabled, className, onClick, ...props },
   ref,
 ) {
-  const styles = switchStyles();
+  const styles = switchStyles({ size });
   const [on, setOn] = useControllableState<boolean>({
     value: checked,
     defaultValue: defaultChecked ?? false,

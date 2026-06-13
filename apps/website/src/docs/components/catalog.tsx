@@ -7,6 +7,7 @@ import {
   Button,
   Card,
   Checkbox,
+  CheckboxGroup,
   Dialog,
   Divider,
   Heading,
@@ -18,6 +19,17 @@ import {
   Tabs,
   Text,
   Tooltip,
+  Breadcrumb,
+  Menu,
+  Popover,
+  Progress,
+  ProgressCircle,
+  Radio,
+  RadioGroup,
+  Select,
+  Skeleton,
+  Slider,
+  useToast,
 } from "@arviahq/ui-react";
 import { LivePreview } from "../../components/LivePreview";
 import type { ComponentDoc, PropDefinition } from "./types";
@@ -781,6 +793,12 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "checked", type: "boolean", description: "On state (controlled)." },
       { name: "defaultChecked", type: "boolean", description: "Initial on state (uncontrolled)." },
       { name: "onChange", type: "(checked: boolean) => void", description: "Called when toggled." },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Track + thumb size.",
+      },
       { name: "disabled", type: "boolean", description: "Disables the switch." },
     ],
     usage: `import { Switch } from "@arviahq/ui-react";
@@ -792,6 +810,15 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         <Switch />
         <Switch disabled />
       </Stack>
+    ),
+    Examples: () => (
+      <LivePreview label="Sizes">
+        <Stack direction="row" gap="3" align="center">
+          <Switch defaultChecked size="sm" />
+          <Switch defaultChecked size="md" />
+          <Switch defaultChecked size="lg" />
+        </Stack>
+      </LivePreview>
     ),
   },
   {
@@ -807,17 +834,70 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Initial checked state (uncontrolled).",
       },
       { name: "onChange", type: "(checked: boolean) => void", description: "Called when toggled." },
+      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Box size." },
       { name: "disabled", type: "boolean", description: "Disables the checkbox." },
     ],
     usage: `import { Checkbox } from "@arviahq/ui-react";
 
-<Checkbox defaultChecked onChange={(on) => console.log(on)} />`,
+<Checkbox defaultChecked size="md" onChange={(on) => console.log(on)} />`,
     Preview: () => (
       <Stack direction="row" gap="3" align="center">
         <Checkbox defaultChecked />
         <Checkbox />
         <Checkbox disabled />
       </Stack>
+    ),
+    Examples: () => (
+      <LivePreview label="Sizes">
+        <Stack direction="row" gap="3" align="center">
+          <Checkbox defaultChecked size="sm" />
+          <Checkbox defaultChecked size="md" />
+          <Checkbox defaultChecked size="lg" />
+        </Stack>
+      </LivePreview>
+    ),
+  },
+  {
+    slug: "checkbox-group",
+    title: "CheckboxGroup",
+    description: "Multi-select group of checkboxes sharing a value array.",
+    importName: "CheckboxGroup",
+    props: [
+      { name: "value", type: "string[]", description: "Selected values (controlled)." },
+      {
+        name: "defaultValue",
+        type: "string[]",
+        description: "Initial selected values (uncontrolled).",
+      },
+      {
+        name: "onChange",
+        type: "(value: string[]) => void",
+        description: "Called when the selection changes.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Control + label size.",
+      },
+      {
+        name: "Checkbox value",
+        type: "string",
+        description: "Required value for each item.",
+      },
+    ],
+    usage: `import { CheckboxGroup } from "@arviahq/ui-react";
+
+<CheckboxGroup defaultValue={["email"]} onChange={setValues}>
+  <Checkbox value="email">Email</Checkbox>
+  <Checkbox value="sms">SMS</Checkbox>
+</CheckboxGroup>`,
+    Preview: () => (
+      <CheckboxGroup defaultValue={["email", "push"]}>
+        <Checkbox value="email">Email</Checkbox>
+        <Checkbox value="sms">SMS</Checkbox>
+        <Checkbox value="push">Push</Checkbox>
+      </CheckboxGroup>
     ),
   },
   {
@@ -881,6 +961,422 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         </Stack>
       </LivePreview>
     ),
+  },
+  {
+    slug: "radio",
+    title: "RadioGroup",
+    description: "Single-select group with roving keyboard navigation and full ARIA.",
+    importName: "RadioGroup",
+    props: [
+      { name: "value", type: "string", description: "Selected value (controlled)." },
+      {
+        name: "defaultValue",
+        type: "string",
+        description: "Initial selected value (uncontrolled).",
+      },
+      {
+        name: "onChange",
+        type: "(value: string) => void",
+        description: "Called when the selection changes.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Control + label size.",
+      },
+      {
+        name: "Radio value",
+        type: "string",
+        description: "Required value for each radio.",
+      },
+    ],
+    usage: `import { RadioGroup } from "@arviahq/ui-react";
+
+<RadioGroup defaultValue="email">
+  <Radio value="email">Email</Radio>
+  <Radio value="sms">SMS</Radio>
+</RadioGroup>`,
+    Preview: () => (
+      <RadioGroup defaultValue="email">
+        <Radio value="email">Email</Radio>
+        <Radio value="sms">SMS</Radio>
+        <Radio value="push">Push</Radio>
+      </RadioGroup>
+    ),
+    Examples: () => (
+      <LivePreview label="Sizes (sm / md / lg)">
+        <Stack direction="row" gap="5">
+          <RadioGroup defaultValue="a" size="sm">
+            <Radio value="a">Small</Radio>
+          </RadioGroup>
+          <RadioGroup defaultValue="a" size="md">
+            <Radio value="a">Medium</Radio>
+          </RadioGroup>
+          <RadioGroup defaultValue="a" size="lg">
+            <Radio value="a">Large</Radio>
+          </RadioGroup>
+        </Stack>
+      </LivePreview>
+    ),
+  },
+  {
+    slug: "slider",
+    title: "Slider",
+    description: "Custom range control with pointer and keyboard input.",
+    importName: "Slider",
+    props: [
+      { name: "value", type: "number", description: "Current value (controlled)." },
+      { name: "defaultValue", type: "number", description: "Initial value (uncontrolled)." },
+      {
+        name: "onChange",
+        type: "(value: number) => void",
+        description: "Called as the value changes.",
+      },
+      { name: "min", type: "number", default: "0", description: "Minimum value." },
+      { name: "max", type: "number", default: "100", description: "Maximum value." },
+      { name: "step", type: "number", default: "1", description: "Step increment." },
+    ],
+    usage: `import { Slider } from "@arviahq/ui-react";
+
+<Slider defaultValue={40} onChange={setValue} />`,
+    Preview: () => (
+      <div style={{ width: 260 }}>
+        <Slider defaultValue={40} aria-label="Example slider" />
+      </div>
+    ),
+  },
+  {
+    slug: "breadcrumb",
+    title: "Breadcrumb",
+    description: "Navigation trail with automatic separators.",
+    importName: "Breadcrumb",
+    props: [
+      {
+        name: "separator",
+        type: "ReactNode",
+        default: '"/"',
+        description: "Separator rendered between items.",
+      },
+      {
+        name: "Breadcrumb.Item href",
+        type: "string",
+        description: "Link target; omit (or use current) for plain text.",
+      },
+      {
+        name: "Breadcrumb.Item current",
+        type: "boolean",
+        description: "Marks the current page (aria-current).",
+      },
+    ],
+    usage: `import { Breadcrumb } from "@arviahq/ui-react";
+
+<Breadcrumb>
+  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+  <Breadcrumb.Item href="/docs">Docs</Breadcrumb.Item>
+  <Breadcrumb.Item current>Breadcrumb</Breadcrumb.Item>
+</Breadcrumb>`,
+    Preview: () => (
+      <Breadcrumb>
+        <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+        <Breadcrumb.Item href="#">Components</Breadcrumb.Item>
+        <Breadcrumb.Item current>Breadcrumb</Breadcrumb.Item>
+      </Breadcrumb>
+    ),
+  },
+  {
+    slug: "skeleton",
+    title: "Skeleton",
+    description: "Content placeholder, animated by default.",
+    importName: "Skeleton",
+    props: [
+      { name: "animated", type: "boolean", default: "true", description: "Pulse animation." },
+      { name: "width", type: "number | string", description: "Width." },
+      { name: "height", type: "number | string", description: "Height." },
+      { name: "radius", type: "string", description: "Border-radius override." },
+    ],
+    usage: `import { Skeleton } from "@arviahq/ui-react";
+
+<Skeleton width={240} height={16} />`,
+    Preview: () => (
+      <Stack gap="2" style={{ width: 260 }}>
+        <Skeleton width={120} height={16} />
+        <Skeleton width={240} height={12} />
+        <Skeleton width={200} height={12} />
+      </Stack>
+    ),
+    Examples: () => (
+      <LivePreview label="Static (animated={false})">
+        <Stack gap="2" style={{ width: 260 }}>
+          <Skeleton animated={false} width={120} height={16} />
+          <Skeleton animated={false} width={240} height={12} />
+        </Stack>
+      </LivePreview>
+    ),
+  },
+  {
+    slug: "progress",
+    title: "Progress",
+    description: "Linear determinate progress bar.",
+    importName: "Progress",
+    props: [
+      { name: "value", type: "number", description: "Current value." },
+      { name: "max", type: "number", default: "100", description: "Maximum value." },
+      {
+        name: "tone",
+        type: '"primary" | "success" | "warning" | "danger"',
+        default: '"primary"',
+        description: "Bar color.",
+      },
+      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Bar thickness." },
+    ],
+    usage: `import { Progress } from "@arviahq/ui-react";
+
+<Progress value={60} />`,
+    Preview: () => (
+      <Stack gap="3" style={{ width: 280 }}>
+        <Progress value={30} />
+        <Progress value={65} tone="success" />
+        <Progress value={90} tone="warning" />
+      </Stack>
+    ),
+    Examples: () => (
+      <LivePreview label="Sizes (sm / md / lg)">
+        <Stack gap="3" style={{ width: 280 }}>
+          <Progress value={50} size="sm" />
+          <Progress value={50} size="md" />
+          <Progress value={50} size="lg" />
+        </Stack>
+      </LivePreview>
+    ),
+  },
+  {
+    slug: "progress-circle",
+    title: "ProgressCircle",
+    description: "Circular determinate progress indicator.",
+    importName: "ProgressCircle",
+    props: [
+      { name: "value", type: "number", description: "Current value." },
+      { name: "max", type: "number", default: "100", description: "Maximum value." },
+      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Ring diameter." },
+      {
+        name: "strokeWidth",
+        type: "number",
+        description: "Override the ring thickness derived from size.",
+      },
+      {
+        name: "tone",
+        type: '"primary" | "success" | "warning" | "danger"',
+        default: '"primary"',
+        description: "Ring color.",
+      },
+    ],
+    usage: `import { ProgressCircle } from "@arviahq/ui-react";
+
+<ProgressCircle value={72} size="md" />`,
+    Preview: () => (
+      <Stack direction="row" gap="4" align="center">
+        <ProgressCircle value={25} size="sm" />
+        <ProgressCircle value={72} />
+        <ProgressCircle value={100} tone="success" size="lg" />
+      </Stack>
+    ),
+  },
+  {
+    slug: "popover",
+    title: "Popover",
+    description: "Floating panel anchored to a trigger; dismiss on outside click or Escape.",
+    importName: "Popover",
+    props: [
+      { name: "open", type: "boolean", description: "Open state (controlled)." },
+      { name: "defaultOpen", type: "boolean", description: "Initial open state." },
+      {
+        name: "onChange",
+        type: "(open: boolean) => void",
+        description: "Called when the open state changes.",
+      },
+      {
+        name: "Popover.Trigger",
+        type: "ReactElement",
+        description: "Clones its child to toggle the popover.",
+      },
+    ],
+    usage: `import { Popover, Button } from "@arviahq/ui-react";
+
+<Popover>
+  <Popover.Trigger><Button>Open</Button></Popover.Trigger>
+  <Popover.Content>Anchored content</Popover.Content>
+</Popover>`,
+    Preview: () => (
+      <Popover>
+        <Popover.Trigger>
+          <Button tone="secondary">Open popover</Button>
+        </Popover.Trigger>
+        <Popover.Content>
+          <Text size="sm" tone="muted">
+            Anchored content — dismiss on outside click or Escape.
+          </Text>
+        </Popover.Content>
+      </Popover>
+    ),
+  },
+  {
+    slug: "menu",
+    title: "Menu",
+    description: "Dropdown menu with keyboard navigation and outside-click dismissal.",
+    importName: "Menu",
+    props: [
+      {
+        name: "open / defaultOpen / onChange",
+        type: "—",
+        description: "Open-state control (same shape as Popover).",
+      },
+      {
+        name: "Menu.Item onSelect",
+        type: "() => void",
+        description: "Called when chosen; the menu then closes.",
+      },
+      { name: "Menu.Item danger", type: "boolean", description: "Destructive styling." },
+    ],
+    usage: `import { Menu, Button } from "@arviahq/ui-react";
+
+<Menu>
+  <Menu.Trigger><Button>Actions</Button></Menu.Trigger>
+  <Menu.Content>
+    <Menu.Item onSelect={onEdit}>Edit</Menu.Item>
+    <Menu.Separator />
+    <Menu.Item danger onSelect={onDelete}>Delete</Menu.Item>
+  </Menu.Content>
+</Menu>`,
+    Preview: () => (
+      <Menu>
+        <Menu.Trigger>
+          <Button tone="secondary">Actions</Button>
+        </Menu.Trigger>
+        <Menu.Content>
+          <Menu.Label>Manage</Menu.Label>
+          <Menu.Item>Edit</Menu.Item>
+          <Menu.Item>Duplicate</Menu.Item>
+          <Menu.Separator />
+          <Menu.Item danger>Delete</Menu.Item>
+        </Menu.Content>
+      </Menu>
+    ),
+  },
+  {
+    slug: "select",
+    title: "Select",
+    description: "Custom listbox select, or a styled native control via the native prop.",
+    importName: "Select",
+    props: [
+      {
+        name: "value / defaultValue / onChange",
+        type: "string",
+        description: "Selected value control.",
+      },
+      {
+        name: "native",
+        type: "boolean",
+        description: "Render a styled native <select> instead of the custom listbox.",
+      },
+      { name: "placeholder", type: "string", description: "Shown when nothing is selected." },
+      {
+        name: "Select.Option value",
+        type: "string",
+        description: "Option value; children are the label.",
+      },
+    ],
+    usage: `import { Select } from "@arviahq/ui-react";
+
+<Select defaultValue="apple" placeholder="Pick a fruit">
+  <Select.Option value="apple">Apple</Select.Option>
+  <Select.Option value="banana">Banana</Select.Option>
+</Select>
+
+// Or the native control:
+<Select native defaultValue="apple"> … </Select>`,
+    Preview: () => (
+      <div style={{ width: 220 }}>
+        <Select defaultValue="apple">
+          <Select.Option value="apple">Apple</Select.Option>
+          <Select.Option value="banana">Banana</Select.Option>
+          <Select.Option value="cherry">Cherry</Select.Option>
+        </Select>
+      </div>
+    ),
+    Examples: () => (
+      <LivePreview label="native">
+        <div style={{ width: 220 }}>
+          <Select native defaultValue="banana">
+            <Select.Option value="apple">Apple</Select.Option>
+            <Select.Option value="banana">Banana</Select.Option>
+            <Select.Option value="cherry">Cherry</Select.Option>
+          </Select>
+        </div>
+      </LivePreview>
+    ),
+  },
+  {
+    slug: "toast",
+    title: "Toast",
+    description: "Transient notifications via a provider and the useToast hook.",
+    importName: "ToastProvider",
+    props: [
+      {
+        name: "ToastProvider duration",
+        type: "number",
+        default: "5000",
+        description: "Default auto-dismiss delay (ms).",
+      },
+      {
+        name: "toast(options)",
+        type: "(o) => string",
+        description: "Show a toast: { title, description, tone, duration }.",
+      },
+      {
+        name: "tone",
+        type: '"neutral" | "info" | "success" | "warning" | "danger"',
+        description: "Toast accent.",
+      },
+    ],
+    usage: `import { ToastProvider, useToast } from "@arviahq/ui-react";
+
+// Wrap your app once:
+<ToastProvider><App /></ToastProvider>
+
+// Anywhere inside:
+const { toast } = useToast();
+toast({ title: "Saved", tone: "success" });`,
+    Preview: () => {
+      const { toast } = useToast();
+      return (
+        <Stack direction="row" gap="2" wrap="yes">
+          <Button
+            onClick={() =>
+              toast({ title: "Saved", description: "Your changes are live.", tone: "success" })
+            }
+          >
+            Success
+          </Button>
+          <Button
+            tone="secondary"
+            onClick={() =>
+              toast({ title: "Heads up", description: "Something worth noting.", tone: "info" })
+            }
+          >
+            Info
+          </Button>
+          <Button
+            tone="danger"
+            onClick={() =>
+              toast({ title: "Error", description: "That did not work.", tone: "danger" })
+            }
+          >
+            Error
+          </Button>
+        </Stack>
+      );
+    },
   },
 ];
 

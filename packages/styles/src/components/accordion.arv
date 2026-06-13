@@ -60,6 +60,21 @@ component Accordion {
     }
 
     content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows duration.normal easing.out;
+
+      &[data-state="open"] {
+        grid-template-rows: 1fr;
+      }
+    }
+
+    contentInner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    contentBody {
       padding: space.2 space.4 space.4;
       color: color.muted;
       font-size: font.sm;
@@ -73,5 +88,7 @@ component Accordion {
     trigger {}
     icon {}
     content {}
+    contentInner {}
+    contentBody {}
   }
 }

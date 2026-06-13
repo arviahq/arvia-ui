@@ -188,11 +188,13 @@ const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
         role="region"
         id={`${ctx.baseId}-content-${item.value}`}
         aria-labelledby={`${ctx.baseId}-trigger-${item.value}`}
-        hidden={!item.open}
+        data-state={item.open ? "open" : "closed"}
         className={className ? `${styles.content} ${className}` : styles.content}
         {...props}
       >
-        {children}
+        <div className={styles.contentInner} inert={item.open ? undefined : true}>
+          <div className={styles.contentBody}>{children}</div>
+        </div>
       </div>
     );
   },

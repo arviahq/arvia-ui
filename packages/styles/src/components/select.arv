@@ -1,0 +1,112 @@
+// Select: custom listbox (trigger + options) or a styled native <select>.
+
+component Select {
+  base {
+    trigger {
+      appearance: none;
+      font: inherit;
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: space.2;
+      min-height: 38px;
+      padding: space.2 space.3;
+      border: 1px solid color.border;
+      border-radius: radius.md;
+      background: color.surface;
+      color: color.text;
+      font-size: font.sm;
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 2px;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      &[data-placeholder="true"] {
+        color: color.muted;
+      }
+    }
+
+    icon {
+      flex-shrink: 0;
+      color: color.subtle;
+    }
+
+    content {
+      z-index: 70;
+      min-width: 180px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding: space.1;
+      background: color.surface;
+      border: 1px solid color.border;
+      border-radius: radius.md;
+      box-shadow: shadow.lg;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: space.2;
+      padding: space.2 space.3;
+      border-radius: radius.sm;
+      font-size: font.sm;
+      color: color.text;
+      cursor: pointer;
+
+      &[data-highlighted="true"] {
+        background: color-mix(in srgb, color.text 7%, transparent);
+      }
+
+      &[data-selected="true"] {
+        color: color.primary;
+        font-weight: 500;
+      }
+    }
+
+    native {
+      appearance: none;
+      font: inherit;
+      width: 100%;
+      min-height: 38px;
+      padding: space.2 space.3;
+      border: 1px solid color.border;
+      border-radius: radius.md;
+      background: color.surface;
+      color: color.text;
+      font-size: font.sm;
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 2px;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  slots {
+    root {}
+    trigger {}
+    icon {}
+    content {}
+    option {}
+    native {}
+  }
+}

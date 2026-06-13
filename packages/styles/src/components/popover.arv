@@ -1,0 +1,27 @@
+// Popover: floating panel anchored to a trigger. Slots applied by the React parts.
+
+component Popover {
+  base {
+    content {
+      z-index: 70;
+      max-width: 320px;
+      padding: space.4;
+      background: color.surface;
+      border: 1px solid color.border;
+      border-radius: radius.md;
+      box-shadow: shadow.lg;
+      font-size: font.sm;
+      color: color.text;
+      line-height: 1.6;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  slots {
+    root {}
+    content {}
+  }
+}

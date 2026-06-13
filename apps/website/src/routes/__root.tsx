@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { setTheme } from "@arviahq/ui-react";
+import { setTheme, ToastProvider } from "@arviahq/ui-react";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 import { getStoredTheme, setStoredTheme, type SiteTheme } from "../preferences";
@@ -22,12 +22,14 @@ function RootLayout() {
   }
 
   return (
-    <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
-      <SiteNav theme={theme} onThemeToggle={toggleTheme} />
-      <main style={{ flex: 1 }}>
-        <Outlet />
-      </main>
-      <SiteFooter />
-    </div>
+    <ToastProvider>
+      <div style={{ minHeight: "100dvh", display: "flex", flexDirection: "column" }}>
+        <SiteNav theme={theme} onThemeToggle={toggleTheme} />
+        <main style={{ flex: 1 }}>
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </div>
+    </ToastProvider>
   );
 }

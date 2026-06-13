@@ -56,6 +56,10 @@
       "types": "./.arvia/types/components/checkbox.arv.d.ts",
       "default": "./src/components/checkbox.arv"
     },
+    "./components/checkbox-group.arv": {
+      "types": "./.arvia/types/components/checkbox-group.arv.d.ts",
+      "default": "./src/components/checkbox-group.arv"
+    },
     "./components/dialog.arv": {
       "types": "./.arvia/types/components/dialog.arv.d.ts",
       "default": "./src/components/dialog.arv"
@@ -99,6 +103,50 @@
     "./components/tooltip.arv": {
       "types": "./.arvia/types/components/tooltip.arv.d.ts",
       "default": "./src/components/tooltip.arv"
+    },
+    "./components/breadcrumb.arv": {
+      "types": "./.arvia/types/components/breadcrumb.arv.d.ts",
+      "default": "./src/components/breadcrumb.arv"
+    },
+    "./components/progress.arv": {
+      "types": "./.arvia/types/components/progress.arv.d.ts",
+      "default": "./src/components/progress.arv"
+    },
+    "./components/progress-circle.arv": {
+      "types": "./.arvia/types/components/progress-circle.arv.d.ts",
+      "default": "./src/components/progress-circle.arv"
+    },
+    "./components/radio.arv": {
+      "types": "./.arvia/types/components/radio.arv.d.ts",
+      "default": "./src/components/radio.arv"
+    },
+    "./components/radiogroup.arv": {
+      "types": "./.arvia/types/components/radiogroup.arv.d.ts",
+      "default": "./src/components/radiogroup.arv"
+    },
+    "./components/skeleton.arv": {
+      "types": "./.arvia/types/components/skeleton.arv.d.ts",
+      "default": "./src/components/skeleton.arv"
+    },
+    "./components/slider.arv": {
+      "types": "./.arvia/types/components/slider.arv.d.ts",
+      "default": "./src/components/slider.arv"
+    },
+    "./components/popover.arv": {
+      "types": "./.arvia/types/components/popover.arv.d.ts",
+      "default": "./src/components/popover.arv"
+    },
+    "./components/menu.arv": {
+      "types": "./.arvia/types/components/menu.arv.d.ts",
+      "default": "./src/components/menu.arv"
+    },
+    "./components/select.arv": {
+      "types": "./.arvia/types/components/select.arv.d.ts",
+      "default": "./src/components/select.arv"
+    },
+    "./components/toast.arv": {
+      "types": "./.arvia/types/components/toast.arv.d.ts",
+      "default": "./src/components/toast.arv"
     }
   },
   "scripts": {

@@ -1,21 +1,24 @@
-// Checkbox: boolean control (button[role=checkbox]).
+// Checkbox: a single checkbox (button[role=checkbox]) — used standalone or inside
+// CheckboxGroup. The root is the clickable row (control box + label); sizes use vars.
 
 component Checkbox {
   base {
+    --c-control: 18px;
+    --c-font: font.sm;
     appearance: none;
-    padding: 0;
-    cursor: pointer;
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 2px;
+    font: inherit;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
+    gap: space.2;
+    cursor: pointer;
+    text-align: left;
+    font-size: var(--c-font);
+    color: color.text;
     border-radius: radius.sm;
-    border: 1px solid color.borderStrong;
-    background: color.surface;
-    color: #ffffff;
-    transition: background-color duration.fast easing.default, border-color duration.fast easing.default;
 
     &:focus-visible {
       outline: 2px solid color.focus;
@@ -27,13 +30,40 @@ component Checkbox {
       cursor: not-allowed;
     }
 
-    &[data-state="checked"] {
-      background: color.primary;
-      border-color: color.primary;
+    control {
+      flex-shrink: 0;
+      width: var(--c-control);
+      height: var(--c-control);
+      border-radius: radius.sm;
+      border: 1px solid color.borderStrong;
+      background: color.surface;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color duration.fast easing.default, border-color duration.fast easing.default;
+
+      &[data-state="checked"] {
+        background: color.primary;
+        border-color: color.primary;
+      }
     }
+  }
+
+  variants {
+    size {
+      sm { --c-control: 16px; --c-font: font.xs; }
+      md { --c-control: 18px; --c-font: font.sm; }
+      lg { --c-control: 22px; --c-font: font.md; }
+    }
+  }
+
+  defaults {
+    size: md;
   }
 
   slots {
     root {}
+    control {}
   }
 }

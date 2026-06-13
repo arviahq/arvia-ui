@@ -1,0 +1,13 @@
+// CheckboxGroup: container that lays out Checkbox children.
+
+component CheckboxGroup {
+  base {
+    display: flex;
+    flex-direction: column;
+    gap: space.2;
+  }
+
+  slots {
+    root {}
+  }
+}
