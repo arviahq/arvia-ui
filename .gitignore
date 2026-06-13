@@ -5,3 +5,5 @@ storybook-static
 stories/generated
 *.tsbuildinfo
 .DS_Store
+
+**/*.arv.d.ts
