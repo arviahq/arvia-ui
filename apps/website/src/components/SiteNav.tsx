@@ -1,53 +1,61 @@
 import { Link as RouterLink, useRouterState } from "@tanstack/react-router";
-import { Button, Link, Stack, Text } from "@arviahq/ui-react";
+import { Button } from "@arviahq/ui-react";
 import { SiteHeader } from "../site.arv";
 
 export function SiteNav(props: { theme: "light" | "dark"; onThemeToggle: () => void }) {
   const header = SiteHeader();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
-  function linkTone(slug: string): "primary" | "muted" {
-    return pathname === `/docs/${slug}` ? "primary" : "muted";
-  }
+  const isActive = (slug: string) => pathname === `/docs/${slug}`;
 
   return (
     <header className={header.root}>
       <div className={header.inner}>
-        <RouterLink to="/" style={{ textDecoration: "none" }}>
-          <Stack direction="row" gap="2" align="center">
-            <img src="/logo.svg" alt="" width={28} height={28} aria-hidden />
-            <Text weight="semibold" size="md">
-              arvia-ui
-            </Text>
-          </Stack>
+        <RouterLink to="/" className={header.brand}>
+          <img src="/logo.svg" alt="" width={26} height={26} aria-hidden />
+          <span className={header.brandText}>arvia-ui</span>
         </RouterLink>
 
-        <Stack direction="row" gap="4" align="center" as="nav">
-          <RouterLink to="/docs/$slug" params={{ slug: "introduction" }}>
-            <Link as="span" tone={linkTone("introduction")} size="sm">
-              Docs
-            </Link>
+        <nav className={header.links}>
+          <RouterLink
+            to="/docs/$slug"
+            params={{ slug: "introduction" }}
+            className={header.link}
+            data-active={isActive("introduction")}
+          >
+            Docs
           </RouterLink>
-          <RouterLink to="/docs/$slug" params={{ slug: "components" }}>
-            <Link as="span" tone={linkTone("components")} size="sm">
-              Components
-            </Link>
+          <RouterLink
+            to="/docs/$slug"
+            params={{ slug: "components" }}
+            className={header.link}
+            data-active={isActive("components")}
+          >
+            Components
           </RouterLink>
-          <a href="https://github.com/arviahq/arvia-ui" target="_blank" rel="noreferrer">
-            <Link href="https://github.com/arviahq/arvia-ui" tone="muted" size="sm">
-              GitHub
-            </Link>
+          <a
+            href="https://github.com/arviahq/arvia-ui"
+            className={header.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
           </a>
-        </Stack>
+        </nav>
 
-        <Stack direction="row" gap="2" align="center">
-          <Button tone="ghost" size="sm" onClick={props.onThemeToggle} aria-label="Toggle theme">
+        <div className={header.actions}>
+          <Button
+            tone="ghost"
+            size="sm"
+            onClick={props.onThemeToggle}
+            aria-label={props.theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
             {props.theme === "dark" ? "☀" : "☾"}
           </Button>
           <RouterLink to="/docs/$slug" params={{ slug: "getting-started" }}>
-            <Button size="sm">Install</Button>
+            <Button size="sm">Get started</Button>
           </RouterLink>
-        </Stack>
+        </div>
       </div>
     </header>
   );

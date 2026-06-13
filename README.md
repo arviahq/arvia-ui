@@ -22,24 +22,11 @@ Storybook: `pnpm storybook` → [http://localhost:6007](http://localhost:6007)
 ## Usage (React)
 
 ```bash
-npm install @arviahq/ui-react @arviahq/vite-plugin-react
-```
-
-```ts
-// vite.config.ts
-import { arvia } from "@arviahq/vite-plugin-react";
-
-export default defineConfig({
-  plugins: [
-    arvia({ theme: "node_modules/@arviahq/ui-styles/src/theme.arv" }),
-    react(),
-  ],
-});
+npm install @arviahq/ui-react
 ```
 
 ```tsx
 import { Button, Stack, Text } from "@arviahq/ui-react";
-import "@arviahq/ui-styles/theme.arv";
 
 export function App() {
   return (
@@ -50,6 +37,24 @@ export function App() {
   );
 }
 ```
+
+That is all. Styles are pre-compiled and bundled into the package — importing any
+component pulls in the CSS automatically (via `sideEffects`). No Vite plugin, no
+`vite.config.ts` change, no theme import. React 18+ is the only peer dependency.
+
+Switch theme modes at runtime:
+
+```tsx
+import { setTheme } from "@arviahq/ui-react";
+
+setTheme("dark"); // sets data-arvia-theme on <html>; light/dark CSS is already bundled
+```
+
+### Advanced: fork the theme
+
+To author your own `.arv` components or fork the theme tokens, compile `.arv` at
+build time with [`@arviahq/vite-plugin-react`](https://github.com/arviahq/arvia).
+This is for design-system authors — it is **not** required to use arvia-ui.
 
 ## v0.1 components
 

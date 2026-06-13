@@ -1,43 +1,41 @@
 import type { ReactNode } from "react";
 import { Link as RouterLink, useRouterState } from "@tanstack/react-router";
-import { Heading, Link, Stack, Text } from "@arviahq/ui-react";
-import { DocsLayout } from "../site.arv";
+import { Heading, Stack, Text } from "@arviahq/ui-react";
+import { DocsLayout, DocsNav } from "../site.arv";
 import { DOC_NAV } from "../docs/registry";
 
 export function DocsShell(props: { activeSlug: string; children: ReactNode }) {
   const layout = DocsLayout();
+  const nav = DocsNav();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
     <div className={layout.root}>
       <aside className={layout.sidebar}>
-        <Stack gap="5">
+        <nav className={nav.root}>
           {DOC_NAV.map((section) => (
-            <Stack key={section.title} gap="2">
-              <Text
-                size="xs"
-                weight="semibold"
-                tone="subtle"
-                style={{ textTransform: "uppercase", letterSpacing: "0.06em" }}
-              >
-                {section.title}
-              </Text>
-              <Stack gap="1">
+            <div key={section.title} className={nav.section}>
+              <p className={nav.sectionTitle}>{section.title}</p>
+              <div className={nav.list}>
                 {section.items.map((item) => {
                   const href = `/docs/${item.slug}`;
                   const isActive = pathname === href || props.activeSlug === item.slug;
                   return (
-                    <RouterLink key={item.slug} to="/docs/$slug" params={{ slug: item.slug }}>
-                      <Link as="span" tone={isActive ? "primary" : "muted"} size="sm">
-                        {item.title}
-                      </Link>
+                    <RouterLink
+                      key={item.slug}
+                      to="/docs/$slug"
+                      params={{ slug: item.slug }}
+                      className={nav.link}
+                      data-active={isActive}
+                    >
+                      {item.title}
                     </RouterLink>
                   );
                 })}
-              </Stack>
-            </Stack>
+              </div>
+            </div>
           ))}
-        </Stack>
+        </nav>
       </aside>
       <article className={layout.content}>{props.children}</article>
     </div>

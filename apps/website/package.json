@@ -15,7 +15,8 @@
     "@arviahq/ui-styles": "workspace:*",
     "@tanstack/react-router": "^1.170.15",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "shiki": "^3"
   },
   "devDependencies": {
     "@arviahq/vite-plugin-react": "^0.6.0",

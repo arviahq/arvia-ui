@@ -1,0 +1,31 @@
+/*
+ * Styling for Shiki-highlighted code blocks (.code-block wraps the .shiki <pre>).
+ * Shiki emits dual-theme output: light colors inline, dark colors as --shiki-dark
+ * CSS variables — so the block re-themes instantly when data-arvia-theme flips,
+ * with no re-highlight. Background is forced to the site surface for cohesion.
+ */
+.code-block {
+  margin: 0 0 16px;
+}
+
+.code-block .shiki {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--arvia-color-border);
+  border-radius: 12px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  overflow-x: auto;
+  background-color: var(--arvia-color-surfaceRaised) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.code-block .shiki code {
+  font-family: inherit;
+}
+
+[data-arvia-theme="dark"] .code-block .shiki,
+[data-arvia-theme="dark"] .code-block .shiki span {
+  color: var(--shiki-dark) !important;
+}
