@@ -1,0 +1,54 @@
+// Switch: on/off toggle (button[role=switch]).
+
+component Switch {
+  base {
+    appearance: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 24px;
+    border-radius: radius.full;
+    background: color.borderStrong;
+    transition: background-color duration.fast easing.default;
+
+    &:focus-visible {
+      outline: 2px solid color.focus;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &[data-state="checked"] {
+      background: color.primary;
+
+      thumb {
+        transform: translateX(16px);
+      }
+    }
+
+    thumb {
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      border-radius: radius.full;
+      background: #ffffff;
+      box-shadow: shadow.sm;
+      transition: transform duration.fast easing.out;
+    }
+  }
+
+  slots {
+    root {}
+    thumb {}
+  }
+}

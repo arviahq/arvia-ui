@@ -1,15 +1,23 @@
 import {
+  Accordion,
+  Alert,
+  Avatar,
   Badge,
   Box,
   Button,
   Card,
+  Checkbox,
+  Dialog,
   Divider,
   Heading,
   Input,
   Link,
   Spinner,
   Stack,
+  Switch,
+  Tabs,
   Text,
+  Tooltip,
 } from "@arviahq/ui-react";
 import { LivePreview } from "../../components/LivePreview";
 import type { ComponentDoc, PropDefinition } from "./types";
@@ -333,6 +341,252 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           <Spinner size="sm" />
           <Spinner size="md" />
           <Spinner size="lg" />
+        </Stack>
+      </LivePreview>
+    ),
+  },
+  {
+    slug: "tabs",
+    title: "Tabs",
+    description:
+      "Compound tabbed interface with roving keyboard navigation and full ARIA wiring — controlled or uncontrolled.",
+    importName: "Tabs",
+    props: [
+      { name: "value", type: "string", description: "Active tab value (controlled)." },
+      { name: "defaultValue", type: "string", description: "Initial active tab value (uncontrolled)." },
+      { name: "onChange", type: "(value: string) => void", description: "Called when the active tab changes." },
+      { name: "Tabs.Tab value", type: "string", description: "Required — links a tab to its panel of the same value." },
+      { name: "Tabs.Panel value", type: "string", description: "Required — links a panel to its tab of the same value." },
+      { name: "className", type: "string", description: "Additional CSS class on the part's root element." },
+    ],
+    usage: `import { Tabs } from "@arviahq/ui-react";
+
+<Tabs defaultValue="overview">
+  <Tabs.List aria-label="Sections">
+    <Tabs.Tab value="overview">Overview</Tabs.Tab>
+    <Tabs.Tab value="usage">Usage</Tabs.Tab>
+  </Tabs.List>
+  <Tabs.Panel value="overview">Overview content</Tabs.Panel>
+  <Tabs.Panel value="usage">Usage content</Tabs.Panel>
+</Tabs>`,
+    Preview: () => (
+      <Tabs defaultValue="overview" style={{ width: 300 }}>
+        <Tabs.List aria-label="Example sections">
+          <Tabs.Tab value="overview">Overview</Tabs.Tab>
+          <Tabs.Tab value="usage">Usage</Tabs.Tab>
+          <Tabs.Tab value="props">Props</Tabs.Tab>
+        </Tabs.List>
+        <Tabs.Panel value="overview">
+          <Text size="sm" tone="muted">Compound tabs with full keyboard support.</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="usage">
+          <Text size="sm" tone="muted">Arrow keys move between tabs; Home/End jump to ends.</Text>
+        </Tabs.Panel>
+        <Tabs.Panel value="props">
+          <Text size="sm" tone="muted">Controlled via value, or uncontrolled via defaultValue.</Text>
+        </Tabs.Panel>
+      </Tabs>
+    ),
+  },
+  {
+    slug: "accordion",
+    title: "Accordion",
+    description:
+      "Compound disclosure list — single or multiple open sections with full keyboard and ARIA support.",
+    importName: "Accordion",
+    props: [
+      { name: "type", type: '"single" | "multiple"', default: '"single"', description: "Whether one or many items can be open at once." },
+      { name: "defaultValue", type: "string | string[]", description: "Initially open item(s) (uncontrolled)." },
+      { name: "value", type: "string | string[]", description: "Open item(s) (controlled)." },
+      { name: "onChange", type: "(value: string | string[]) => void", description: "Called when the open item(s) change." },
+      { name: "collapsible", type: "boolean", default: "true", description: "For type=\"single\", allow closing the open item." },
+      { name: "Accordion.Item value", type: "string", description: "Required — identifies each item." },
+    ],
+    usage: `import { Accordion } from "@arviahq/ui-react";
+
+<Accordion type="single" defaultValue="a">
+  <Accordion.Item value="a">
+    <Accordion.Trigger>First</Accordion.Trigger>
+    <Accordion.Content>First content</Accordion.Content>
+  </Accordion.Item>
+</Accordion>`,
+    Preview: () => (
+      <Accordion type="single" defaultValue="what" style={{ width: 340 }}>
+        <Accordion.Item value="what">
+          <Accordion.Trigger>What is arvia-ui?</Accordion.Trigger>
+          <Accordion.Content>A React component library built on Arvia with a zero-config install.</Accordion.Content>
+        </Accordion.Item>
+        <Accordion.Item value="how">
+          <Accordion.Trigger>How are styles handled?</Accordion.Trigger>
+          <Accordion.Content>Pre-compiled .arv styles, bundled into one stylesheet at publish time.</Accordion.Content>
+        </Accordion.Item>
+      </Accordion>
+    ),
+  },
+  {
+    slug: "dialog",
+    title: "Dialog",
+    description:
+      "Compound modal — portal, focus trap, scroll lock, and Escape/overlay dismissal, all hand-rolled.",
+    importName: "Dialog",
+    props: [
+      { name: "open", type: "boolean", description: "Open state (controlled)." },
+      { name: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
+      { name: "onChange", type: "(open: boolean) => void", description: "Called when the open state changes." },
+      { name: "Dialog.Trigger", type: "ReactElement", description: "Clones its child element to open the dialog on click." },
+      { name: "Dialog.Close asChild", type: "boolean", description: "Render the close behavior on a child element (e.g. a Button)." },
+    ],
+    usage: `import { Dialog, Button } from "@arviahq/ui-react";
+
+<Dialog>
+  <Dialog.Trigger><Button>Open</Button></Dialog.Trigger>
+  <Dialog.Content>
+    <Dialog.Close />
+    <Dialog.Header>
+      <Dialog.Title>Title</Dialog.Title>
+      <Dialog.Description>Description</Dialog.Description>
+    </Dialog.Header>
+    <Dialog.Body>Body content</Dialog.Body>
+    <Dialog.Footer>
+      <Dialog.Close asChild><Button tone="secondary">Cancel</Button></Dialog.Close>
+    </Dialog.Footer>
+  </Dialog.Content>
+</Dialog>`,
+    Preview: () => (
+      <Dialog>
+        <Dialog.Trigger>
+          <Button>Open dialog</Button>
+        </Dialog.Trigger>
+        <Dialog.Content>
+          <Dialog.Close />
+          <Dialog.Header>
+            <Dialog.Title>Delete project?</Dialog.Title>
+            <Dialog.Description>This action cannot be undone.</Dialog.Description>
+          </Dialog.Header>
+          <Dialog.Body>The project and all of its data will be permanently removed.</Dialog.Body>
+          <Dialog.Footer>
+            <Dialog.Close asChild>
+              <Button tone="secondary">Cancel</Button>
+            </Dialog.Close>
+            <Dialog.Close asChild>
+              <Button tone="danger">Delete</Button>
+            </Dialog.Close>
+          </Dialog.Footer>
+        </Dialog.Content>
+      </Dialog>
+    ),
+  },
+  {
+    slug: "avatar",
+    title: "Avatar",
+    description: "User image with automatic initials fallback and size variants.",
+    importName: "Avatar",
+    props: [
+      { name: "src", type: "string", description: "Image URL; falls back to initials if missing or it fails to load." },
+      { name: "name", type: "string", description: "Used to derive fallback initials." },
+      { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Avatar dimensions." },
+      { name: "alt", type: "string", description: "Image alt text." },
+    ],
+    usage: `import { Avatar } from "@arviahq/ui-react";
+
+<Avatar name="Ada Lovelace" src="/ada.jpg" size="md" />`,
+    Preview: () => (
+      <Stack direction="row" gap="3" align="center">
+        <Avatar name="Ada Lovelace" size="sm" />
+        <Avatar name="Grace Hopper" size="md" />
+        <Avatar name="Alan Turing" size="lg" />
+      </Stack>
+    ),
+  },
+  {
+    slug: "switch",
+    title: "Switch",
+    description: "On/off toggle (role=switch) with controlled or uncontrolled state.",
+    importName: "Switch",
+    props: [
+      { name: "checked", type: "boolean", description: "On state (controlled)." },
+      { name: "defaultChecked", type: "boolean", description: "Initial on state (uncontrolled)." },
+      { name: "onChange", type: "(checked: boolean) => void", description: "Called when toggled." },
+      { name: "disabled", type: "boolean", description: "Disables the switch." },
+    ],
+    usage: `import { Switch } from "@arviahq/ui-react";
+
+<Switch defaultChecked onChange={(on) => console.log(on)} />`,
+    Preview: () => (
+      <Stack direction="row" gap="3" align="center">
+        <Switch defaultChecked />
+        <Switch />
+        <Switch disabled />
+      </Stack>
+    ),
+  },
+  {
+    slug: "checkbox",
+    title: "Checkbox",
+    description: "Boolean control (role=checkbox) with controlled or uncontrolled state.",
+    importName: "Checkbox",
+    props: [
+      { name: "checked", type: "boolean", description: "Checked state (controlled)." },
+      { name: "defaultChecked", type: "boolean", description: "Initial checked state (uncontrolled)." },
+      { name: "onChange", type: "(checked: boolean) => void", description: "Called when toggled." },
+      { name: "disabled", type: "boolean", description: "Disables the checkbox." },
+    ],
+    usage: `import { Checkbox } from "@arviahq/ui-react";
+
+<Checkbox defaultChecked onChange={(on) => console.log(on)} />`,
+    Preview: () => (
+      <Stack direction="row" gap="3" align="center">
+        <Checkbox defaultChecked />
+        <Checkbox />
+        <Checkbox disabled />
+      </Stack>
+    ),
+  },
+  {
+    slug: "tooltip",
+    title: "Tooltip",
+    description: "Hover/focus hint positioned above its trigger, with an accessible role=tooltip.",
+    importName: "Tooltip",
+    props: [
+      { name: "label", type: "ReactNode", description: "Content shown on hover/focus." },
+      { name: "children", type: "ReactNode", description: "The trigger element." },
+    ],
+    usage: `import { Tooltip, Button } from "@arviahq/ui-react";
+
+<Tooltip label="Saves your changes">
+  <Button>Save</Button>
+</Tooltip>`,
+    Preview: () => (
+      <Tooltip label="This is a tooltip">
+        <Button tone="secondary">Hover or focus me</Button>
+      </Tooltip>
+    ),
+  },
+  {
+    slug: "alert",
+    title: "Alert",
+    description: "Inline status message with info, success, warning, and danger tones.",
+    importName: "Alert",
+    props: [
+      { name: "tone", type: '"info" | "success" | "warning" | "danger"', default: '"info"', description: "Semantic tone (sets icon + accent)." },
+      { name: "title", type: "ReactNode", description: "Heading line." },
+      { name: "icon", type: "ReactNode", description: "Override the default tone icon." },
+      { name: "children", type: "ReactNode", description: "Body content." },
+    ],
+    usage: `import { Alert } from "@arviahq/ui-react";
+
+<Alert tone="success" title="Saved">Your changes are live.</Alert>`,
+    Preview: () => (
+      <Stack gap="2" style={{ width: 380 }}>
+        <Alert tone="info" title="Heads up">Styles compile at build time.</Alert>
+        <Alert tone="success" title="Saved">Your changes are live.</Alert>
+      </Stack>
+    ),
+    Examples: () => (
+      <LivePreview label="Tones">
+        <Stack gap="2" style={{ width: 380 }}>
+          <Alert tone="warning" title="Careful">This can&rsquo;t be undone.</Alert>
+          <Alert tone="danger" title="Error">Something went wrong.</Alert>
         </Stack>
       </LivePreview>
     ),

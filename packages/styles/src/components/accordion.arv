@@ -1,0 +1,77 @@
+// Accordion: stacked disclosure sections. Slots applied by the React compound parts.
+
+component Accordion {
+  base {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid color.border;
+    border-radius: radius.lg;
+    overflow: hidden;
+
+    item {
+      border-bottom: 1px solid color.border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    trigger {
+      appearance: none;
+      border: none;
+      background: transparent;
+      font: inherit;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: space.3;
+      padding: space.4;
+      text-align: left;
+      font-size: font.md;
+      font-weight: 600;
+      color: color.text;
+      cursor: pointer;
+      transition: background-color duration.fast easing.default, color duration.fast easing.default;
+
+      &:hover {
+        background: color-mix(in srgb, color.text 4%, transparent);
+      }
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: -2px;
+      }
+
+      &[data-state="open"] {
+        color: color.primary;
+      }
+    }
+
+    icon {
+      flex-shrink: 0;
+      color: color.subtle;
+      transition: transform duration.normal easing.out;
+
+      &[data-state="open"] {
+        transform: rotate(180deg);
+        color: color.primary;
+      }
+    }
+
+    content {
+      padding: space.2 space.4 space.4;
+      color: color.muted;
+      font-size: font.sm;
+      line-height: 1.6;
+    }
+  }
+
+  slots {
+    root {}
+    item {}
+    trigger {}
+    icon {}
+    content {}
+  }
+}

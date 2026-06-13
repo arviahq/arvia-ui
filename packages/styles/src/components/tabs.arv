@@ -1,0 +1,65 @@
+// Tabs: multi-part tabbed interface. Slots are applied by the React compound parts.
+
+component Tabs {
+  base {
+    display: flex;
+    flex-direction: column;
+    gap: space.4;
+
+    list {
+      display: inline-flex;
+      gap: space.1;
+      border-bottom: 1px solid color.border;
+    }
+
+    tab {
+      appearance: none;
+      border: none;
+      background: transparent;
+      font: inherit;
+      font-size: font.sm;
+      font-weight: 500;
+      color: color.muted;
+      padding: space.2 space.3;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color duration.fast easing.default, border-color duration.fast easing.default;
+
+      &:hover {
+        color: color.text;
+      }
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 2px;
+        border-radius: radius.sm;
+      }
+
+      &[data-state="active"] {
+        color: color.primary;
+        border-bottom-color: color.primary;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    panel {
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 2px;
+        border-radius: radius.sm;
+      }
+    }
+  }
+
+  slots {
+    root {}
+    list {}
+    tab {}
+    panel {}
+  }
+}
