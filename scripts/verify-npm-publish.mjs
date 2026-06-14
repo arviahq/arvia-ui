@@ -13,7 +13,7 @@ try {
   username = run("npm whoami");
 } catch {
   console.error(
-    "::error::NPM_TOKEN is missing or invalid. Add an npm automation token to GitHub repository variables as NPM_TOKEN.",
+    "::error::NPM_TOKEN is missing or invalid. Add an npm automation token to GitHub repository secrets as NPM_TOKEN.",
   );
   process.exit(1);
 }

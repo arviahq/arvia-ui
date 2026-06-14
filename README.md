@@ -85,7 +85,7 @@ Releases use [Changesets](https://github.com/changesets/changesets) via [`.githu
 
 1. GitHub → Settings → Actions → General → enable **Read and write permissions** and **Allow GitHub Actions to create pull requests**.
 2. Create the npm organization **[`@arvia-ui`](https://www.npmjs.com/org/create)**.
-3. Add an npm **automation token** with publish access to `@arvia-ui/*` as the repository variable **`NPM_TOKEN`** (Settings → Secrets and variables → Actions → Variables).
+3. Add an npm **automation token** with publish access to `@arvia-ui/*` as the repository secret **`NPM_TOKEN`** (Settings → Secrets and variables → Actions → Secrets).
 
 To include a release note with your change:
 
