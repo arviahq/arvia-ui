@@ -1,29 +1,31 @@
 # arvia-ui
 
-Beautiful, crafted UI components built on [Arvia](https://github.com/arviahq/arvia). Styles live in shared `.arv` files; each framework package adds thin wrappers for semantics, accessibility, and composition.
+Beautiful, crafted React components built on [Arvia](https://github.com/arviahq/arvia).
 
-```bash
-pnpm install
-pnpm website
-```
+Styles live in shared `.arv` files and compile to static CSS at publish time. The React package adds thin wrappers for semantics, accessibility, and composition — so you get typed variants and production-ready UI without a runtime styling engine.
 
-Website dev server: [http://localhost:5173](http://localhost:5173)  
-Storybook: `pnpm storybook` → [http://localhost:6007](http://localhost:6007)
+[![CI](https://github.com/arviahq/arvia-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/arviahq/arvia-ui/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@arvia-ui/react)](https://www.npmjs.com/package/@arvia-ui/react)
+[![license](https://img.shields.io/npm/l/@arvia-ui/react)](https://github.com/arviahq/arvia-ui/blob/main/LICENSE)
 
-## Packages
+## Features
 
-| Package                 | Import               | Status                           |
-| ----------------------- | -------------------- | -------------------------------- |
-| `@arvia-ui/core-styles` | internal             | Shared `.arv` theme + components |
-| `@arvia-ui/react`       | `@arvia-ui/react`    | React 18+ (v0.1)                 |
-| `@arviahq/ui-vue`       | `@arviahq/ui-vue`    | Planned                          |
-| `@arviahq/ui-preact`    | `@arviahq/ui-preact` | Planned                          |
+- **Zero-config install** — `npm install @arvia-ui/react` and import. Styles bundle automatically; no Vite plugin, no theme import, no `vite.config.ts` changes.
+- **Compile-time CSS** — variants, states, and responsive rules compile from `.arv` to a single stylesheet. No CSS-in-JS, no style recalculation in the browser.
+- **Fully typed** — every variant prop is a string union. Autocomplete tones, sizes, and states at compile time.
+- **Light & dark modes** — both ship in the CSS. `setTheme("dark")` flips a data attribute; every component follows.
+- **Accessible defaults** — semantic HTML, forwarded refs, focus rings, keyboard navigation, and ARIA wiring where it matters.
+- **Themeable** — override `--arvia-*` CSS variables globally or per subtree. No library API required.
 
-## Usage (React)
+## Install
 
 ```bash
 npm install @arvia-ui/react
 ```
+
+React 18+ is the only peer dependency. Works with any bundler.
+
+## Quick start
 
 ```tsx
 import { Button, Stack, Text } from "@arvia-ui/react";
@@ -38,22 +40,22 @@ export function App() {
 }
 ```
 
-That is all. Styles are pre-compiled and bundled into the package — importing any
-component pulls in the CSS automatically (via `sideEffects`). No Vite plugin, no
-`vite.config.ts` change, no theme import. React 18+ is the only peer dependency.
+Importing any component pulls in the pre-compiled CSS via `sideEffects` — you do not need a separate stylesheet import.
 
-Switch theme modes at runtime:
+### Theme modes
 
 ```tsx
 import { setTheme } from "@arvia-ui/react";
 
-setTheme("dark"); // sets data-arvia-theme on <html>; light/dark CSS is already bundled
+setTheme("dark"); // sets data-arvia-theme on <html>
+setTheme("light");
 ```
+
+If you never call `setTheme`, dark mode follows the OS `prefers-color-scheme` preference.
 
 ### Customizing tokens
 
-Override the bundled palette by reassigning `--arvia-*` CSS variables. Import your
-stylesheet after `@arvia-ui/react` so your values win:
+Reassign `--arvia-*` CSS variables. Import your override stylesheet **after** `@arvia-ui/react`:
 
 ```css
 /* brand.css */
@@ -69,59 +71,106 @@ stylesheet after `@arvia-ui/react` so your values win:
 }
 ```
 
-Set variables on any wrapper to scope overrides to a subtree. See the **Theming** docs
-(`pnpm website` → `/docs/theming`) for scoped islands, the full token reference, and
-interaction with `setTheme`.
+Variables inherit — set them on any wrapper to rebrand a subtree. The docs site covers scoped islands, the full token reference, and `setTheme` interaction (`pnpm website` → `/docs/theming`).
 
-### Advanced: fork the theme
+## Components
 
-To author your own `.arv` components or fork the theme tokens, compile `.arv` at
-build time with [`@arviahq/vite-plugin-react`](https://github.com/arviahq/arvia).
-This is for design-system authors — it is **not** required to use arvia-ui.
+**Layout:** Box, Stack, Text, Heading
 
-## v0.1 components
+**Actions & navigation:** Button, Link, Badge, Breadcrumb, Menu
 
-**Primitives:** Box, Stack, Text, Heading
+**Forms:** Input, Checkbox, CheckboxGroup, RadioGroup, Switch, Select, Slider
 
-**Components:** Button, Badge, Link, Card, Input, Divider, Spinner
+**Feedback:** Alert, Spinner, Progress, ProgressCircle, Skeleton, Toast
 
-## Repo layout
+**Overlays:** Dialog, Popover, Tooltip, Tabs, Accordion
+
+**Display:** Card, Avatar, Divider
+
+Every component has live previews, interactive playgrounds, and a full props reference in the docs site.
+
+## Packages
+
+| Package | npm | Description |
+| --- | --- | --- |
+| `@arvia-ui/react` | [`@arvia-ui/react`](https://www.npmjs.com/package/@arvia-ui/react) | React 18+ components + bundled CSS |
+| `@arvia-ui/core-styles` | internal | Shared `.arv` theme and component styles (compiled into `@arvia-ui/react` at publish time) |
+
+Future framework targets (`@arviahq/ui-vue`, `@arviahq/ui-preact`) will follow the same pattern.
+
+## How it works
+
+```
+.arv component styles  →  Arvia compiler  →  static CSS
+                              ↓
+                    @arvia-ui/react wrappers  →  your app
+```
+
+1. **`@arvia-ui/core-styles`** holds `theme.arv` (design tokens) and one `.arv` file per component (variants, slots, states, responsive rules).
+2. At publish time, Arvia compiles those files to CSS bundled in `@arvia-ui/react`.
+3. React components map props to generated class names. Dynamic theming uses CSS custom properties, not runtime style injection.
+
+To author your own `.arv` components or fork token definitions at build time, use [`@arviahq/vite-plugin-react`](https://github.com/arviahq/arvia). That path is for design-system authors — CSS variable overrides are the recommended way to rebrand an app.
+
+## Documentation
+
+Clone this repo and run the docs site:
+
+```bash
+pnpm install
+pnpm website        # http://localhost:5173
+pnpm storybook      # http://localhost:6007
+```
+
+Storybook lives in `packages/react`. The website in `apps/website` dogfoods `@arvia-ui/react` and hosts getting-started, theming, and per-component docs with live previews.
+
+## Development
+
+Requires Node ≥ 24 and pnpm 9.
+
+```bash
+git clone https://github.com/arviahq/arvia-ui.git
+cd arvia-ui
+pnpm install
+pnpm verify         # format, lint, typecheck, build
+```
+
+| Script | Description |
+| --- | --- |
+| `pnpm website` | Docs + marketing site |
+| `pnpm storybook` | Component stories |
+| `pnpm build` | Build all packages |
+| `pnpm verify` | Full CI check locally |
+| `pnpm changeset` | Add a changeset for release |
+
+### Repo layout
 
 ```
 arvia-ui/
   apps/
-    website/         # Marketing + docs site (dogfoods @arvia-ui/react)
+    website/           # Docs site
   packages/
-    core-styles/     # @arvia-ui/core-styles — shared theme.arv + components/*.arv
-    react/           # @arvia-ui/react — React wrappers + Storybook
-    ui-vue/          # (planned)
-    ui-preact/       # (planned)
+    core-styles/       # @arvia-ui/core-styles — theme.arv + components/*.arv
+    react/             # @arvia-ui/react — React wrappers + Storybook
 ```
 
-## CI and releases
+## Contributing
 
-Pull requests and pushes to `main` run [`.github/workflows/ci.yml`](.github/workflows/ci.yml): format check, lint, typecheck, and build.
+Issues and pull requests are welcome.
 
-Releases use [Changesets](https://github.com/changesets/changesets) via [`.github/workflows/release.yml`](.github/workflows/release.yml), matching [arviahq/arvia](https://github.com/arviahq/arvia). On push to `main`, the workflow verifies npm access, then opens a version PR or publishes when versions are bumped.
+1. Fork the repo and create a branch.
+2. Make your change and run `pnpm verify`.
+3. Add a changeset if your change should trigger a release: `pnpm changeset`.
+4. Open a PR with a clear description of what changed and why.
 
-**One-time setup for publishing:**
+CI runs on every push and PR: format check, lint, typecheck, and build ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
-1. GitHub → Settings → Actions → General → enable **Read and write permissions** and **Allow GitHub Actions to create pull requests**.
-2. Create the npm organization **[`@arvia-ui`](https://www.npmjs.com/org/create)**.
-3. Add an npm **automation token** with publish access to `@arvia-ui/*` as the repository secret **`NPM_TOKEN`** (Settings → Secrets and variables → Actions → Secrets).
+Releases use [Changesets](https://github.com/changesets/changesets) ([`.github/workflows/release.yml`](.github/workflows/release.yml)): merge version bumps on `main`, and packages publish to npm automatically.
 
-To include a release note with your change:
+## Related
 
-```bash
-pnpm changeset
-```
-
-Run the same checks locally with `pnpm verify`.
-
-## Related repos
-
-- [arviahq/arvia](https://github.com/arviahq/arvia) — the Arvia compiler and tooling
+- [arviahq/arvia](https://github.com/arviahq/arvia) — the Arvia compiler, Vite plugin, and language tooling
 
 ## License
 
-MIT
+[MIT](LICENSE)
