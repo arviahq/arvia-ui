@@ -50,6 +50,29 @@ import { setTheme } from "@arvia-ui/react";
 setTheme("dark"); // sets data-arvia-theme on <html>; light/dark CSS is already bundled
 ```
 
+### Customizing tokens
+
+Override the bundled palette by reassigning `--arvia-*` CSS variables. Import your
+stylesheet after `@arvia-ui/react` so your values win:
+
+```css
+/* brand.css */
+:root {
+  --arvia-color-primary: #4f46e5;
+  --arvia-color-primaryHover: #4338ca;
+  --arvia-color-focus: #4f46e5;
+}
+
+:root[data-arvia-theme="dark"] {
+  --arvia-color-primary: #635bff;
+  --arvia-color-primaryHover: #5249e6;
+}
+```
+
+Set variables on any wrapper to scope overrides to a subtree. See the **Theming** docs
+(`pnpm website` → `/docs/theming`) for scoped islands, the full token reference, and
+interaction with `setTheme`.
+
 ### Advanced: fork the theme
 
 To author your own `.arv` components or fork the theme tokens, compile `.arv` at
