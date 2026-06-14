@@ -1,6 +1,6 @@
 {
   "name": "@arvia-ui/core-styles",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "private": false,
   "description": "Shared Arvia style definitions for @arvia-ui/* framework packages.",
   "homepage": "https://github.com/arviahq/arvia-ui#readme",
