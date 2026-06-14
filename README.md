@@ -86,8 +86,11 @@ Releases use [Changesets](https://github.com/changesets/changesets) via [`.githu
 1. GitHub → Settings → Actions → General → enable **Read and write permissions** and **Allow GitHub Actions to create pull requests**.
 2. Create the npm organization **[`@arvia-ui`](https://www.npmjs.com/org/create)** (this scope must exist before the first publish).
 3. In the **`@arvia-ui` org settings** on npm → **Trusted Publishers** → add GitHub repository `arviahq/arvia-ui`, workflow file `release.yml`, branch `main`. Org-level trusted publishing is required for the first release; per-package publishers can be added later.
+4. Ensure npm CLI **≥ 11.5.1** in CI (the release workflow upgrades npm before publish).
 
-The release workflow uses npm OIDC (no `NPM_TOKEN` secret). A `404` on publish usually means the `@arvia-ui` org is missing or the trusted publisher is not configured at the org level.
+The release workflow uses npm OIDC (no `NPM_TOKEN` secret). `ENEEDAUTH` usually means trusted publishing is not configured, or `setup-node` is missing `registry-url`/`scope` for `@arvia-ui`. `404` usually means the `@arvia-ui` org does not exist yet.
+
+**Fallback:** add an `NPM_TOKEN` repository secret (automation token with publish access to `@arvia-ui`) if OIDC is not set up yet.
 
 To include a release note with your change:
 
