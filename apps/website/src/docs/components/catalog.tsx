@@ -16,6 +16,7 @@ import {
   Heading,
   IconButton,
   Input,
+  Otp,
   Textarea,
   Link,
   Spinner,
@@ -716,6 +717,82 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
             <Input placeholder="Default" />
             <Input placeholder="Disabled" disabled />
             <Input placeholder="Invalid" aria-invalid="true" />
+          </Stack>
+        </LivePreview>
+      </>
+    ),
+  },
+  {
+    slug: "otp",
+    title: "OTP",
+    description:
+      "One-time password input with individual digit cells, paste support, and keyboard navigation.",
+    importName: "Otp",
+    playground: { Component: Otp, args: { length: 6 } },
+    props: [
+      {
+        name: "length",
+        type: "number",
+        default: "6",
+        description: "Number of digit cells.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Cell dimensions and font size.",
+      },
+      { name: "value", type: "string", description: "OTP string value (controlled)." },
+      { name: "defaultValue", type: "string", description: "Initial OTP string (uncontrolled)." },
+      {
+        name: "onChange",
+        type: "(value: string) => void",
+        description: "Called when the value changes.",
+      },
+      {
+        name: "onComplete",
+        type: "(value: string) => void",
+        description: "Called when every cell is filled.",
+      },
+      {
+        name: "numeric",
+        type: "boolean",
+        default: "true",
+        description: "Restrict input to digits only.",
+      },
+      { name: "disabled", type: "boolean", description: "Disables all cells." },
+      { name: "invalid", type: "boolean", description: "Applies error styling to all cells." },
+      { name: "autoFocus", type: "boolean", description: "Focus the first cell on mount." },
+      {
+        name: "name",
+        type: "string",
+        description: "Hidden input name for native form submission.",
+      },
+      {
+        name: "aria-label",
+        type: "string",
+        default: '"One-time password"',
+        description: "Accessible label for the input group.",
+      },
+      { name: "className", type: "string", description: "Additional CSS class on the root." },
+    ],
+    usage: `import { Otp } from "@arvia-ui/react";
+
+<Otp length={6} autoFocus onComplete={(code) => verify(code)} />`,
+    Preview: () => <Otp length={6} defaultValue="123" />,
+    Examples: () => (
+      <>
+        <LivePreview label="Sizes">
+          <Stack gap="3">
+            <Otp length={4} size="sm" defaultValue="12" />
+            <Otp length={4} size="md" defaultValue="12" />
+            <Otp length={4} size="lg" defaultValue="12" />
+          </Stack>
+        </LivePreview>
+        <LivePreview label="States">
+          <Stack gap="3">
+            <Otp length={4} defaultValue="1234" disabled />
+            <Otp length={4} defaultValue="1234" invalid />
           </Stack>
         </LivePreview>
       </>

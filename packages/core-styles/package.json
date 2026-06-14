@@ -88,6 +88,10 @@
       "types": "./.arvia/types/components/input.arv.d.ts",
       "default": "./src/components/input.arv"
     },
+    "./components/otp.arv": {
+      "types": "./.arvia/types/components/otp.arv.d.ts",
+      "default": "./src/components/otp.arv"
+    },
     "./components/link.arv": {
       "types": "./.arvia/types/components/link.arv.d.ts",
       "default": "./src/components/link.arv"
