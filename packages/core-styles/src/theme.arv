@@ -108,38 +108,38 @@ theme {
     xl = 1280px;
   }
 
-  container {
+  container-size {
     narrow = 320px;
     wide = 560px;
   }
 }
 
-keyframes spin {
+@keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-keyframes pulse {
+@keyframes pulse {
   from { opacity: 1; }
   to { opacity: 0.4; }
 }
 
-keyframes toastIn {
+@keyframes toastIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-keyframes drawerInRight {
+@keyframes drawerInRight {
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
 }
 
-keyframes drawerInLeft {
+@keyframes drawerInLeft {
   from { transform: translateX(-100%); }
   to { transform: translateX(0); }
 }
 
-keyframes drawerInBottom {
+@keyframes drawerInBottom {
   from { transform: translateY(100%); }
   to { transform: translateY(0); }
 }

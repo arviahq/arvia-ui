@@ -12,7 +12,7 @@ export function SiteNav(props: { theme: "light" | "dark"; onThemeToggle: () => v
     <header className={header.root}>
       <div className={header.inner}>
         <RouterLink to="/" className={header.brand}>
-          <img src="/logo.svg" alt="" width={26} height={26} aria-hidden />
+          <img src="/logo.svg" alt="" width={28} height={28} aria-hidden />
           <span className={header.brandText}>arvia-ui</span>
         </RouterLink>
 

@@ -10,7 +10,7 @@ component Skeleton {
   variants {
     animated {
       yes {
-        animation: keyframes.pulse 1.4s ease-in-out infinite alternate;
+        animation: pulse 1.4s ease-in-out infinite alternate;
       }
       no {
         animation: none;

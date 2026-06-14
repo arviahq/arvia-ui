@@ -26,7 +26,7 @@ component Toast {
       border: 1px solid color.border;
       box-shadow: shadow.lg;
       color: color.muted;
-      animation: keyframes.toastIn duration.normal easing.out;
+      animation: toastIn duration.normal easing.out;
 
       &[data-tone="info"] { color: color.primary; }
       &[data-tone="success"] { color: color.success; }

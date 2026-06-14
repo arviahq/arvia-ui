@@ -108,7 +108,7 @@ component Drawer {
           border-top: none;
           border-bottom: none;
           border-right: none;
-          animation: keyframes.drawerInRight duration.normal easing.out;
+          animation: drawerInRight duration.normal easing.out;
         }
       }
 
@@ -124,7 +124,7 @@ component Drawer {
           border-top: none;
           border-bottom: none;
           border-left: none;
-          animation: keyframes.drawerInLeft duration.normal easing.out;
+          animation: drawerInLeft duration.normal easing.out;
         }
       }
 
@@ -140,7 +140,7 @@ component Drawer {
           border-bottom: none;
           border-left: none;
           border-right: none;
-          animation: keyframes.drawerInBottom duration.normal easing.out;
+          animation: drawerInBottom duration.normal easing.out;
         }
       }
     }
