@@ -5,10 +5,10 @@ theme {
   modes: light | dark;
 
   color {
-    primary = #0f766e doc "Brand primary — actions and emphasis";
-    primaryHover = #0d9488;
-    primarySubtle = #ccfbf1;
-    accent = #d97706 doc "Secondary accent";
+    primary = #4f46e5 doc "Brand primary — actions and emphasis";
+    primaryHover = #4338ca;
+    primarySubtle = #eef2ff;
+    accent = #4f46e5 doc "Secondary accent";
     danger = #dc2626 doc "Destructive actions";
     dangerHover = #b91c1c;
     dangerSubtle = #fee2e2;
@@ -16,32 +16,33 @@ theme {
     successSubtle = #dcfce7;
     warning = #ca8a04 doc "Caution states";
     warningSubtle = #fef9c3;
-    text = #1c1917;
-    muted = #78716c;
-    subtle = #a8a29e;
+    text = #0a0a0b;
+    muted = #52525b;
+    subtle = #a1a1aa;
     surface = #ffffff;
-    surfaceRaised = #fafaf9;
-    background = #f5f5f4;
-    border = #e7e5e4;
-    borderStrong = #d6d3d1;
-    focus = #0f766e;
+    surfaceRaised = #fafafa;
+    background = #f4f4f5;
+    border = #e4e4e7;
+    borderStrong = #d4d4d8;
+    focus = #4f46e5;
 
     @dark {
-      primary = #2dd4bf;
-      primaryHover = #5eead4;
-      primarySubtle = #134e4a;
+      primary = #635bff;
+      primaryHover = #5249e6;
+      primarySubtle = #1e1b4b;
+      accent = #635bff;
       dangerSubtle = #450a0a;
       successSubtle = #14532d;
       warningSubtle = #422006;
-      text = #fafaf9;
-      muted = #a8a29e;
-      subtle = #78716c;
-      surface = #1c1917;
-      surfaceRaised = #292524;
-      background = #0c0a09;
-      border = #292524;
-      borderStrong = #44403c;
-      focus = #2dd4bf;
+      text = #fafafa;
+      muted = #a1a1aa;
+      subtle = #71717a;
+      surface = #111113;
+      surfaceRaised = #18181b;
+      background = #09090b;
+      border = #27272a;
+      borderStrong = #3f3f46;
+      focus = #635bff;
     }
   }
 
@@ -77,9 +78,9 @@ theme {
   }
 
   shadow {
-    sm = 0 1px 2px rgba(28, 25, 23, 0.05);
-    md = 0 4px 12px rgba(28, 25, 23, 0.08);
-    lg = 0 8px 24px rgba(28, 25, 23, 0.12);
+    sm = 0 1px 2px rgba(10, 10, 11, 0.05);
+    md = 0 4px 12px rgba(10, 10, 11, 0.08);
+    lg = 0 8px 24px rgba(10, 10, 11, 0.12);
 
     // Near-black, stronger shadows so elevation reads on dark surfaces.
     @dark {

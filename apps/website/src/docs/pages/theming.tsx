@@ -24,7 +24,7 @@ export function ThemingPage() {
     <DocProse>
       <DocHeader {...themingMeta} />
       <DocP>
-        arvia-ui ships with a warm teal and stone palette defined in{" "}
+        arvia-ui ships with an indigo and zinc palette defined in{" "}
         <DocCode>@arvia-ui/core-styles</DocCode>. The theme supports <strong>light</strong> and{" "}
         <strong>dark</strong> modes out of the box.
       </DocP>
@@ -112,8 +112,7 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
 }`}</DocPre>
       <DocP>
         For a color that should be the same in both modes, just assign it plainly — no{" "}
-        <DocCode>light-dark()</DocCode> needed. This docs site uses the same pattern in{" "}
-        <DocCode>site-theme.css</DocCode> to remap the default teal palette to indigo/zinc.
+        <DocCode>light-dark()</DocCode> needed.
       </DocP>
       <DocH2>Scoped overrides</DocH2>
       <DocP>

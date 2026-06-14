@@ -1,6 +1,6 @@
 // Site-specific layout styles layered on @arvia-ui/core-styles tokens.
 // Marketing chrome (nav, hero, features, footer) mirrors arvia.dev's look;
-// the indigo/zinc palette comes from site-theme.css (website-only override).
+// the indigo/zinc palette comes from @arvia-ui/core-styles theme tokens.
 
 component SitePage {
   base {

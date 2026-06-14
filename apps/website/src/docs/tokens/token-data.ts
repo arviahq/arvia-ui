@@ -26,13 +26,13 @@ export type SimpleTokenDef = {
 export const COLOR_TOKENS: ColorTokenDef[] = [
   {
     name: "primary",
-    light: "#0f766e",
-    dark: "#2dd4bf",
+    light: "#4f46e5",
+    dark: "#635bff",
     description: "Brand primary — actions and emphasis",
   },
-  { name: "primaryHover", light: "#0d9488", dark: "#5eead4" },
-  { name: "primarySubtle", light: "#ccfbf1", dark: "#134e4a" },
-  { name: "accent", light: "#d97706", dark: "#d97706", description: "Secondary accent" },
+  { name: "primaryHover", light: "#4338ca", dark: "#5249e6" },
+  { name: "primarySubtle", light: "#eef2ff", dark: "#1e1b4b" },
+  { name: "accent", light: "#4f46e5", dark: "#635bff", description: "Secondary accent" },
   { name: "danger", light: "#dc2626", dark: "#dc2626", description: "Destructive actions" },
   { name: "dangerHover", light: "#b91c1c", dark: "#b91c1c" },
   { name: "dangerSubtle", light: "#fee2e2", dark: "#450a0a" },
@@ -40,15 +40,15 @@ export const COLOR_TOKENS: ColorTokenDef[] = [
   { name: "successSubtle", light: "#dcfce7", dark: "#14532d" },
   { name: "warning", light: "#ca8a04", dark: "#ca8a04", description: "Caution states" },
   { name: "warningSubtle", light: "#fef9c3", dark: "#422006" },
-  { name: "text", light: "#1c1917", dark: "#fafaf9" },
-  { name: "muted", light: "#78716c", dark: "#a8a29e" },
-  { name: "subtle", light: "#a8a29e", dark: "#78716c" },
-  { name: "surface", light: "#ffffff", dark: "#1c1917" },
-  { name: "surfaceRaised", light: "#fafaf9", dark: "#292524" },
-  { name: "background", light: "#f5f5f4", dark: "#0c0a09" },
-  { name: "border", light: "#e7e5e4", dark: "#292524" },
-  { name: "borderStrong", light: "#d6d3d1", dark: "#44403c" },
-  { name: "focus", light: "#0f766e", dark: "#2dd4bf" },
+  { name: "text", light: "#0a0a0b", dark: "#fafafa" },
+  { name: "muted", light: "#52525b", dark: "#a1a1aa" },
+  { name: "subtle", light: "#a1a1aa", dark: "#71717a" },
+  { name: "surface", light: "#ffffff", dark: "#111113" },
+  { name: "surfaceRaised", light: "#fafafa", dark: "#18181b" },
+  { name: "background", light: "#f4f4f5", dark: "#09090b" },
+  { name: "border", light: "#e4e4e7", dark: "#27272a" },
+  { name: "borderStrong", light: "#d4d4d8", dark: "#3f3f46" },
+  { name: "focus", light: "#4f46e5", dark: "#635bff" },
 ];
 
 export const SPACE_TOKENS: ScaleTokenDef[] = [
@@ -85,17 +85,17 @@ export const FONT_TOKENS: ScaleTokenDef[] = [
 export const SHADOW_TOKENS: ShadowTokenDef[] = [
   {
     name: "sm",
-    light: "0 1px 2px rgba(28, 25, 23, 0.05)",
+    light: "0 1px 2px rgba(10, 10, 11, 0.05)",
     dark: "0 1px 2px rgba(0, 0, 0, 0.45)",
   },
   {
     name: "md",
-    light: "0 4px 12px rgba(28, 25, 23, 0.08)",
+    light: "0 4px 12px rgba(10, 10, 11, 0.08)",
     dark: "0 6px 16px rgba(0, 0, 0, 0.55)",
   },
   {
     name: "lg",
-    light: "0 8px 24px rgba(28, 25, 23, 0.12)",
+    light: "0 8px 24px rgba(10, 10, 11, 0.12)",
     dark: "0 12px 32px rgba(0, 0, 0, 0.65)",
   },
 ];

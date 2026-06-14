@@ -28,7 +28,7 @@ const CATEGORIES: { id: Category; label: string }[] = [
 
 const CATEGORY_NOTES: Partial<Record<Category, string>> = {
   color:
-    "Default package palette (teal & stone). Mode-varying tokens compile to light-dark() on :root.",
+    "Default package palette (indigo & zinc). Mode-varying tokens compile to light-dark() on :root.",
   shadow: "Shadow values differ in dark mode for stronger elevation on dark surfaces.",
 };
 
