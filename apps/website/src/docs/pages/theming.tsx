@@ -29,24 +29,41 @@ export function ThemingPage() {
       </DocP>
       <DocH2>How modes work</DocH2>
       <DocP>
-        Arvia compiles mode-aware tokens to CSS variables. Set <DocCode>data-arvia-theme</DocCode>{" "}
-        on <DocCode>&lt;html&gt;</DocCode> to pick the active mode:
+        Theming is <strong>pure native CSS — there is no JavaScript runtime to ship</strong>. Arvia
+        compiles mode-aware color tokens to a single{" "}
+        <DocCode>light-dark(lightValue, darkValue)</DocCode> declaration on <DocCode>:root</DocCode>
+        , and sets <DocCode>color-scheme</DocCode> to drive it. Native UA widgets — scrollbars, form
+        controls, focus rings — follow the active scheme too.
+      </DocP>
+      <DocP>
+        With no further setup the theme follows the OS: <DocCode>:root</DocCode> declares{" "}
+        <DocCode>color-scheme: light dark</DocCode>, so <DocCode>light-dark()</DocCode> resolves to
+        the user&apos;s system preference automatically.
+      </DocP>
+      <DocP>
+        To pin or toggle the mode, set <DocCode>data-arvia-theme</DocCode> on{" "}
+        <DocCode>&lt;html&gt;</DocCode> — it flips <DocCode>color-scheme</DocCode>, which flips
+        every <DocCode>light-dark()</DocCode> color:
       </DocP>
       <DocPre>{`<html data-arvia-theme="dark">`}</DocPre>
+      <DocH2>Switching at runtime</DocH2>
       <DocP>
-        If you do not set the attribute, the OS <DocCode>prefers-color-scheme: dark</DocCode> media
-        query applies dark defaults on <DocCode>:root</DocCode> automatically.
+        There is no library helper — set the attribute yourself. It is one native DOM call:
       </DocP>
-      <DocH2>setTheme helper</DocH2>
+      <DocPre>{`function setTheme(mode /* "light" | "dark" */) {
+  document.documentElement.setAttribute("data-arvia-theme", mode);
+}`}</DocPre>
       <DocP>
-        <DocCode>@arvia-ui/react</DocCode> exports <DocCode>setTheme(mode)</DocCode> which updates
-        the attribute on <DocCode>&lt;html&gt;</DocCode> for you:
+        To persist a choice without a flash of the wrong theme, apply it before first paint with a
+        tiny inline script in your HTML <DocCode>&lt;head&gt;</DocCode>:
       </DocP>
-      <DocPre>{`import { setTheme } from "@arvia-ui/react";
-
-setTheme("dark");
-setTheme("light");`}</DocPre>
-      <DocP>This site uses the same helper — try the theme toggle in the nav bar.</DocP>
+      <DocPre lang="html">{`<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-arvia-theme", t);
+  } catch (e) {}
+</script>`}</DocPre>
+      <DocP>This site does exactly that — try the theme toggle in the nav bar.</DocP>
       <DocH2>Semantic tokens</DocH2>
       <DocUl>
         <DocLi>
@@ -81,27 +98,21 @@ import { Button } from "@arvia-ui/react";
 import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
       <DocH2>Global brand overrides</DocH2>
       <DocP>
-        Set variables on <DocCode>:root</DocCode> to rebrand the entire app. Target{" "}
-        <DocCode>:root[data-arvia-theme="dark"]</DocCode> when using <DocCode>setTheme</DocCode> so
-        dark-mode overrides apply when the user switches modes:
+        Reassign variables on <DocCode>:root</DocCode> to rebrand the entire app. Wrap mode-varying
+        colors in <DocCode>light-dark()</DocCode> so a single declaration stays correct in both
+        modes — including OS-driven dark, where no attribute is set:
       </DocP>
       <DocPre lang="css">{`/* brand.css — import after @arvia-ui/react */
 :root {
-  --arvia-color-primary: #4f46e5;
-  --arvia-color-primaryHover: #4338ca;
-  --arvia-color-primarySubtle: #eef2ff;
-  --arvia-color-focus: #4f46e5;
-}
-
-:root[data-arvia-theme="dark"] {
-  --arvia-color-primary: #635bff;
-  --arvia-color-primaryHover: #5249e6;
-  --arvia-color-primarySubtle: #1e1b4b;
-  --arvia-color-focus: #635bff;
+  --arvia-color-primary: light-dark(#4f46e5, #635bff);
+  --arvia-color-primaryHover: light-dark(#4338ca, #5249e6);
+  --arvia-color-primarySubtle: light-dark(#eef2ff, #1e1b4b);
+  --arvia-color-focus: light-dark(#4f46e5, #635bff);
 }`}</DocPre>
       <DocP>
-        This docs site uses the same pattern in <DocCode>site-theme.css</DocCode> to remap the
-        default teal palette to indigo/zinc.
+        For a color that should be the same in both modes, just assign it plainly — no{" "}
+        <DocCode>light-dark()</DocCode> needed. This docs site uses the same pattern in{" "}
+        <DocCode>site-theme.css</DocCode> to remap the default teal palette to indigo/zinc.
       </DocP>
       <DocH2>Scoped overrides</DocH2>
       <DocP>
@@ -116,9 +127,10 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
 }`}</DocPre>
       <DocH3>Independent light/dark island</DocH3>
       <DocP>
-        Compiled selectors <DocCode>[data-arvia-theme="light"]</DocCode> and{" "}
-        <DocCode>[data-arvia-theme="dark"]</DocCode> match <strong>any element</strong>, not just{" "}
-        <DocCode>&lt;html&gt;</DocCode>. A dark app can contain a light island (and vice versa):
+        The attribute sets <DocCode>color-scheme</DocCode> on whatever element carries it — not just{" "}
+        <DocCode>&lt;html&gt;</DocCode>. Because <DocCode>color-scheme</DocCode> and{" "}
+        <DocCode>light-dark()</DocCode> inherit, a dark app can contain a light island (and vice
+        versa) with no extra CSS:
       </DocP>
       <DocPre>{`<div data-arvia-theme="light" class="preview-pane">
   <Button tone="primary">Always light tokens</Button>
@@ -130,21 +142,29 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
   --arvia-color-primary: #635bff;
   --arvia-color-primaryHover: #5249e6;
 }`}</DocPre>
-      <DocH2>Interaction with setTheme</DocH2>
+      <DocH2>Things to know</DocH2>
       <DocUl>
         <DocLi>
-          <DocCode>setTheme("dark")</DocCode> sets <DocCode>data-arvia-theme</DocCode> on{" "}
-          <DocCode>&lt;html&gt;</DocCode> — global dark overrides should target{" "}
-          <DocCode>:root[data-arvia-theme="dark"]</DocCode>
+          Setting <DocCode>data-arvia-theme</DocCode> flips <DocCode>color-scheme</DocCode>, which
+          switches every <DocCode>light-dark()</DocCode> color and themes native UA widgets — no
+          JavaScript from the library is involved
+        </DocLi>
+        <DocLi>
+          Global dark-only overrides can target <DocCode>:root[data-arvia-theme="dark"]</DocCode>,
+          but prefer a single <DocCode>light-dark()</DocCode> declaration so it also covers
+          OS-driven dark
         </DocLi>
         <DocLi>
           Scoped sections with their own <DocCode>data-arvia-theme</DocCode> are independent of the
-          global mode set by <DocCode>setTheme</DocCode>
+          global mode
         </DocLi>
         <DocLi>
-          Without <DocCode>setTheme</DocCode>, rely on <DocCode>:root</DocCode> overrides for light
-          and let the OS dark preference apply the bundled dark defaults, or add a{" "}
-          <DocCode>@media (prefers-color-scheme: dark)</DocCode> block in your override stylesheet
+          With no attribute set anywhere, the OS preference drives everything via{" "}
+          <DocCode>color-scheme: light dark</DocCode> on <DocCode>:root</DocCode>
+        </DocLi>
+        <DocLi>
+          <DocCode>light-dark()</DocCode> and <DocCode>color-scheme</DocCode> are Baseline 2024
+          (Chrome&nbsp;123+, Safari&nbsp;17.5+, Firefox&nbsp;120+)
         </DocLi>
       </DocUl>
       <DocH2>Using tokens in custom CSS</DocH2>

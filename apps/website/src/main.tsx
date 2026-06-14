@@ -5,8 +5,7 @@ import "./code.css";
 import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { setTheme } from "@arvia-ui/react";
-import { getStoredTheme } from "./preferences";
+import { applyTheme, getStoredTheme } from "./preferences";
 import { routeTree } from "./routeTree.gen";
 
 const router = createRouter({ routeTree });
@@ -21,7 +20,8 @@ function Root() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setTheme(getStoredTheme() ?? "light");
+    const stored = getStoredTheme();
+    if (stored) applyTheme(stored); // else fall through to OS color-scheme
     setReady(true);
   }, []);
 

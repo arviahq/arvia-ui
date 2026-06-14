@@ -36,14 +36,15 @@ export function App() {
 }`}</DocPre>
       <DocH2>Theme modes</DocH2>
       <DocP>
-        Both light and dark CSS are baked into the package. Switch at runtime with{" "}
-        <DocCode>setTheme</DocCode>, which sets <DocCode>data-arvia-theme</DocCode> on{" "}
-        <DocCode>&lt;html&gt;</DocCode>:
+        Both modes are baked into the CSS as native <DocCode>light-dark()</DocCode> tokens — no
+        JavaScript runtime. By default the theme follows the OS. To pin or toggle it, set{" "}
+        <DocCode>data-arvia-theme</DocCode> on <DocCode>&lt;html&gt;</DocCode> (one native DOM
+        call):
       </DocP>
-      <DocPre>{`import { setTheme } from "@arvia-ui/react";
-
-setTheme("dark");
-setTheme("light");`}</DocPre>
+      <DocPre>{`document.documentElement.setAttribute("data-arvia-theme", "dark");`}</DocPre>
+      <DocP>
+        See <DocCode>Theming</DocCode> for persistence, scoped islands, and brand overrides.
+      </DocP>
       <DocH3>Advanced: fork the theme</DocH3>
       <DocP>
         To author your own <DocCode>.arv</DocCode> components or fork the theme tokens, compile{" "}

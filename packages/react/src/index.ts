@@ -56,5 +56,3 @@ export {
 } from "./Menu";
 export { Select, type SelectProps, type SelectOptionProps } from "./Select";
 export { ToastProvider, useToast, type ToastOptions, type ToastTone } from "./Toast";
-
-export { setTheme } from "./arvia-theme";
