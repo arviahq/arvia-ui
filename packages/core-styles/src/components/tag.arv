@@ -1,0 +1,100 @@
+// Tag: compact removable chip for categories, filters, and selections.
+
+component Tag {
+  base {
+    display: inline-flex;
+    align-items: center;
+    gap: space.1;
+    border-radius: radius.md;
+    font-size: font.xs;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+
+    label {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    remove {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: none;
+      background: transparent;
+      color: inherit;
+      opacity: 0.65;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 1px;
+      border-radius: radius.sm;
+      transition: opacity duration.fast easing.default, background-color duration.fast easing.default;
+
+      &:hover {
+        opacity: 1;
+        background: color-mix(in srgb, currentColor 12%, transparent);
+      }
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 1px;
+        opacity: 1;
+      }
+    }
+  }
+
+  variants {
+    tone {
+      neutral {
+        background: color.surface;
+        color: color.text;
+        border: 1px solid color.borderStrong;
+      }
+      primary {
+        background: color.primarySubtle;
+        color: color.primary;
+        border: 1px solid color-mix(in srgb, color.primary 20%, transparent);
+      }
+      success {
+        background: color.successSubtle;
+        color: color.success;
+        border: 1px solid color-mix(in srgb, color.success 20%, transparent);
+      }
+      warning {
+        background: color.warningSubtle;
+        color: color.warning;
+        border: 1px solid color-mix(in srgb, color.warning 20%, transparent);
+      }
+      danger {
+        background: color.dangerSubtle;
+        color: color.danger;
+        border: 1px solid color-mix(in srgb, color.danger 20%, transparent);
+      }
+    }
+
+    size {
+      sm {
+        font-size: 11px;
+        padding: 2px space.2;
+        min-height: 22px;
+      }
+      md {
+        font-size: font.xs;
+        padding: 3px space.2;
+        min-height: 26px;
+      }
+    }
+  }
+
+  defaults {
+    tone: neutral;
+    size: md;
+  }
+
+  slots {
+    root;
+    label;
+    remove;
+  }
+}

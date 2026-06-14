@@ -108,6 +108,10 @@
       "types": "./.arvia/types/components/tabs.arv.d.ts",
       "default": "./src/components/tabs.arv"
     },
+    "./components/tag.arv": {
+      "types": "./.arvia/types/components/tag.arv.d.ts",
+      "default": "./src/components/tag.arv"
+    },
     "./components/text.arv": {
       "types": "./.arvia/types/components/text.arv.d.ts",
       "default": "./src/components/text.arv"

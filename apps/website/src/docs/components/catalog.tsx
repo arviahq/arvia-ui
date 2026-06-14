@@ -3,6 +3,7 @@ import {
   Alert,
   Avatar,
   Badge,
+  Tag,
   Box,
   Button,
   Card,
@@ -293,6 +294,65 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           <Badge tone="danger">Danger</Badge>
         </Stack>
       </LivePreview>
+    ),
+  },
+  {
+    slug: "tag",
+    title: "Tag",
+    description:
+      "Compact chip for categories and filters, with optional remove button and semantic tone variants.",
+    importName: "Tag",
+    playground: { Component: Tag, args: { children: "Design" } },
+    props: [
+      {
+        name: "tone",
+        type: '"neutral" | "primary" | "success" | "warning" | "danger"',
+        default: '"neutral"',
+        description: "Visual style of the tag.",
+      },
+      { name: "size", type: '"sm" | "md"', default: '"md"', description: "Font size and padding." },
+      { name: "children", type: "ReactNode", description: "Tag label text." },
+      {
+        name: "onRemove",
+        type: "() => void",
+        description: "When provided, renders a dismiss button that calls this handler.",
+      },
+      { name: "className", type: "string", description: "Additional CSS class on the root span." },
+      htmlAttrs("HTML"),
+    ],
+    usage: `import { Tag } from "@arvia-ui/react";
+
+<Tag tone="primary" onRemove={() => {}}>React</Tag>`,
+    Preview: () => (
+      <Stack direction="row" gap="2" wrap="yes">
+        <Tag>Design</Tag>
+        <Tag tone="primary">React</Tag>
+        <Tag onRemove={() => {}}>Removable</Tag>
+      </Stack>
+    ),
+    Examples: () => (
+      <>
+        <LivePreview label="Tones">
+          <Stack direction="row" gap="2" wrap="yes">
+            <Tag tone="neutral">Neutral</Tag>
+            <Tag tone="primary">Primary</Tag>
+            <Tag tone="success">Success</Tag>
+            <Tag tone="warning">Warning</Tag>
+            <Tag tone="danger">Danger</Tag>
+          </Stack>
+        </LivePreview>
+        <LivePreview label="Removable">
+          <Stack direction="row" gap="2" wrap="yes">
+            <Tag onRemove={() => {}}>Design</Tag>
+            <Tag tone="primary" onRemove={() => {}}>
+              Engineering
+            </Tag>
+            <Tag tone="success" onRemove={() => {}}>
+              Approved
+            </Tag>
+          </Stack>
+        </LivePreview>
+      </>
     ),
   },
   {
