@@ -112,6 +112,10 @@
       "types": "./.arvia/types/components/text.arv.d.ts",
       "default": "./src/components/text.arv"
     },
+    "./components/textarea.arv": {
+      "types": "./.arvia/types/components/textarea.arv.d.ts",
+      "default": "./src/components/textarea.arv"
+    },
     "./components/tooltip.arv": {
       "types": "./.arvia/types/components/tooltip.arv.d.ts",
       "default": "./src/components/tooltip.arv"

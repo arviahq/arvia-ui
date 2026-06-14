@@ -1,0 +1,67 @@
+// Textarea: multiline text field primitive.
+
+component Textarea {
+  base {
+    display: block;
+    width: 100%;
+    border: 1px solid color.borderStrong;
+    border-radius: radius.md;
+    background: color.surface;
+    color: color.text;
+    font-family: inherit;
+    line-height: 1.5;
+    resize: vertical;
+    transition: border-color duration.fast easing.default,
+                box-shadow duration.fast easing.default;
+    use FocusRing;
+
+    &::placeholder {
+      color: color.subtle;
+    }
+
+    &:hover:not(:disabled):not([aria-invalid="true"]) {
+      border-color: color.muted;
+    }
+
+    &:focus-visible {
+      border-color: color.primary;
+      box-shadow: 0 0 0 3px color.primarySubtle;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: color.background;
+      resize: none;
+    }
+
+    &[aria-invalid="true"] {
+      border-color: color.danger;
+      box-shadow: 0 0 0 3px color.dangerSubtle;
+    }
+  }
+
+  variants {
+    size {
+      sm {
+        font-size: font.sm;
+        padding: space.2 space.3;
+        min-height: 80px;
+      }
+      md {
+        font-size: font.sm;
+        padding: space.2 space.3;
+        min-height: 96px;
+      }
+      lg {
+        font-size: font.md;
+        padding: space.3 space.4;
+        min-height: 112px;
+      }
+    }
+  }
+
+  defaults {
+    size: md;
+  }
+}

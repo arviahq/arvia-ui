@@ -8,6 +8,7 @@ export { Badge, type BadgeProps } from "./Badge";
 export { Link, type LinkProps } from "./Link";
 export { Card, type CardProps } from "./Card";
 export { Input, type InputProps } from "./Input";
+export { Textarea, type TextareaProps } from "./Textarea";
 export { Divider, type DividerProps } from "./Divider";
 export { Spinner, type SpinnerProps } from "./Spinner";
 export {

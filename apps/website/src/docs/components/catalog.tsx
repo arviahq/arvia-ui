@@ -15,6 +15,7 @@ import {
   Heading,
   IconButton,
   Input,
+  Textarea,
   Link,
   Spinner,
   Stack,
@@ -655,6 +656,64 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
             <Input placeholder="Default" />
             <Input placeholder="Disabled" disabled />
             <Input placeholder="Invalid" aria-invalid="true" />
+          </Stack>
+        </LivePreview>
+      </>
+    ),
+  },
+  {
+    slug: "textarea",
+    title: "Textarea",
+    description:
+      "Multiline text field with size variants, vertical resize, and the same focus, disabled, and invalid states as Input.",
+    importName: "Textarea",
+    playground: { Component: Textarea, args: { placeholder: "Write a short bio…" } },
+    props: [
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Font size, padding, and minimum height.",
+      },
+      { name: "placeholder", type: "string", description: "Placeholder text." },
+      { name: "rows", type: "number", description: "Native rows attribute for initial height." },
+      { name: "disabled", type: "boolean", description: "Disables the textarea." },
+      {
+        name: "aria-invalid",
+        type: '"true" | "false"',
+        description: 'Set to "true" for error styling.',
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the textarea element.",
+      },
+      {
+        name: "...textareaProps",
+        type: "TextareaHTMLAttributes",
+        description: "Standard textarea attributes are forwarded.",
+      },
+    ],
+    usage: `import { Textarea } from "@arvia-ui/react";
+
+<Textarea placeholder="Write a short bio…" rows={4} size="md" />`,
+    Preview: () => (
+      <Textarea placeholder="Tell us about your project…" rows={4} style={{ width: 320 }} />
+    ),
+    Examples: () => (
+      <>
+        <LivePreview label="Sizes">
+          <Stack gap="3" style={{ width: 320 }}>
+            <Textarea size="sm" placeholder="Small" rows={3} />
+            <Textarea size="md" placeholder="Medium" rows={3} />
+            <Textarea size="lg" placeholder="Large" rows={3} />
+          </Stack>
+        </LivePreview>
+        <LivePreview label="States">
+          <Stack gap="3" style={{ width: 320 }}>
+            <Textarea placeholder="Default" rows={3} />
+            <Textarea placeholder="Disabled" rows={3} disabled />
+            <Textarea placeholder="Invalid" rows={3} aria-invalid="true" />
           </Stack>
         </LivePreview>
       </>
