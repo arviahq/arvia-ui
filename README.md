@@ -166,7 +166,7 @@ Issues and pull requests are welcome.
 
 CI runs on every push and PR: format check, lint, typecheck, and build ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
-Releases use [Changesets](https://github.com/changesets/changesets) ([`.github/workflows/release.yml`](.github/workflows/release.yml)): merge version bumps on `main`, and packages publish to npm automatically.
+Releases: [`PUBLISHING.md`](PUBLISHING.md) — add a changeset in your PR, merge to `main`, then merge the Version Packages PR to publish.
 
 ## Related
 
