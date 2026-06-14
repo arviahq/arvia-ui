@@ -1,0 +1,164 @@
+// Drawer: slide-over panel. Slots applied by the React compound parts; the Drawer
+// root itself renders no element (it only provides context).
+
+component Drawer {
+  base {
+    overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      background: color-mix(in srgb, #09090b 55%, transparent);
+      backdrop-filter: blur(2px);
+    }
+
+    content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      max-height: 100%;
+      overflow-y: auto;
+      background: color.surface;
+      border: 1px solid color.border;
+      box-shadow: shadow.lg;
+      padding: space.6;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: space.1;
+      margin-bottom: space.4;
+      padding-right: space.6;
+    }
+
+    title {
+      font-size: font.xl;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: color.text;
+      margin: 0;
+    }
+
+    description {
+      font-size: font.sm;
+      color: color.muted;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    body {
+      flex: 1;
+      font-size: font.sm;
+      color: color.muted;
+      line-height: 1.6;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: space.2;
+      margin-top: space.6;
+    }
+
+    close {
+      position: absolute;
+      top: space.4;
+      right: space.4;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: radius.sm;
+      border: none;
+      background: transparent;
+      color: color.muted;
+      cursor: pointer;
+      transition: background-color duration.fast easing.default, color duration.fast easing.default;
+
+      &:hover {
+        background: color-mix(in srgb, color.text 6%, transparent);
+        color: color.text;
+      }
+
+      &:focus-visible {
+        outline: 2px solid color.focus;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  variants {
+    side {
+      right {
+        overlay {
+          justify-content: flex-end;
+        }
+
+        content {
+          width: min(420px, 100vw);
+          height: 100%;
+          border-radius: 0;
+          border-top: none;
+          border-bottom: none;
+          border-right: none;
+          animation: drawerInRight duration.normal easing.out;
+        }
+      }
+
+      left {
+        overlay {
+          justify-content: flex-start;
+        }
+
+        content {
+          width: min(420px, 100vw);
+          height: 100%;
+          border-radius: 0;
+          border-top: none;
+          border-bottom: none;
+          border-left: none;
+          animation: drawerInLeft duration.normal easing.out;
+        }
+      }
+
+      bottom {
+        overlay {
+          align-items: flex-end;
+        }
+
+        content {
+          width: 100%;
+          max-height: min(85vh, 640px);
+          border-radius: radius.lg radius.lg 0 0;
+          border-bottom: none;
+          border-left: none;
+          border-right: none;
+          animation: drawerInBottom duration.normal easing.out;
+        }
+      }
+    }
+  }
+
+  slots {
+    root;
+    overlay;
+    content;
+    header;
+    title;
+    description;
+    body;
+    footer;
+    close;
+  }
+
+  defaults {
+    side: right;
+  }
+}

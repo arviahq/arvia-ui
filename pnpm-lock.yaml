@@ -43,8 +43,8 @@ importers:
         version: 3.23.0
     devDependencies:
       '@arviahq/vite-plugin-react':
-        specifier: ^1.0.0
-        version: 1.0.0(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))
+        specifier: ^2.0.0
+        version: 2.0.0(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))
       '@tanstack/router-plugin':
         specifier: ^1.168.18
         version: 1.168.18(@tanstack/react-router@1.170.15(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(vite@7.3.5(jiti@2.7.0))
@@ -67,8 +67,8 @@ importers:
   packages/core-styles:
     devDependencies:
       '@arviahq/vite-plugin-react':
-        specifier: ^1.0.0
-        version: 1.0.0(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))
+        specifier: ^2.0.0
+        version: 2.0.0(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))
 
   packages/react:
     devDependencies:
@@ -76,11 +76,11 @@ importers:
         specifier: workspace:*
         version: link:../core-styles
       '@arviahq/compiler':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^2.0.0
+        version: 2.0.0
       '@arviahq/vite-plugin-react':
-        specifier: ^1.0.0
-        version: 1.0.0(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))
+        specifier: ^2.0.0
+        version: 2.0.0(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))
       '@storybook/react':
         specifier: ^9.0.0
         version: 9.1.20(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(storybook@9.1.20(@testing-library/dom@10.4.1)(prettier@3.8.4)(vite@7.3.5(jiti@2.7.0)))(typescript@5.9.3)
@@ -120,17 +120,17 @@ packages:
   '@adobe/css-tools@4.5.0':
     resolution: {integrity: sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==}
 
-  '@arviahq/compiler@1.0.0':
-    resolution: {integrity: sha512-h33SnSXpQ1H389xCz+cgGBa6USvm0OvZvOWjV3Wn5gpnRogncItlXkZ+AT+5Beq12AWyd+ER2jxBZtnCJk9/+w==}
+  '@arviahq/compiler@2.0.0':
+    resolution: {integrity: sha512-zxUOmSzGPnJ7PPDGrAflhdtUSCID6Qon2QJFZBz5M5vFxHwp0XJJJUlb/33+CqSSB2hFPEL2AL5u0ECQQsQc3g==}
 
-  '@arviahq/docs@1.0.0':
-    resolution: {integrity: sha512-E6chL5q5Cuu2I5zGGRGcBqifQWmbwbtq6sO679UbJ6Jj3MvKNy7RoXI2jz2DCY8ekl7HXjn5HohyGfecbdr2Fg==}
+  '@arviahq/docs@2.0.0':
+    resolution: {integrity: sha512-tSPIOHCMKo/cMd3gTV6PvnjAO/Ka3gmslaDac+janFc2+tZ0oxQdvMiKsAiez+TlX+T2rVu6BBD3kTSJ4g2aHw==}
 
-  '@arviahq/storybook@1.0.0':
-    resolution: {integrity: sha512-003yRBi4dENldu0K1hc5klc8xwCUHuuya09LoyVEnZikte+psXVeoW8SjeNk8T1HD15bKu000FxdcZ0xqXpfoA==}
+  '@arviahq/storybook@2.0.0':
+    resolution: {integrity: sha512-WncNUyS1izd+WIAiFfYv476VL8UYrkWHmtfWpEbfaWkz00aHqfcIDwYDZwA9xMNHQrrs6ugl7b8PurRJReFQ4w==}
 
-  '@arviahq/typescript-plugin@1.0.0':
-    resolution: {integrity: sha512-Y2uCukvINHI0H+MjKSxbZty3nUUBvI996AEXzYGhJDLj8+enmQDXbP7DiQbOyOcD7WYDZPYFcI32OV86k/X+/w==}
+  '@arviahq/typescript-plugin@2.0.0':
+    resolution: {integrity: sha512-RUTGokyfqrYE1armcexLrv5jouKZPTeX95dHJ41WF0zXjvZG814LbPgQNB0cATVB3ugXVSKDUaMtFyx856K6GA==}
     hasBin: true
     peerDependencies:
       '@vue/language-core': ^3.0.0
@@ -139,8 +139,8 @@ packages:
       '@vue/language-core':
         optional: true
 
-  '@arviahq/vite-plugin-react@1.0.0':
-    resolution: {integrity: sha512-lfygHm/L9JEzyrFVvxYEbfShdhPbgZWqRgAJtslig66yBpyoYLkVIF148QP46eumw9UEJ8UUO617GVQL82K7OA==}
+  '@arviahq/vite-plugin-react@2.0.0':
+    resolution: {integrity: sha512-d35ER7FNDojsIJqtgFGgRroATOkMpsabIOFmgPxM8SlkJyRwr3Bnhq3QxRyfc40c++coTTpahbpjYs83vIZNwg==}
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.0'
@@ -149,8 +149,8 @@ packages:
       typescript:
         optional: true
 
-  '@arviahq/vite-plugin@1.0.0':
-    resolution: {integrity: sha512-ARZC2vs+YxdzpgvYAUn/MpduCgsxTiQx5B7HbjfnRmnQbZfrNK/mgPcVTImtzbSS8epstBKD3PftOH8VEo2RtA==}
+  '@arviahq/vite-plugin@2.0.0':
+    resolution: {integrity: sha512-E4kzYveJFVBbE+kh/161BWJuzV4QvvGA6mnPozTob4JezWGtH8LPe/wvgZs5T7d+4x27CKIyK6La4tfRly9a7g==}
     hasBin: true
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -2530,40 +2530,40 @@ snapshots:
 
   '@adobe/css-tools@4.5.0': {}
 
-  '@arviahq/compiler@1.0.0':
+  '@arviahq/compiler@2.0.0':
     dependencies:
       css-tree: 3.2.1
 
-  '@arviahq/docs@1.0.0':
+  '@arviahq/docs@2.0.0':
     dependencies:
-      '@arviahq/compiler': 1.0.0
+      '@arviahq/compiler': 2.0.0
 
-  '@arviahq/storybook@1.0.0':
+  '@arviahq/storybook@2.0.0':
     dependencies:
-      '@arviahq/compiler': 1.0.0
+      '@arviahq/compiler': 2.0.0
 
-  '@arviahq/typescript-plugin@1.0.0(typescript@5.9.3)':
+  '@arviahq/typescript-plugin@2.0.0(typescript@5.9.3)':
     dependencies:
-      '@arviahq/compiler': 1.0.0
+      '@arviahq/compiler': 2.0.0
       '@volar/language-core': 2.4.28
       '@volar/typescript': 2.4.28
       typescript: 5.9.3
 
-  '@arviahq/vite-plugin-react@1.0.0(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))':
+  '@arviahq/vite-plugin-react@2.0.0(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))':
     dependencies:
-      '@arviahq/typescript-plugin': 1.0.0(typescript@5.9.3)
-      '@arviahq/vite-plugin': 1.0.0(vite@7.3.5(jiti@2.7.0))
+      '@arviahq/typescript-plugin': 2.0.0(typescript@5.9.3)
+      '@arviahq/vite-plugin': 2.0.0(vite@7.3.5(jiti@2.7.0))
       vite: 7.3.5(jiti@2.7.0)
     optionalDependencies:
       typescript: 5.9.3
     transitivePeerDependencies:
       - '@vue/language-core'
 
-  '@arviahq/vite-plugin@1.0.0(vite@7.3.5(jiti@2.7.0))':
+  '@arviahq/vite-plugin@2.0.0(vite@7.3.5(jiti@2.7.0))':
     dependencies:
-      '@arviahq/compiler': 1.0.0
-      '@arviahq/docs': 1.0.0
-      '@arviahq/storybook': 1.0.0
+      '@arviahq/compiler': 2.0.0
+      '@arviahq/docs': 2.0.0
+      '@arviahq/storybook': 2.0.0
       tinyglobby: 0.2.17
       vite: 7.3.5(jiti@2.7.0)
 

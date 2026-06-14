@@ -1,0 +1,83 @@
+// Otp: one-time password input with individual digit cells.
+
+component Otp {
+  base {
+    root {
+      display: inline-flex;
+      align-items: center;
+      gap: space.2;
+    }
+
+    cell {
+      display: block;
+      width: 2.25rem;
+      border: 1px solid color.borderStrong;
+      border-radius: radius.md;
+      background: color.surface;
+      color: color.text;
+      font-family: inherit;
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+      line-height: 1;
+      padding: 0;
+      transition: border-color duration.fast easing.default,
+                  box-shadow duration.fast easing.default;
+      use FocusRing;
+
+      &:hover:not(:disabled):not([aria-invalid="true"]) {
+        border-color: color.muted;
+      }
+
+      &:focus-visible {
+        border-color: color.primary;
+        box-shadow: 0 0 0 3px color.primarySubtle;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background: color.background;
+      }
+
+      &[aria-invalid="true"] {
+        border-color: color.danger;
+        box-shadow: 0 0 0 3px color.dangerSubtle;
+      }
+    }
+  }
+
+  variants {
+    size {
+      sm {
+        cell {
+          width: 2rem;
+          font-size: font.sm;
+          min-height: 32px;
+        }
+      }
+      md {
+        cell {
+          width: 2.25rem;
+          font-size: font.sm;
+          min-height: 36px;
+        }
+      }
+      lg {
+        cell {
+          width: 2.75rem;
+          font-size: font.md;
+          min-height: 44px;
+        }
+      }
+    }
+  }
+
+  defaults {
+    size: md;
+  }
+
+  slots {
+    root;
+    cell;
+  }
+}

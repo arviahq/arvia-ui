@@ -19,7 +19,7 @@
     "shiki": "^3"
   },
   "devDependencies": {
-    "@arviahq/vite-plugin-react": "^1.0.0",
+    "@arviahq/vite-plugin-react": "^2.0.0",
     "@tanstack/router-plugin": "^1.168.18",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",

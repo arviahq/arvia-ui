@@ -60,6 +60,10 @@
       "types": "./.arvia/types/components/checkbox-group.arv.d.ts",
       "default": "./src/components/checkbox-group.arv"
     },
+    "./components/color-picker.arv": {
+      "types": "./.arvia/types/components/color-picker.arv.d.ts",
+      "default": "./src/components/color-picker.arv"
+    },
     "./components/dialog.arv": {
       "types": "./.arvia/types/components/dialog.arv.d.ts",
       "default": "./src/components/dialog.arv"
@@ -68,13 +72,25 @@
       "types": "./.arvia/types/components/divider.arv.d.ts",
       "default": "./src/components/divider.arv"
     },
+    "./components/drawer.arv": {
+      "types": "./.arvia/types/components/drawer.arv.d.ts",
+      "default": "./src/components/drawer.arv"
+    },
     "./components/heading.arv": {
       "types": "./.arvia/types/components/heading.arv.d.ts",
       "default": "./src/components/heading.arv"
     },
+    "./components/icon-button.arv": {
+      "types": "./.arvia/types/components/icon-button.arv.d.ts",
+      "default": "./src/components/icon-button.arv"
+    },
     "./components/input.arv": {
       "types": "./.arvia/types/components/input.arv.d.ts",
       "default": "./src/components/input.arv"
+    },
+    "./components/otp.arv": {
+      "types": "./.arvia/types/components/otp.arv.d.ts",
+      "default": "./src/components/otp.arv"
     },
     "./components/link.arv": {
       "types": "./.arvia/types/components/link.arv.d.ts",
@@ -96,9 +112,17 @@
       "types": "./.arvia/types/components/tabs.arv.d.ts",
       "default": "./src/components/tabs.arv"
     },
+    "./components/tag.arv": {
+      "types": "./.arvia/types/components/tag.arv.d.ts",
+      "default": "./src/components/tag.arv"
+    },
     "./components/text.arv": {
       "types": "./.arvia/types/components/text.arv.d.ts",
       "default": "./src/components/text.arv"
+    },
+    "./components/textarea.arv": {
+      "types": "./.arvia/types/components/textarea.arv.d.ts",
+      "default": "./src/components/textarea.arv"
     },
     "./components/tooltip.arv": {
       "types": "./.arvia/types/components/tooltip.arv.d.ts",
@@ -158,6 +182,6 @@
     "typecheck": "arvia gen src"
   },
   "devDependencies": {
-    "@arviahq/vite-plugin-react": "^1.0.0"
+    "@arviahq/vite-plugin-react": "^2.0.0"
   }
 }

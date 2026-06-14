@@ -6,7 +6,7 @@ component Spinner {
     border-radius: radius.full;
     border: 2px solid color.border;
     border-top-color: color.primary;
-    animation: keyframes.spin duration.slow linear infinite;
+    animation: spin duration.slow linear infinite;
   }
 
   variants {

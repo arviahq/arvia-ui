@@ -3,15 +3,21 @@ import {
   Alert,
   Avatar,
   Badge,
+  Tag,
   Box,
   Button,
   Card,
   Checkbox,
   CheckboxGroup,
+  ColorPicker,
   Dialog,
   Divider,
+  Drawer,
   Heading,
+  IconButton,
   Input,
+  Otp,
+  Textarea,
   Link,
   Spinner,
   Stack,
@@ -112,6 +118,208 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ),
   },
   {
+    slug: "icon-button",
+    title: "IconButton",
+    description:
+      "Square icon-only button with tone and size variants. Requires aria-label for accessibility.",
+    importName: "IconButton",
+    playground: {
+      Component: IconButton,
+      args: {
+        "aria-label": "Add item",
+        children: (
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden
+          >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        ),
+      },
+      controls: ["tone", "size", "aria-label"],
+    },
+    props: [
+      {
+        name: "tone",
+        type: '"primary" | "secondary" | "ghost" | "danger"',
+        default: '"ghost"',
+        description: "Visual style of the button.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Square dimensions.",
+      },
+      {
+        name: "children",
+        type: "ReactNode",
+        description: "Icon content rendered inside the button.",
+      },
+      {
+        name: "aria-label",
+        type: "string",
+        description: "Accessible name — required because there is no visible text.",
+      },
+      {
+        name: "disabled",
+        type: "boolean",
+        description: "Disables interaction and applies disabled styles.",
+      },
+      {
+        name: "type",
+        type: '"button" | "submit" | "reset"',
+        default: '"button"',
+        description: "Native button type.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class merged onto the root element.",
+      },
+      htmlAttrs("Button"),
+    ],
+    usage: `import { IconButton } from "@arvia-ui/react";
+
+<IconButton tone="ghost" size="md" aria-label="Add item">
+  <PlusIcon />
+</IconButton>`,
+    Preview: () => (
+      <IconButton tone="ghost" aria-label="Add item">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          aria-hidden
+        >
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </IconButton>
+    ),
+    Examples: () => (
+      <>
+        <LivePreview label="Tones">
+          <Stack direction="row" gap="2" align="center">
+            <IconButton tone="primary" aria-label="Primary">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton tone="secondary" aria-label="Secondary">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton tone="ghost" aria-label="Ghost">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton tone="danger" aria-label="Delete">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
+                <polyline points="3 6 5 6 21 6" />
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+            </IconButton>
+          </Stack>
+        </LivePreview>
+        <LivePreview label="Sizes">
+          <Stack direction="row" gap="2" align="center">
+            <IconButton size="sm" aria-label="Small">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton size="md" aria-label="Medium">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton size="lg" aria-label="Large">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+          </Stack>
+        </LivePreview>
+      </>
+    ),
+  },
+  {
     slug: "badge",
     title: "Badge",
     description: "Compact label for status, counts, and categories.",
@@ -143,6 +351,65 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           <Badge tone="danger">Danger</Badge>
         </Stack>
       </LivePreview>
+    ),
+  },
+  {
+    slug: "tag",
+    title: "Tag",
+    description:
+      "Compact chip for categories and filters, with optional remove button and semantic tone variants.",
+    importName: "Tag",
+    playground: { Component: Tag, args: { children: "Design" } },
+    props: [
+      {
+        name: "tone",
+        type: '"neutral" | "primary" | "success" | "warning" | "danger"',
+        default: '"neutral"',
+        description: "Visual style of the tag.",
+      },
+      { name: "size", type: '"sm" | "md"', default: '"md"', description: "Font size and padding." },
+      { name: "children", type: "ReactNode", description: "Tag label text." },
+      {
+        name: "onRemove",
+        type: "() => void",
+        description: "When provided, renders a dismiss button that calls this handler.",
+      },
+      { name: "className", type: "string", description: "Additional CSS class on the root span." },
+      htmlAttrs("HTML"),
+    ],
+    usage: `import { Tag } from "@arvia-ui/react";
+
+<Tag tone="primary" onRemove={() => {}}>React</Tag>`,
+    Preview: () => (
+      <Stack direction="row" gap="2" wrap="yes">
+        <Tag>Design</Tag>
+        <Tag tone="primary">React</Tag>
+        <Tag onRemove={() => {}}>Removable</Tag>
+      </Stack>
+    ),
+    Examples: () => (
+      <>
+        <LivePreview label="Tones">
+          <Stack direction="row" gap="2" wrap="yes">
+            <Tag tone="neutral">Neutral</Tag>
+            <Tag tone="primary">Primary</Tag>
+            <Tag tone="success">Success</Tag>
+            <Tag tone="warning">Warning</Tag>
+            <Tag tone="danger">Danger</Tag>
+          </Stack>
+        </LivePreview>
+        <LivePreview label="Removable">
+          <Stack direction="row" gap="2" wrap="yes">
+            <Tag onRemove={() => {}}>Design</Tag>
+            <Tag tone="primary" onRemove={() => {}}>
+              Engineering
+            </Tag>
+            <Tag tone="success" onRemove={() => {}}>
+              Approved
+            </Tag>
+          </Stack>
+        </LivePreview>
+      </>
     ),
   },
   {
@@ -512,6 +779,140 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     ),
   },
   {
+    slug: "otp",
+    title: "OTP",
+    description:
+      "One-time password input with individual digit cells, paste support, and keyboard navigation.",
+    importName: "Otp",
+    playground: { Component: Otp, args: { length: 6 } },
+    props: [
+      {
+        name: "length",
+        type: "number",
+        default: "6",
+        description: "Number of digit cells.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Cell dimensions and font size.",
+      },
+      { name: "value", type: "string", description: "OTP string value (controlled)." },
+      { name: "defaultValue", type: "string", description: "Initial OTP string (uncontrolled)." },
+      {
+        name: "onChange",
+        type: "(value: string) => void",
+        description: "Called when the value changes.",
+      },
+      {
+        name: "onComplete",
+        type: "(value: string) => void",
+        description: "Called when every cell is filled.",
+      },
+      {
+        name: "numeric",
+        type: "boolean",
+        default: "true",
+        description: "Restrict input to digits only.",
+      },
+      { name: "disabled", type: "boolean", description: "Disables all cells." },
+      { name: "invalid", type: "boolean", description: "Applies error styling to all cells." },
+      { name: "autoFocus", type: "boolean", description: "Focus the first cell on mount." },
+      {
+        name: "name",
+        type: "string",
+        description: "Hidden input name for native form submission.",
+      },
+      {
+        name: "aria-label",
+        type: "string",
+        default: '"One-time password"',
+        description: "Accessible label for the input group.",
+      },
+      { name: "className", type: "string", description: "Additional CSS class on the root." },
+    ],
+    usage: `import { Otp } from "@arvia-ui/react";
+
+<Otp length={6} autoFocus onComplete={(code) => verify(code)} />`,
+    Preview: () => <Otp length={6} defaultValue="123" />,
+    Examples: () => (
+      <>
+        <LivePreview label="Sizes">
+          <Stack gap="3">
+            <Otp length={4} size="sm" defaultValue="12" />
+            <Otp length={4} size="md" defaultValue="12" />
+            <Otp length={4} size="lg" defaultValue="12" />
+          </Stack>
+        </LivePreview>
+        <LivePreview label="States">
+          <Stack gap="3">
+            <Otp length={4} defaultValue="1234" disabled />
+            <Otp length={4} defaultValue="1234" invalid />
+          </Stack>
+        </LivePreview>
+      </>
+    ),
+  },
+  {
+    slug: "textarea",
+    title: "Textarea",
+    description:
+      "Multiline text field with size variants, vertical resize, and the same focus, disabled, and invalid states as Input.",
+    importName: "Textarea",
+    playground: { Component: Textarea, args: { placeholder: "Write a short bio…" } },
+    props: [
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Font size, padding, and minimum height.",
+      },
+      { name: "placeholder", type: "string", description: "Placeholder text." },
+      { name: "rows", type: "number", description: "Native rows attribute for initial height." },
+      { name: "disabled", type: "boolean", description: "Disables the textarea." },
+      {
+        name: "aria-invalid",
+        type: '"true" | "false"',
+        description: 'Set to "true" for error styling.',
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the textarea element.",
+      },
+      {
+        name: "...textareaProps",
+        type: "TextareaHTMLAttributes",
+        description: "Standard textarea attributes are forwarded.",
+      },
+    ],
+    usage: `import { Textarea } from "@arvia-ui/react";
+
+<Textarea placeholder="Write a short bio…" rows={4} size="md" />`,
+    Preview: () => (
+      <Textarea placeholder="Tell us about your project…" rows={4} style={{ width: 320 }} />
+    ),
+    Examples: () => (
+      <>
+        <LivePreview label="Sizes">
+          <Stack gap="3" style={{ width: 320 }}>
+            <Textarea size="sm" placeholder="Small" rows={3} />
+            <Textarea size="md" placeholder="Medium" rows={3} />
+            <Textarea size="lg" placeholder="Large" rows={3} />
+          </Stack>
+        </LivePreview>
+        <LivePreview label="States">
+          <Stack gap="3" style={{ width: 320 }}>
+            <Textarea placeholder="Default" rows={3} />
+            <Textarea placeholder="Disabled" rows={3} disabled />
+            <Textarea placeholder="Invalid" rows={3} aria-invalid="true" />
+          </Stack>
+        </LivePreview>
+      </>
+    ),
+  },
+  {
     slug: "divider",
     title: "Divider",
     description: "Horizontal rule for separating content sections.",
@@ -602,6 +1003,13 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Required — links a panel to its tab of the same value.",
       },
       {
+        name: "Tabs.List align",
+        type: '"full" | "inline"',
+        default: '"full"',
+        description:
+          "Full-width baseline divider under the tab row (default), or shrink-wrapped bar for compact inline tabs.",
+      },
+      {
         name: "className",
         type: "string",
         description: "Additional CSS class on the part's root element.",
@@ -640,6 +1048,26 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </Text>
         </Tabs.Panel>
       </Tabs>
+    ),
+    Examples: () => (
+      <LivePreview label="Inline tabs">
+        <Tabs defaultValue="a">
+          <Tabs.List aria-label="Compact sections" align="inline">
+            <Tabs.Tab value="a">One</Tabs.Tab>
+            <Tabs.Tab value="b">Two</Tabs.Tab>
+          </Tabs.List>
+          <Tabs.Panel value="a">
+            <Text size="sm" tone="muted">
+              Baseline ends with the last tab.
+            </Text>
+          </Tabs.Panel>
+          <Tabs.Panel value="b">
+            <Text size="sm" tone="muted">
+              Use align=&quot;inline&quot; for compact layouts.
+            </Text>
+          </Tabs.Panel>
+        </Tabs>
+      </LivePreview>
     ),
   },
   {
@@ -766,6 +1194,79 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog>
+    ),
+  },
+  {
+    slug: "drawer",
+    title: "Drawer",
+    description:
+      "Compound slide-over panel — portal, focus trap, scroll lock, and side variants (left, right, bottom).",
+    importName: "Drawer",
+    props: [
+      {
+        name: "side",
+        type: '"left" | "right" | "bottom"',
+        default: '"right"',
+        description: "Which edge the panel slides in from.",
+      },
+      { name: "open", type: "boolean", description: "Open state (controlled)." },
+      { name: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
+      {
+        name: "onChange",
+        type: "(open: boolean) => void",
+        description: "Called when the open state changes.",
+      },
+      {
+        name: "Drawer.Trigger",
+        type: "ReactElement",
+        description: "Clones its child element to open the drawer on click.",
+      },
+      {
+        name: "Drawer.Close asChild",
+        type: "boolean",
+        description: "Render the close behavior on a child element (e.g. a Button).",
+      },
+    ],
+    usage: `import { Drawer, Button } from "@arvia-ui/react";
+
+<Drawer side="right">
+  <Drawer.Trigger><Button>Open</Button></Drawer.Trigger>
+  <Drawer.Content>
+    <Drawer.Close />
+    <Drawer.Header>
+      <Drawer.Title>Title</Drawer.Title>
+      <Drawer.Description>Description</Drawer.Description>
+    </Drawer.Header>
+    <Drawer.Body>Body content</Drawer.Body>
+    <Drawer.Footer>
+      <Drawer.Close asChild><Button tone="secondary">Close</Button></Drawer.Close>
+    </Drawer.Footer>
+  </Drawer.Content>
+</Drawer>`,
+    Preview: () => (
+      <Drawer side="right">
+        <Drawer.Trigger>
+          <Button>Open drawer</Button>
+        </Drawer.Trigger>
+        <Drawer.Content>
+          <Drawer.Close />
+          <Drawer.Header>
+            <Drawer.Title>Filters</Drawer.Title>
+            <Drawer.Description>Refine the list without leaving the page.</Drawer.Description>
+          </Drawer.Header>
+          <Drawer.Body>
+            Adjust status, date range, and assignee. Changes apply when you close the drawer.
+          </Drawer.Body>
+          <Drawer.Footer>
+            <Drawer.Close asChild>
+              <Button tone="secondary">Cancel</Button>
+            </Drawer.Close>
+            <Drawer.Close asChild>
+              <Button>Apply</Button>
+            </Drawer.Close>
+          </Drawer.Footer>
+        </Drawer.Content>
+      </Drawer>
     ),
   },
   {
@@ -924,6 +1425,96 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         <Checkbox value="sms">SMS</Checkbox>
         <Checkbox value="push">Push</Checkbox>
       </CheckboxGroup>
+    ),
+  },
+  {
+    slug: "color-picker",
+    title: "ColorPicker",
+    description:
+      "Custom color picker with saturation field, hue slider, RGB/HSL/hex inputs, and optional eyedropper.",
+    importName: "ColorPicker",
+    playground: {
+      Component: ColorPicker,
+      args: { defaultValue: "#4f46e5", "aria-label": "Brand color" },
+      controls: ["size", "aria-label", "defaultValue", "disabled"],
+    },
+    props: [
+      {
+        name: "value",
+        type: "string",
+        description: "Hex color value (controlled), e.g. #4f46e5.",
+      },
+      {
+        name: "defaultValue",
+        type: "string",
+        description: "Initial hex color (uncontrolled).",
+      },
+      {
+        name: "onChange",
+        type: "(value: string) => void",
+        description: "Called with a normalized #rrggbb value.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Height and font size.",
+      },
+      {
+        name: "disabled",
+        type: "boolean",
+        description: "Disables both the swatch and hex field.",
+      },
+      {
+        name: "placeholder",
+        type: "string",
+        default: '"#000000"',
+        description: "Placeholder for the hex text field.",
+      },
+      {
+        name: "aria-label",
+        type: "string",
+        description: "Accessible name for the control group.",
+      },
+      {
+        name: "aria-invalid",
+        type: '"true" | "false"',
+        description: 'Set to "true" for error styling.',
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the root element.",
+      },
+    ],
+    usage: `import { ColorPicker } from "@arvia-ui/react";
+
+<ColorPicker
+  value={color}
+  onChange={setColor}
+  aria-label="Brand color"
+/>`,
+    Preview: () => (
+      <ColorPicker defaultValue="#4f46e5" aria-label="Brand color" style={{ width: 220 }} />
+    ),
+    Examples: () => (
+      <>
+        <LivePreview label="Sizes">
+          <Stack direction="column" gap="3" style={{ width: 240 }}>
+            <ColorPicker size="sm" defaultValue="#16a34a" aria-label="Small color" />
+            <ColorPicker size="md" defaultValue="#4f46e5" aria-label="Medium color" />
+            <ColorPicker size="lg" defaultValue="#dc2626" aria-label="Large color" />
+          </Stack>
+        </LivePreview>
+        <LivePreview label="Disabled">
+          <ColorPicker
+            defaultValue="#ca8a04"
+            aria-label="Disabled color"
+            disabled
+            style={{ width: 220 }}
+          />
+        </LivePreview>
+      </>
     ),
   },
   {

@@ -6,10 +6,18 @@ component Tabs {
     flex-direction: column;
     gap: space.4;
 
+    listBar {
+      width: 100%;
+      border-bottom: 1px solid color.border;
+
+      &[data-align="inline"] {
+        width: fit-content;
+      }
+    }
+
     list {
       display: inline-flex;
       gap: space.1;
-      border-bottom: 1px solid color.border;
     }
 
     tab {
@@ -58,6 +66,7 @@ component Tabs {
 
   slots {
     root;
+    listBar;
     list;
     tab;
     panel;

@@ -1,6 +1,6 @@
 // Site-specific layout styles layered on @arvia-ui/core-styles tokens.
 // Marketing chrome (nav, hero, features, footer) mirrors arvia.dev's look;
-// the indigo/zinc palette comes from site-theme.css (website-only override).
+// the indigo/zinc palette comes from @arvia-ui/core-styles theme tokens.
 
 component SitePage {
   base {
@@ -185,23 +185,14 @@ component FeatureGrid {
     gap: space.4;
     grid-template-columns: 1fr;
     padding: space.8 0 space.9;
-  }
 
-  variants {
-    cols {
-      one { root { grid-template-columns: 1fr; } }
-      two { root { grid-template-columns: repeat(2, 1fr); } }
-      three { root { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: breakpoint.md) {
+      grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  defaults {
-    cols: one;
-  }
-
-  responsive {
-    md { cols: two; }
-    lg { cols: three; }
+    @media (min-width: breakpoint.lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 
@@ -303,21 +294,10 @@ component ComponentGallery {
     gap: space.4;
     grid-template-columns: 1fr;
     margin: space.6 0;
-  }
 
-  variants {
-    cols {
-      one { root { grid-template-columns: 1fr; } }
-      two { root { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: breakpoint.md) {
+      grid-template-columns: repeat(2, 1fr);
     }
-  }
-
-  defaults {
-    cols: one;
-  }
-
-  responsive {
-    md { cols: two; }
   }
 }
 
@@ -490,11 +470,17 @@ component DocsLayout {
     margin: 0 auto;
     padding: space.6;
     align-items: start;
+    grid-template-columns: 1fr;
+
+    @media (min-width: breakpoint.lg) {
+      grid-template-columns: 232px minmax(0, 1fr);
+    }
   }
 
   slots {
     root;
     sidebar {
+      display: none;
       position: sticky;
       top: 64px;
       align-self: start;
@@ -502,31 +488,14 @@ component DocsLayout {
       overflow-y: auto;
       padding: space.2 space.4 space.6 0;
       border-right: 1px solid color.border;
+
+      @media (min-width: breakpoint.lg) {
+        display: block;
+      }
     }
     content {
       min-width: 0;
     }
-  }
-
-  variants {
-    cols {
-      one {
-        root { grid-template-columns: 1fr; }
-        sidebar { display: none; }
-      }
-      two {
-        root { grid-template-columns: 232px minmax(0, 1fr); }
-        sidebar { display: block; }
-      }
-    }
-  }
-
-  defaults {
-    cols: one;
-  }
-
-  responsive {
-    lg { cols: two; }
   }
 }
 
