@@ -14,7 +14,8 @@
     "lint": "oxlint",
     "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build",
     "changeset": "changeset",
-    "release": "pnpm --filter @arvia-ui/react build && changeset publish"
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.2",

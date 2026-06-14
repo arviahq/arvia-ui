@@ -79,18 +79,13 @@ arvia-ui/
 
 Pull requests and pushes to `main` run [`.github/workflows/ci.yml`](.github/workflows/ci.yml): format check, lint, typecheck, and build.
 
-Releases use [Changesets](https://github.com/changesets/changesets) via [`.github/workflows/release.yml`](.github/workflows/release.yml). After merge, the workflow opens a version PR or publishes to npm when versions are bumped.
+Releases use [Changesets](https://github.com/changesets/changesets) via [`.github/workflows/release.yml`](.github/workflows/release.yml), matching [arviahq/arvia](https://github.com/arviahq/arvia). On push to `main`, the workflow verifies npm access, then opens a version PR or publishes when versions are bumped.
 
 **One-time setup for publishing:**
 
 1. GitHub → Settings → Actions → General → enable **Read and write permissions** and **Allow GitHub Actions to create pull requests**.
-2. Create the npm organization **[`@arvia-ui`](https://www.npmjs.com/org/create)** (this scope must exist before the first publish).
-3. In the **`@arvia-ui` org settings** on npm → **Trusted Publishers** → add GitHub repository `arviahq/arvia-ui`, workflow file `release.yml`, branch `main`. Org-level trusted publishing is required for the first release; per-package publishers can be added later.
-4. Ensure npm CLI **≥ 11.5.1** in CI (the release workflow upgrades npm before publish).
-
-The release workflow uses npm OIDC (no `NPM_TOKEN` secret). `ENEEDAUTH` usually means trusted publishing is not configured, or `setup-node` is missing `registry-url`/`scope` for `@arvia-ui`. `404` usually means the `@arvia-ui` org does not exist yet.
-
-**Fallback:** add an `NPM_TOKEN` repository secret (automation token with publish access to `@arvia-ui`) if OIDC is not set up yet.
+2. Create the npm organization **[`@arvia-ui`](https://www.npmjs.com/org/create)**.
+3. Add an npm **automation token** with publish access to `@arvia-ui/*` as the repository variable **`NPM_TOKEN`** (Settings → Secrets and variables → Actions → Variables).
 
 To include a release note with your change:
 
