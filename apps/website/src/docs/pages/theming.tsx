@@ -1,4 +1,5 @@
 import { DocHeader } from "../../components/DocsShell";
+import { TokenReference } from "../../components/TokenReference";
 import {
   DocCode,
   DocH2,
@@ -180,73 +181,10 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
 }`}</DocPre>
       <DocH2>Token reference</DocH2>
       <DocP>
-        Every token from <DocCode>theme.arv</DocCode> maps to a CSS variable you can override. Copy
-        any name into your override stylesheet:
+        Every token from <DocCode>theme.arv</DocCode> maps to a CSS variable you can override. Click{" "}
+        <strong>Copy</strong> on any row to grab the variable name for your stylesheet.
       </DocP>
-      <DocH3>color</DocH3>
-      <DocPre lang="css">{`--arvia-color-primary
---arvia-color-primaryHover
---arvia-color-primarySubtle
---arvia-color-accent
---arvia-color-danger
---arvia-color-dangerHover
---arvia-color-dangerSubtle
---arvia-color-success
---arvia-color-successSubtle
---arvia-color-warning
---arvia-color-warningSubtle
---arvia-color-text
---arvia-color-muted
---arvia-color-subtle
---arvia-color-surface
---arvia-color-surfaceRaised
---arvia-color-background
---arvia-color-border
---arvia-color-borderStrong
---arvia-color-focus`}</DocPre>
-      <DocP>
-        In the default theme, <DocCode>accent</DocCode>, <DocCode>danger</DocCode>,{" "}
-        <DocCode>success</DocCode>, and <DocCode>warning</DocCode> base hues are the same in light
-        and dark. Tokens with distinct <DocCode>@dark</DocCode> values include{" "}
-        <DocCode>primary</DocCode>, <DocCode>text</DocCode>, <DocCode>surface</DocCode>,{" "}
-        <DocCode>background</DocCode>, <DocCode>border</DocCode>, and <DocCode>shadow</DocCode>.
-      </DocP>
-      <DocH3>space</DocH3>
-      <DocPre lang="css">{`--arvia-space-1   /*  4px */
---arvia-space-2   /*  8px */
---arvia-space-3   /* 12px */
---arvia-space-4   /* 16px */
---arvia-space-5   /* 20px */
---arvia-space-6   /* 24px */
---arvia-space-7   /* 32px */
---arvia-space-8   /* 40px */
---arvia-space-9   /* 48px */`}</DocPre>
-      <DocH3>radius</DocH3>
-      <DocPre lang="css">{`--arvia-radius-sm
---arvia-radius-md
---arvia-radius-lg
---arvia-radius-xl
---arvia-radius-full`}</DocPre>
-      <DocH3>font</DocH3>
-      <DocPre lang="css">{`--arvia-font-xs
---arvia-font-sm
---arvia-font-md
---arvia-font-lg
---arvia-font-xl
---arvia-font-2xl
---arvia-font-3xl
---arvia-font-4xl`}</DocPre>
-      <DocH3>shadow</DocH3>
-      <DocPre lang="css">{`--arvia-shadow-sm
---arvia-shadow-md
---arvia-shadow-lg`}</DocPre>
-      <DocP>Shadow values differ in dark mode.</DocP>
-      <DocH3>duration and easing</DocH3>
-      <DocPre lang="css">{`--arvia-duration-fast
---arvia-duration-normal
---arvia-duration-slow
---arvia-easing-default
---arvia-easing-out`}</DocPre>
+      <TokenReference />
       <DocH2>Custom themes (compile-time)</DocH2>
       <DocP>
         To author your own <DocCode>.arv</DocCode> components or fork token <em>definitions</em> at

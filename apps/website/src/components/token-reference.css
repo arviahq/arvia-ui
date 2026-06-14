@@ -1,0 +1,52 @@
+@keyframes arvia-token-motion-slide {
+  from {
+    transform: translate(0, -50%);
+  }
+
+  to {
+    transform: translate(98px, -50%);
+  }
+}
+
+.arvia-token-motion-ease[data-easing="default"] .arvia-token-motion-dot {
+  animation-timing-function: ease;
+}
+
+.arvia-token-motion-ease[data-easing="out"] .arvia-token-motion-dot {
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arvia-token-motion-dot {
+  transform: translateY(-50%);
+  animation: arvia-token-motion-slide 900ms ease infinite alternate;
+}
+
+.arvia-token-duration-fill[data-duration="fast"] {
+  transform: scaleX(0.375);
+}
+
+.arvia-token-duration-fill[data-duration="normal"] {
+  transform: scaleX(0.625);
+}
+
+.arvia-token-duration-fill[data-duration="slow"] {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arvia-token-motion-dot {
+    animation: none;
+    transform: translate(49px, -50%);
+  }
+}
+
+@media (max-width: 640px) {
+  [data-arvia-token-item] {
+    grid-template-columns: 1fr !important;
+  }
+
+  [data-arvia-token-stage] {
+    border-right: none !important;
+    border-bottom: 1px solid var(--arvia-color-border);
+  }
+}
