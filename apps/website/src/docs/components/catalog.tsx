@@ -870,6 +870,13 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Required — links a panel to its tab of the same value.",
       },
       {
+        name: "Tabs.List align",
+        type: '"full" | "inline"',
+        default: '"full"',
+        description:
+          "Full-width baseline divider under the tab row (default), or shrink-wrapped bar for compact inline tabs.",
+      },
+      {
         name: "className",
         type: "string",
         description: "Additional CSS class on the part's root element.",
@@ -908,6 +915,26 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </Text>
         </Tabs.Panel>
       </Tabs>
+    ),
+    Examples: () => (
+      <LivePreview label="Inline tabs">
+        <Tabs defaultValue="a">
+          <Tabs.List aria-label="Compact sections" align="inline">
+            <Tabs.Tab value="a">One</Tabs.Tab>
+            <Tabs.Tab value="b">Two</Tabs.Tab>
+          </Tabs.List>
+          <Tabs.Panel value="a">
+            <Text size="sm" tone="muted">
+              Baseline ends with the last tab.
+            </Text>
+          </Tabs.Panel>
+          <Tabs.Panel value="b">
+            <Text size="sm" tone="muted">
+              Use align=&quot;inline&quot; for compact layouts.
+            </Text>
+          </Tabs.Panel>
+        </Tabs>
+      </LivePreview>
     ),
   },
   {

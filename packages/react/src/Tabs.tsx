@@ -60,10 +60,12 @@ export type TabsListProps = HTMLAttributes<HTMLDivElement> & {
   "aria-label"?: string;
   children?: ReactNode;
   className?: string;
+  /** Full-width baseline (default) or shrink-wrapped bar for compact inline tabs. */
+  align?: "full" | "inline";
 };
 
 const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
-  { children, className, ...props },
+  { children, className, align = "full", ...props },
   ref,
 ) {
   const styles = tabsStyles();
@@ -92,13 +94,18 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
 
   return (
     <div
-      ref={ref}
-      role="tablist"
-      className={className ? `${styles.list} ${className}` : styles.list}
-      onKeyDown={onKeyDown}
-      {...props}
+      className={styles.listBar}
+      data-align={align === "inline" ? "inline" : undefined}
     >
-      {children}
+      <div
+        ref={ref}
+        role="tablist"
+        className={className ? `${styles.list} ${className}` : styles.list}
+        onKeyDown={onKeyDown}
+        {...props}
+      >
+        {children}
+      </div>
     </div>
   );
 });
