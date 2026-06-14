@@ -794,21 +794,16 @@ component PropsTable {
       margin-top: space.2;
     }
 
-    pill {
+    tag {
+      display: inline-block;
       font-family: "JetBrains Mono", ui-monospace, monospace;
       font-size: font.xs;
       line-height: 1.4;
-      padding: 2px space.2;
+      padding: 1px space.2;
       border-radius: radius.sm;
       border: 1px solid color.border;
       background: color.background;
-      color: color.text;
-
-      &[data-type="boolean"] {
-        background: color.primarySubtle;
-        color: color.primary;
-        border-color: color-mix(in srgb, color.primary 30%, color.border);
-      }
+      color: color.primary;
     }
 
     desc {
@@ -833,11 +828,9 @@ component PropsTable {
       margin-bottom: space.1;
     }
 
-    defaultValue {
-      font-family: "JetBrains Mono", ui-monospace, monospace;
+    defaultEmpty {
       font-size: font.sm;
-      color: color.text;
-      word-break: break-word;
+      color: color.subtle;
     }
   }
 
@@ -853,11 +846,11 @@ component PropsTable {
     propName {}
     badge {}
     pills {}
-    pill {}
+    tag {}
     desc {}
     defaultCol {}
     defaultLabel {}
-    defaultValue {}
+    defaultEmpty {}
   }
 }
 

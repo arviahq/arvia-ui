@@ -1,5 +1,5 @@
 import { DocHeader } from "../../components/DocsShell";
-import { DocH2, DocP, DocProse, DocUl, DocLi } from "../../components/DocProse";
+import { DocCode, DocH2, DocP, DocProse, DocUl, DocLi } from "../../components/DocProse";
 import type { DocPageMeta } from "../registry";
 
 export const introductionMeta: DocPageMeta = {
@@ -16,24 +16,24 @@ export function IntroductionPage() {
       <DocP>
         arvia-ui is a collection of beautiful, crafted UI components built on{" "}
         <a href="https://github.com/arviahq/arvia">Arvia</a>. Styles live in shared{" "}
-        <code>.arv</code> files; each framework package adds thin wrappers for semantics,
+        <DocCode>.arv</DocCode> files; each framework package adds thin wrappers for semantics,
         accessibility, and composition.
       </DocP>
       <DocH2>One package to install</DocH2>
       <DocUl>
         <DocLi>
-          <strong>@arvia-ui/react</strong> — the only package you install: React 18+ components plus
-          their bundled, pre-compiled CSS
+          <DocCode>@arvia-ui/react</DocCode> — the only package you install: React 18+ components
+          plus their bundled, pre-compiled CSS
         </DocLi>
         <DocLi>
-          <strong>@arvia-ui/core-styles</strong> — the shared <code>.arv</code> theme tokens,
-          recipes, and component styles. Compiled into <code>@arvia-ui/react</code> at publish time,
-          so consumers never install it directly
+          <DocCode>@arvia-ui/core-styles</DocCode> — the shared <DocCode>.arv</DocCode> theme
+          tokens, recipes, and component styles. Compiled into <DocCode>@arvia-ui/react</DocCode> at
+          publish time, so consumers never install it directly
         </DocLi>
       </DocUl>
       <DocP>
-        Future framework targets follow the same pattern: <code>@arviahq/ui-vue</code>,{" "}
-        <code>@arviahq/ui-preact</code>, each bundling the shared styles at publish time.
+        Future framework targets follow the same pattern: <DocCode>@arviahq/ui-vue</DocCode>,{" "}
+        <DocCode>@arviahq/ui-preact</DocCode>, each bundling the shared styles at publish time.
       </DocP>
       <DocH2>Not a runtime CSS library</DocH2>
       <DocP>

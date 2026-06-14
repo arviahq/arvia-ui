@@ -8,11 +8,11 @@ type ControlKind = "select" | "boolean" | "number" | "text";
 type Control = { name: string; kind: ControlKind; options?: string[] };
 
 /** Infer an interactive control from a prop's type string. Returns null for props
- *  that can't (or shouldn't) be controlled: functions, spreads, refs, element types,
- *  and the uncontrolled `default*` mirrors of a value/checked prop. */
+ *  that can't (or shouldn't) be controlled: className, functions, spreads, refs,
+ *  element types, and the uncontrolled `default*` mirrors of a value/checked prop. */
 function inferControl(prop: PropDefinition): Control | null {
   const { name, type } = prop;
-  if (name.startsWith("...") || name.startsWith("default")) return null;
+  if (name === "className" || name.startsWith("...") || name.startsWith("default")) return null;
   if (/HTMLAttributes|ElementType|ReactElement|=>/.test(type)) return null;
   if (type === "boolean") return { name, kind: "boolean" };
   if (type === "number") return { name, kind: "number" };

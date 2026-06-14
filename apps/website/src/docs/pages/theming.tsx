@@ -1,5 +1,14 @@
 import { DocHeader } from "../../components/DocsShell";
-import { DocH2, DocH3, DocP, DocPre, DocProse, DocUl, DocLi } from "../../components/DocProse";
+import {
+  DocCode,
+  DocH2,
+  DocH3,
+  DocP,
+  DocPre,
+  DocProse,
+  DocUl,
+  DocLi,
+} from "../../components/DocProse";
 import type { DocPageMeta } from "../registry";
 
 export const themingMeta: DocPageMeta = {
@@ -15,23 +24,23 @@ export function ThemingPage() {
       <DocHeader {...themingMeta} />
       <DocP>
         arvia-ui ships with a warm teal and stone palette defined in{" "}
-        <code>@arvia-ui/core-styles</code>. The theme supports <strong>light</strong> and{" "}
+        <DocCode>@arvia-ui/core-styles</DocCode>. The theme supports <strong>light</strong> and{" "}
         <strong>dark</strong> modes out of the box.
       </DocP>
       <DocH2>How modes work</DocH2>
       <DocP>
-        Arvia compiles mode-aware tokens to CSS variables. Set <code>data-arvia-theme</code> on{" "}
-        <code>&lt;html&gt;</code> to pick the active mode:
+        Arvia compiles mode-aware tokens to CSS variables. Set <DocCode>data-arvia-theme</DocCode>{" "}
+        on <DocCode>&lt;html&gt;</DocCode> to pick the active mode:
       </DocP>
       <DocPre>{`<html data-arvia-theme="dark">`}</DocPre>
       <DocP>
-        If you do not set the attribute, the OS <code>prefers-color-scheme: dark</code> media query
-        applies dark defaults on <code>:root</code> automatically.
+        If you do not set the attribute, the OS <DocCode>prefers-color-scheme: dark</DocCode> media
+        query applies dark defaults on <DocCode>:root</DocCode> automatically.
       </DocP>
       <DocH2>setTheme helper</DocH2>
       <DocP>
-        <code>@arvia-ui/react</code> exports <code>setTheme(mode)</code> which updates the attribute
-        on <code>&lt;html&gt;</code> for you:
+        <DocCode>@arvia-ui/react</DocCode> exports <DocCode>setTheme(mode)</DocCode> which updates
+        the attribute on <DocCode>&lt;html&gt;</DocCode> for you:
       </DocP>
       <DocPre>{`import { setTheme } from "@arvia-ui/react";
 
@@ -41,38 +50,40 @@ setTheme("light");`}</DocPre>
       <DocH2>Semantic tokens</DocH2>
       <DocUl>
         <DocLi>
-          <strong>color.primary</strong> — brand actions and emphasis
+          <DocCode>color.primary</DocCode> — brand actions and emphasis
         </DocLi>
         <DocLi>
-          <strong>color.text / muted / subtle</strong> — typography hierarchy
+          <DocCode>color.text</DocCode> / <DocCode>color.muted</DocCode> /{" "}
+          <DocCode>color.subtle</DocCode> — typography hierarchy
         </DocLi>
         <DocLi>
-          <strong>color.surface / background</strong> — layered surfaces
+          <DocCode>color.surface</DocCode> / <DocCode>color.background</DocCode> — layered surfaces
         </DocLi>
         <DocLi>
-          <strong>space.*, radius.*, font.*, shadow.*</strong> — layout and rhythm
+          <DocCode>space.*</DocCode>, <DocCode>radius.*</DocCode>, <DocCode>font.*</DocCode>,{" "}
+          <DocCode>shadow.*</DocCode> — layout and rhythm
         </DocLi>
       </DocUl>
       <DocH2>Overriding tokens with CSS variables</DocH2>
       <DocP>
         Arvia compiles every token to a CSS custom property. Component styles reference{" "}
-        <code>var(--arvia-*)</code>, so you can override the theme by reassigning those variables —
-        no Vite plugin or library API required.
+        <DocCode>var(--arvia-*)</DocCode>, so you can override the theme by reassigning those
+        variables — no Vite plugin or library API required.
       </DocP>
       <DocP>
-        Naming convention: <code>color.primary</code> becomes <code>--arvia-color-primary</code>.
-        Import your override stylesheet <strong>after</strong> <code>@arvia-ui/react</code> so your
-        values win (component imports pull in the bundled CSS automatically via{" "}
-        <code>sideEffects</code>).
+        Naming convention: <DocCode>color.primary</DocCode> becomes{" "}
+        <DocCode>--arvia-color-primary</DocCode>. Import your override stylesheet{" "}
+        <strong>after</strong> <DocCode>@arvia-ui/react</DocCode> so your values win (component
+        imports pull in the bundled CSS automatically via <DocCode>sideEffects</DocCode>).
       </DocP>
       <DocPre>{`// main.tsx
 import { Button } from "@arvia-ui/react";
 import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
       <DocH2>Global brand overrides</DocH2>
       <DocP>
-        Set variables on <code>:root</code> to rebrand the entire app. Target{" "}
-        <code>:root[data-arvia-theme="dark"]</code> when using <code>setTheme</code> so dark-mode
-        overrides apply when the user switches modes:
+        Set variables on <DocCode>:root</DocCode> to rebrand the entire app. Target{" "}
+        <DocCode>:root[data-arvia-theme="dark"]</DocCode> when using <DocCode>setTheme</DocCode> so
+        dark-mode overrides apply when the user switches modes:
       </DocP>
       <DocPre lang="css">{`/* brand.css — import after @arvia-ui/react */
 :root {
@@ -89,8 +100,8 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
   --arvia-color-focus: #635bff;
 }`}</DocPre>
       <DocP>
-        This docs site uses the same pattern in <code>site-theme.css</code> to remap the default
-        teal palette to indigo/zinc.
+        This docs site uses the same pattern in <DocCode>site-theme.css</DocCode> to remap the
+        default teal palette to indigo/zinc.
       </DocP>
       <DocH2>Scoped overrides</DocH2>
       <DocP>
@@ -105,15 +116,15 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
 }`}</DocPre>
       <DocH3>Independent light/dark island</DocH3>
       <DocP>
-        Compiled selectors <code>[data-arvia-theme="light"]</code> and{" "}
-        <code>[data-arvia-theme="dark"]</code> match <strong>any element</strong>, not just{" "}
-        <code>&lt;html&gt;</code>. A dark app can contain a light island (and vice versa):
+        Compiled selectors <DocCode>[data-arvia-theme="light"]</DocCode> and{" "}
+        <DocCode>[data-arvia-theme="dark"]</DocCode> match <strong>any element</strong>, not just{" "}
+        <DocCode>&lt;html&gt;</DocCode>. A dark app can contain a light island (and vice versa):
       </DocP>
       <DocPre>{`<div data-arvia-theme="light" class="preview-pane">
   <Button tone="primary">Always light tokens</Button>
 </div>`}</DocPre>
       <DocP>
-        Combine <code>data-arvia-theme</code> with custom variables for brand and mode:
+        Combine <DocCode>data-arvia-theme</DocCode> with custom variables for brand and mode:
       </DocP>
       <DocPre lang="css">{`.brand-section[data-arvia-theme="dark"] {
   --arvia-color-primary: #635bff;
@@ -122,25 +133,25 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
       <DocH2>Interaction with setTheme</DocH2>
       <DocUl>
         <DocLi>
-          <code>setTheme("dark")</code> sets <code>data-arvia-theme</code> on{" "}
-          <code>&lt;html&gt;</code> — global dark overrides should target{" "}
-          <code>:root[data-arvia-theme="dark"]</code>
+          <DocCode>setTheme("dark")</DocCode> sets <DocCode>data-arvia-theme</DocCode> on{" "}
+          <DocCode>&lt;html&gt;</DocCode> — global dark overrides should target{" "}
+          <DocCode>:root[data-arvia-theme="dark"]</DocCode>
         </DocLi>
         <DocLi>
-          Scoped sections with their own <code>data-arvia-theme</code> are independent of the global
-          mode set by <code>setTheme</code>
+          Scoped sections with their own <DocCode>data-arvia-theme</DocCode> are independent of the
+          global mode set by <DocCode>setTheme</DocCode>
         </DocLi>
         <DocLi>
-          Without <code>setTheme</code>, rely on <code>:root</code> overrides for light and let the
-          OS dark preference apply the bundled dark defaults, or add a{" "}
-          <code>@media (prefers-color-scheme: dark)</code> block in your override stylesheet
+          Without <DocCode>setTheme</DocCode>, rely on <DocCode>:root</DocCode> overrides for light
+          and let the OS dark preference apply the bundled dark defaults, or add a{" "}
+          <DocCode>@media (prefers-color-scheme: dark)</DocCode> block in your override stylesheet
         </DocLi>
       </DocUl>
       <DocH2>Using tokens in custom CSS</DocH2>
       <DocP>
         Non-arvia-ui elements can reference the same variables. Use{" "}
-        <code>var(--arvia-color-primary)</code>, <code>var(--arvia-space-4)</code>, etc. in your own
-        stylesheets to stay aligned with the active theme.
+        <DocCode>var(--arvia-color-primary)</DocCode>, <DocCode>var(--arvia-space-4)</DocCode>, etc.
+        in your own stylesheets to stay aligned with the active theme.
       </DocP>
       <DocPre lang="css">{`.hero-accent {
   background: color-mix(in srgb, var(--arvia-color-accent) 12%, transparent);
@@ -149,8 +160,8 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
 }`}</DocPre>
       <DocH2>Token reference</DocH2>
       <DocP>
-        Every token from <code>theme.arv</code> maps to a CSS variable you can override. Copy any
-        name into your override stylesheet:
+        Every token from <DocCode>theme.arv</DocCode> maps to a CSS variable you can override. Copy
+        any name into your override stylesheet:
       </DocP>
       <DocH3>color</DocH3>
       <DocPre lang="css">{`--arvia-color-primary
@@ -174,10 +185,11 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
 --arvia-color-borderStrong
 --arvia-color-focus`}</DocPre>
       <DocP>
-        In the default theme, <code>accent</code>, <code>danger</code>, <code>success</code>, and{" "}
-        <code>warning</code> base hues are the same in light and dark. Tokens with distinct{" "}
-        <code>@dark</code> values include <code>primary</code>, <code>text</code>,{" "}
-        <code>surface</code>, <code>background</code>, <code>border</code>, and <code>shadow</code>.
+        In the default theme, <DocCode>accent</DocCode>, <DocCode>danger</DocCode>,{" "}
+        <DocCode>success</DocCode>, and <DocCode>warning</DocCode> base hues are the same in light
+        and dark. Tokens with distinct <DocCode>@dark</DocCode> values include{" "}
+        <DocCode>primary</DocCode>, <DocCode>text</DocCode>, <DocCode>surface</DocCode>,{" "}
+        <DocCode>background</DocCode>, <DocCode>border</DocCode>, and <DocCode>shadow</DocCode>.
       </DocP>
       <DocH3>space</DocH3>
       <DocPre lang="css">{`--arvia-space-1   /*  4px */
@@ -217,11 +229,12 @@ import "./brand.css"; // last — overrides bundled tokens`}</DocPre>
 --arvia-easing-out`}</DocPre>
       <DocH2>Custom themes (compile-time)</DocH2>
       <DocP>
-        To author your own <code>.arv</code> components or fork token <em>definitions</em> at build
-        time, copy <code>theme.arv</code> from <code>@arvia-ui/core-styles</code> and pass it to the{" "}
-        <code>@arviahq/vite-plugin-react</code>. Component <code>.arv</code> files reference tokens
-        — swap the theme, keep the components. This is for design-system authors; CSS variable
-        overrides are the recommended path for app-level branding.
+        To author your own <DocCode>.arv</DocCode> components or fork token <em>definitions</em> at
+        build time, copy <DocCode>theme.arv</DocCode> from <DocCode>@arvia-ui/core-styles</DocCode>{" "}
+        and pass it to the <DocCode>@arviahq/vite-plugin-react</DocCode>. Component{" "}
+        <DocCode>.arv</DocCode> files reference tokens — swap the theme, keep the components. This
+        is for design-system authors; CSS variable overrides are the recommended path for app-level
+        branding.
       </DocP>
     </DocProse>
   );

@@ -14,6 +14,10 @@ function parseTypeValues(type: string): string[] {
   return [trimmed];
 }
 
+function displayValue(value: string): string {
+  return value.replace(/^["']|["']$/g, "");
+}
+
 export function PropsTable(props: { rows: PropDefinition[] }) {
   const table = propsTableStyles();
 
@@ -41,12 +45,8 @@ export function PropsTable(props: { rows: PropDefinition[] }) {
 
                 <div className={table.pills}>
                   {typeValues.map((value) => (
-                    <span
-                      key={value}
-                      className={table.pill}
-                      data-type={value === "boolean" ? "boolean" : "value"}
-                    >
-                      {value}
+                    <span key={value} className={table.tag}>
+                      {displayValue(value)}
                     </span>
                   ))}
                 </div>
@@ -56,7 +56,11 @@ export function PropsTable(props: { rows: PropDefinition[] }) {
 
               <div className={table.defaultCol}>
                 <span className={table.defaultLabel}>DEFAULT</span>
-                <span className={table.defaultValue}>{row.default ?? "—"}</span>
+                {row.default ? (
+                  <span className={table.tag}>{displayValue(row.default)}</span>
+                ) : (
+                  <span className={table.defaultEmpty}>—</span>
+                )}
               </div>
             </div>
           );

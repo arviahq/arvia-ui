@@ -52,9 +52,6 @@ export function SiteNav(props: { theme: "light" | "dark"; onThemeToggle: () => v
           >
             {props.theme === "dark" ? "☀" : "☾"}
           </Button>
-          <RouterLink to="/docs/$slug" params={{ slug: "getting-started" }}>
-            <Button size="sm">Get started</Button>
-          </RouterLink>
         </div>
       </div>
     </header>
