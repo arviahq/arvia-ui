@@ -19,6 +19,7 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      id-token: write
     steps:
       - uses: actions/checkout@v5
         with:
@@ -37,6 +38,9 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Typecheck
+        run: pnpm typecheck
 
       - name: Verify npm publish access
         run: node scripts/verify-npm-publish.mjs

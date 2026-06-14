@@ -7,7 +7,7 @@
     "website": "pnpm --filter website dev",
     "website:build": "pnpm --filter website build",
     "storybook": "pnpm --filter @arvia-ui/react storybook",
-    "build": "pnpm -r build",
+    "build": "pnpm --filter './packages/**' -r build",
     "typecheck": "pnpm -r typecheck",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
@@ -15,10 +15,11 @@
     "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm build && changeset publish",
+    "pack:all": "pnpm -r --filter '@arvia-ui/*' exec npm pack"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.2",
+    "@changesets/cli": "^2.29.8",
     "oxfmt": "^0.54.0",
     "oxlint": "^1.69.0",
     "typescript": "^5.8.3"

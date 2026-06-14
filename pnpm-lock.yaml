@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       '@changesets/cli':
-        specifier: ^2.29.2
+        specifier: ^2.29.8
         version: 2.31.0
       oxfmt:
         specifier: ^0.54.0

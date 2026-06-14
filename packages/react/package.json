@@ -28,8 +28,7 @@
     "./styles.css": "./dist/styles.css"
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   },
   "scripts": {
     "compile-styles": "node scripts/compile-styles.mjs",
