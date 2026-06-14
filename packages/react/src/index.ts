@@ -3,6 +3,7 @@ export { Stack, type StackProps } from "./Stack";
 export { Text, type TextProps } from "./Text";
 export { Heading, type HeadingProps } from "./Heading";
 export { Button, type ButtonProps } from "./Button";
+export { IconButton, type IconButtonProps } from "./IconButton";
 export { Badge, type BadgeProps } from "./Badge";
 export { Link, type LinkProps } from "./Link";
 export { Card, type CardProps } from "./Card";

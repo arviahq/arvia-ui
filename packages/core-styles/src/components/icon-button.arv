@@ -1,0 +1,91 @@
+// IconButton: square icon-only button with accessible label requirement enforced in React.
+
+component IconButton {
+  base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: none;
+    border-radius: radius.md;
+    font-family: inherit;
+    line-height: 0;
+    cursor: pointer;
+    transition: background duration.fast easing.default,
+                color duration.fast easing.default,
+                border-color duration.fast easing.default,
+                box-shadow duration.fast easing.default;
+    use PressEffect;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  }
+
+  slots {
+    root;
+    icon;
+  }
+
+  variants {
+    size {
+      sm {
+        width: 32px;
+        height: 32px;
+      }
+      md {
+        width: 36px;
+        height: 36px;
+      }
+      lg {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    tone {
+      primary {
+        background: color.primary;
+        color: white;
+        &:hover:not(:disabled) {
+          background: color.primaryHover;
+        }
+      }
+      secondary {
+        background: color.surface;
+        color: color.text;
+        border: 1px solid color.borderStrong;
+        &:hover:not(:disabled) {
+          background: color.background;
+        }
+      }
+      ghost {
+        background: transparent;
+        color: color.text;
+        &:hover:not(:disabled) {
+          background: color.background;
+        }
+      }
+      danger {
+        background: color.danger;
+        color: white;
+        &:hover:not(:disabled) {
+          background: color.dangerHover;
+        }
+      }
+    }
+  }
+
+  defaults {
+    size: md;
+    tone: ghost;
+  }
+}

@@ -12,6 +12,7 @@ import {
   Divider,
   Drawer,
   Heading,
+  IconButton,
   Input,
   Link,
   Spinner,
@@ -107,6 +108,152 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
             <Button size="sm">Small</Button>
             <Button size="md">Medium</Button>
             <Button size="lg">Large</Button>
+          </Stack>
+        </LivePreview>
+      </>
+    ),
+  },
+  {
+    slug: "icon-button",
+    title: "IconButton",
+    description:
+      "Square icon-only button with tone and size variants. Requires aria-label for accessibility.",
+    importName: "IconButton",
+    playground: {
+      Component: IconButton,
+      args: {
+        "aria-label": "Add item",
+        children: (
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden
+          >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        ),
+      },
+      controls: ["tone", "size", "aria-label"],
+    },
+    props: [
+      {
+        name: "tone",
+        type: '"primary" | "secondary" | "ghost" | "danger"',
+        default: '"ghost"',
+        description: "Visual style of the button.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Square dimensions.",
+      },
+      {
+        name: "children",
+        type: "ReactNode",
+        description: "Icon content rendered inside the button.",
+      },
+      {
+        name: "aria-label",
+        type: "string",
+        description: "Accessible name — required because there is no visible text.",
+      },
+      {
+        name: "disabled",
+        type: "boolean",
+        description: "Disables interaction and applies disabled styles.",
+      },
+      {
+        name: "type",
+        type: '"button" | "submit" | "reset"',
+        default: '"button"',
+        description: "Native button type.",
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class merged onto the root element.",
+      },
+      htmlAttrs("Button"),
+    ],
+    usage: `import { IconButton } from "@arvia-ui/react";
+
+<IconButton tone="ghost" size="md" aria-label="Add item">
+  <PlusIcon />
+</IconButton>`,
+    Preview: () => (
+      <IconButton tone="ghost" aria-label="Add item">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          aria-hidden
+        >
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </IconButton>
+    ),
+    Examples: () => (
+      <>
+        <LivePreview label="Tones">
+          <Stack direction="row" gap="2" align="center">
+            <IconButton tone="primary" aria-label="Primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton tone="secondary" aria-label="Secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton tone="ghost" aria-label="Ghost">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton tone="danger" aria-label="Delete">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <polyline points="3 6 5 6 21 6" />
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+            </IconButton>
+          </Stack>
+        </LivePreview>
+        <LivePreview label="Sizes">
+          <Stack direction="row" gap="2" align="center">
+            <IconButton size="sm" aria-label="Small">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton size="md" aria-label="Medium">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
+            <IconButton size="lg" aria-label="Large">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </IconButton>
           </Stack>
         </LivePreview>
       </>

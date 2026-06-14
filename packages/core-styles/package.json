@@ -76,6 +76,10 @@
       "types": "./.arvia/types/components/heading.arv.d.ts",
       "default": "./src/components/heading.arv"
     },
+    "./components/icon-button.arv": {
+      "types": "./.arvia/types/components/icon-button.arv.d.ts",
+      "default": "./src/components/icon-button.arv"
+    },
     "./components/input.arv": {
       "types": "./.arvia/types/components/input.arv.d.ts",
       "default": "./src/components/input.arv"
