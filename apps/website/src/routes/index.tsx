@@ -57,7 +57,7 @@ const FEATURES: { icon: ReactNode; title: string; body: string }[] = [
       </Icon>
     ),
     title: "Light & dark modes",
-    body: 'Both modes ship in the CSS. setTheme("dark") flips a data attribute and every component follows — no flash, no extra config.',
+    body: "Both modes ship as native light-dark() tokens. Follows the OS by default, or flip one data attribute to pin it — no JS runtime, no extra config.",
   },
   {
     icon: (

@@ -13,7 +13,7 @@ Styles live in shared `.arv` files and compile to static CSS at publish time. Th
 - **Zero-config install** — `npm install @arvia-ui/react` and import. Styles bundle automatically; no Vite plugin, no theme import, no `vite.config.ts` changes.
 - **Compile-time CSS** — variants, states, and responsive rules compile from `.arv` to a single stylesheet. No CSS-in-JS, no style recalculation in the browser.
 - **Fully typed** — every variant prop is a string union. Autocomplete tones, sizes, and states at compile time.
-- **Light & dark modes** — both ship in the CSS. `setTheme("dark")` flips a data attribute; every component follows.
+- **Light & dark modes** — both ship as native `light-dark()` tokens. Follows the OS by default; flip `data-arvia-theme` to pin it. No JS runtime.
 - **Accessible defaults** — semantic HTML, forwarded refs, focus rings, keyboard navigation, and ARIA wiring where it matters.
 - **Themeable** — override `--arvia-*` CSS variables globally or per subtree. No library API required.
 
@@ -44,34 +44,35 @@ Importing any component pulls in the pre-compiled CSS via `sideEffects` — you 
 
 ### Theme modes
 
-```tsx
-import { setTheme } from "@arvia-ui/react";
+Theming is pure native CSS — there is **no JavaScript runtime**. Color tokens compile to `light-dark()` driven by `color-scheme`, so the theme follows the OS by default. To pin or toggle the mode, set `data-arvia-theme` on `<html>`:
 
-setTheme("dark"); // sets data-arvia-theme on <html>
-setTheme("light");
+```html
+<html data-arvia-theme="dark"></html>
 ```
 
-If you never call `setTheme`, dark mode follows the OS `prefers-color-scheme` preference.
+```js
+// One native DOM call — no library helper needed:
+document.documentElement.setAttribute("data-arvia-theme", "dark");
+```
+
+`color-scheme` also themes native UA widgets (scrollbars, form controls, focus rings).
 
 ### Customizing tokens
 
-Reassign `--arvia-*` CSS variables. Import your override stylesheet **after** `@arvia-ui/react`:
+Reassign `--arvia-*` CSS variables. Wrap mode-varying colors in `light-dark()` so a single declaration covers both modes (including OS-driven dark). Import your override stylesheet **after** `@arvia-ui/react`:
 
 ```css
 /* brand.css */
 :root {
-  --arvia-color-primary: #4f46e5;
-  --arvia-color-primaryHover: #4338ca;
-  --arvia-color-focus: #4f46e5;
-}
-
-:root[data-arvia-theme="dark"] {
-  --arvia-color-primary: #635bff;
-  --arvia-color-primaryHover: #5249e6;
+  --arvia-color-primary: light-dark(#4f46e5, #635bff);
+  --arvia-color-primaryHover: light-dark(#4338ca, #5249e6);
+  --arvia-color-focus: light-dark(#4f46e5, #635bff);
 }
 ```
 
-Variables inherit — set them on any wrapper to rebrand a subtree. The docs site covers scoped islands, the full token reference, and `setTheme` interaction (`pnpm website` → `/docs/theming`).
+Variables inherit — set them on any wrapper to rebrand a subtree. The docs site covers scoped islands, the full token reference, and FOUC-free persistence (`pnpm website` → `/docs/theming`).
+
+> Requires a Baseline-2024 browser (Chrome 123+, Safari 17.5+, Firefox 120+) for `light-dark()`.
 
 ## Components
 
@@ -91,10 +92,10 @@ Every component has live previews, interactive playgrounds, and a full props ref
 
 ## Packages
 
-| Package | npm | Description |
-| --- | --- | --- |
-| `@arvia-ui/react` | [`@arvia-ui/react`](https://www.npmjs.com/package/@arvia-ui/react) | React 18+ components + bundled CSS |
-| `@arvia-ui/core-styles` | internal | Shared `.arv` theme and component styles (compiled into `@arvia-ui/react` at publish time) |
+| Package                 | npm                                                                | Description                                                                                |
+| ----------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `@arvia-ui/react`       | [`@arvia-ui/react`](https://www.npmjs.com/package/@arvia-ui/react) | React 18+ components + bundled CSS                                                         |
+| `@arvia-ui/core-styles` | internal                                                           | Shared `.arv` theme and component styles (compiled into `@arvia-ui/react` at publish time) |
 
 Future framework targets (`@arviahq/ui-vue`, `@arviahq/ui-preact`) will follow the same pattern.
 
@@ -135,12 +136,12 @@ pnpm install
 pnpm verify         # format, lint, typecheck, build
 ```
 
-| Script | Description |
-| --- | --- |
-| `pnpm website` | Docs + marketing site |
-| `pnpm storybook` | Component stories |
-| `pnpm build` | Build all packages |
-| `pnpm verify` | Full CI check locally |
+| Script           | Description                 |
+| ---------------- | --------------------------- |
+| `pnpm website`   | Docs + marketing site       |
+| `pnpm storybook` | Component stories           |
+| `pnpm build`     | Build all packages          |
+| `pnpm verify`    | Full CI check locally       |
 | `pnpm changeset` | Add a changeset for release |
 
 ### Repo layout

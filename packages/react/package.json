@@ -1,6 +1,6 @@
 {
   "name": "@arvia-ui/react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Beautiful, crafted React components built on Arvia.",
   "homepage": "https://github.com/arviahq/arvia-ui#readme",
   "bugs": {
@@ -42,8 +42,8 @@
   },
   "devDependencies": {
     "@arvia-ui/core-styles": "workspace:*",
-    "@arviahq/compiler": "^0.6.1",
-    "@arviahq/vite-plugin-react": "^0.6.0",
+    "@arviahq/compiler": "^0.7.0",
+    "@arviahq/vite-plugin-react": "^0.7.0",
     "@storybook/react": "^9.0.0",
     "@storybook/react-vite": "^9.0.0",
     "@types/react": "^19.2.0",

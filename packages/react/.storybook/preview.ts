@@ -1,6 +1,9 @@
 import type { Preview } from "@storybook/react";
-import { setTheme } from "../src/arvia-theme";
 import "@arvia-ui/core-styles/theme.arv";
+
+// Theming is pure native CSS — flip the attribute directly (no library runtime).
+const applyTheme = (mode: string) =>
+  document.documentElement.setAttribute("data-arvia-theme", mode);
 
 const preview: Preview = {
   parameters: {
@@ -19,7 +22,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      setTheme((context.globals.arviaTheme as string) ?? "light");
+      applyTheme((context.globals.arviaTheme as string) ?? "light");
       return Story();
     },
   ],
