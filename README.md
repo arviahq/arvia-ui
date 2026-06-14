@@ -75,6 +75,25 @@ arvia-ui/
     ui-preact/       # (planned)
 ```
 
+## CI and releases
+
+Pull requests and pushes to `main` run [`.github/workflows/ci.yml`](.github/workflows/ci.yml): format check, lint, typecheck, and build.
+
+Releases use [Changesets](https://github.com/changesets/changesets) via [`.github/workflows/release.yml`](.github/workflows/release.yml). After merge, the workflow opens a version PR or publishes to npm when versions are bumped.
+
+**One-time setup for publishing:**
+
+1. GitHub → Settings → Actions → General → enable **Read and write permissions** and **Allow GitHub Actions to create pull requests**.
+2. On [npmjs.com](https://www.npmjs.com), add a **Trusted Publisher** for `@arvia-ui/react` and `@arvia-ui/core-styles` pointing to `arviahq/arvia-ui`, workflow file `release.yml`, branch `main`.
+
+To include a release note with your change:
+
+```bash
+pnpm changeset
+```
+
+Run the same checks locally with `pnpm verify`.
+
 ## Related repos
 
 - [arviahq/arvia](https://github.com/arviahq/arvia) — the Arvia compiler and tooling

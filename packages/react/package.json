@@ -27,6 +27,10 @@
     },
     "./styles.css": "./dist/styles.css"
   },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "compile-styles": "node scripts/compile-styles.mjs",
     "pretypecheck": "pnpm --filter @arvia-ui/core-styles gen",

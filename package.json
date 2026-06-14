@@ -11,9 +11,13 @@
     "typecheck": "pnpm -r typecheck",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build",
+    "changeset": "changeset",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.2",
     "oxfmt": "^0.54.0",
     "oxlint": "^1.69.0",
     "typescript": "^5.8.3"

@@ -149,6 +149,10 @@
       "default": "./src/components/toast.arv"
     }
   },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "gen": "arvia gen src",
     "prepare": "arvia gen src",
