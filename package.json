@@ -13,7 +13,7 @@
     "format:check": "oxfmt --check",
     "lint": "oxlint",
     "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build",
-    "changeset": "changeset add",
+    "changeset": "changeset",
     "version": "changeset version",
     "release": "pnpm build && changeset publish",
     "pack:all": "pnpm -r --filter '@arvia-ui/*' exec npm pack"
