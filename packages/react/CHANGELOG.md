@@ -1,5 +1,11 @@
 # @arvia-ui/react
 
+## 0.2.1
+
+### Patch Changes
+
+- c763521: Document Changesets CLI workflow and align release process with arvia.
+
 ## 0.2.0
 
 ### Minor Changes
