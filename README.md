@@ -161,7 +161,7 @@ Issues and pull requests are welcome.
 
 1. Fork the repo and create a branch.
 2. Make your change and run `pnpm verify`.
-3. Add a changeset if your change should trigger a release: `pnpm changeset`.
+3. Add a changeset if your change should trigger a release: run `pnpm changeset` and follow the prompts (package, bump type, summary). Do not write `.changeset/*.md` files by hand.
 4. Open a PR with a clear description of what changed and why.
 
 CI runs on every push and PR: format check, lint, typecheck, and build ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
