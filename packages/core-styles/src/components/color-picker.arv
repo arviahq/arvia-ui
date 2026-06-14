@@ -1,0 +1,208 @@
+// ColorPicker: swatch trigger, hex field, and custom popover panel.
+
+component ColorPicker {
+  base {
+    root {
+      display: flex;
+      align-items: center;
+      gap: space.2;
+      width: 100%;
+    }
+
+    trigger {
+      flex-shrink: 0;
+      border: 1px solid color.borderStrong;
+      border-radius: radius.md;
+      cursor: pointer;
+      padding: 0;
+      transition: border-color duration.fast easing.default;
+
+      &:hover:not(:disabled) {
+        border-color: color.muted;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    panel {
+      width: 280px;
+      padding: space.4;
+      padding-bottom: space.5;
+      max-width: none;
+    }
+
+    field {
+      position: relative;
+      width: 100%;
+      height: 160px;
+      border-radius: radius.md;
+      border: 1px solid color.border;
+      cursor: crosshair;
+      touch-action: none;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    fieldThumb {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: radius.full;
+      border: 2px solid white;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    controls {
+      display: flex;
+      align-items: center;
+      gap: space.3;
+      margin-top: space.3;
+    }
+
+    preview {
+      width: 32px;
+      height: 32px;
+      border-radius: radius.full;
+      border: 1px solid color.border;
+      flex-shrink: 0;
+    }
+
+    hue {
+      position: relative;
+      flex: 1;
+      height: 14px;
+      border-radius: radius.full;
+      border: 1px solid color.border;
+      cursor: pointer;
+      touch-action: none;
+      user-select: none;
+      background: linear-gradient(
+        to right,
+        #ff0000,
+        #ffff00,
+        #00ff00,
+        #00ffff,
+        #0000ff,
+        #ff00ff,
+        #ff0000
+      );
+    }
+
+    hueThumb {
+      position: absolute;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      border-radius: radius.full;
+      border: 2px solid white;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    inputs {
+      display: flex;
+      align-items: flex-start;
+      gap: space.2;
+      margin-top: space.3;
+    }
+
+    channels {
+      display: flex;
+      flex: 1;
+      gap: space.2;
+    }
+
+    channel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    channelLabel {
+      font-size: font.xs;
+      color: color.muted;
+      line-height: 1;
+    }
+
+    formatToggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-top: 4px;
+      border: none;
+      border-radius: radius.sm;
+      background: transparent;
+      color: color.muted;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background-color duration.fast easing.default, color duration.fast easing.default;
+
+      &:hover:not(:disabled) {
+        background: color.background;
+        color: color.text;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  variants {
+    size {
+      sm {
+        trigger {
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      md {
+        trigger {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      lg {
+        trigger {
+          width: 44px;
+          height: 44px;
+        }
+      }
+    }
+  }
+
+  slots {
+    root;
+    trigger;
+    panel;
+    field;
+    fieldThumb;
+    controls;
+    preview;
+    hue;
+    hueThumb;
+    inputs;
+    channels;
+    channel;
+    channelLabel;
+    formatToggle;
+  }
+
+  defaults {
+    size: md;
+  }
+}

@@ -41,6 +41,7 @@ export {
 export { Avatar, type AvatarProps } from "./Avatar";
 export { Switch, type SwitchProps } from "./Switch";
 export { Checkbox, CheckboxGroup, type CheckboxProps, type CheckboxGroupProps } from "./Checkbox";
+export { ColorPicker, type ColorPickerProps } from "./ColorPicker";
 export { Tooltip, type TooltipProps } from "./Tooltip";
 export { Alert, type AlertProps } from "./Alert";
 export { Radio, RadioGroup, type RadioProps, type RadioGroupProps } from "./RadioGroup";

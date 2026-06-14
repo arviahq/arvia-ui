@@ -60,6 +60,10 @@
       "types": "./.arvia/types/components/checkbox-group.arv.d.ts",
       "default": "./src/components/checkbox-group.arv"
     },
+    "./components/color-picker.arv": {
+      "types": "./.arvia/types/components/color-picker.arv.d.ts",
+      "default": "./src/components/color-picker.arv"
+    },
     "./components/dialog.arv": {
       "types": "./.arvia/types/components/dialog.arv.d.ts",
       "default": "./src/components/dialog.arv"

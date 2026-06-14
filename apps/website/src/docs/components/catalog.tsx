@@ -8,6 +8,7 @@ import {
   Card,
   Checkbox,
   CheckboxGroup,
+  ColorPicker,
   Dialog,
   Divider,
   Drawer,
@@ -1145,6 +1146,89 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         <Checkbox value="sms">SMS</Checkbox>
         <Checkbox value="push">Push</Checkbox>
       </CheckboxGroup>
+    ),
+  },
+  {
+    slug: "color-picker",
+    title: "ColorPicker",
+    description:
+      "Custom color picker with saturation field, hue slider, RGB/HSL/hex inputs, and optional eyedropper.",
+    importName: "ColorPicker",
+    playground: {
+      Component: ColorPicker,
+      args: { defaultValue: "#4f46e5", "aria-label": "Brand color" },
+      controls: ["size", "aria-label", "defaultValue", "disabled"],
+    },
+    props: [
+      {
+        name: "value",
+        type: "string",
+        description: "Hex color value (controlled), e.g. #4f46e5.",
+      },
+      {
+        name: "defaultValue",
+        type: "string",
+        description: "Initial hex color (uncontrolled).",
+      },
+      {
+        name: "onChange",
+        type: "(value: string) => void",
+        description: "Called with a normalized #rrggbb value.",
+      },
+      {
+        name: "size",
+        type: '"sm" | "md" | "lg"',
+        default: '"md"',
+        description: "Height and font size.",
+      },
+      {
+        name: "disabled",
+        type: "boolean",
+        description: "Disables both the swatch and hex field.",
+      },
+      {
+        name: "placeholder",
+        type: "string",
+        default: '"#000000"',
+        description: "Placeholder for the hex text field.",
+      },
+      {
+        name: "aria-label",
+        type: "string",
+        description: "Accessible name for the control group.",
+      },
+      {
+        name: "aria-invalid",
+        type: '"true" | "false"',
+        description: 'Set to "true" for error styling.',
+      },
+      {
+        name: "className",
+        type: "string",
+        description: "Additional CSS class on the root element.",
+      },
+    ],
+    usage: `import { ColorPicker } from "@arvia-ui/react";
+
+<ColorPicker
+  value={color}
+  onChange={setColor}
+  aria-label="Brand color"
+/>`,
+    Preview: () => <ColorPicker defaultValue="#4f46e5" aria-label="Brand color" style={{ width: 220 }} />,
+    Examples: () => (
+      <>
+        <LivePreview label="Sizes">
+          <Stack direction="column" gap="3" style={{ width: 240 }}>
+            <ColorPicker size="sm" defaultValue="#16a34a" aria-label="Small color" />
+            <ColorPicker size="md" defaultValue="#4f46e5" aria-label="Medium color" />
+            <ColorPicker size="lg" defaultValue="#dc2626" aria-label="Large color" />
+          </Stack>
+        </LivePreview>
+        <LivePreview label="Disabled">
+          <ColorPicker defaultValue="#ca8a04" aria-label="Disabled color" disabled style={{ width: 220 }} />
+        </LivePreview>
+      </>
     ),
   },
   {
