@@ -47,6 +47,21 @@ component SiteHeader {
       white-space: nowrap;
     }
 
+    brandTextLink {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: color.text;
+    }
+
+    brandMark {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      color: color.text;
+    }
+
     links {
       display: flex;
       align-items: center;
@@ -78,7 +93,28 @@ component SiteHeader {
     root;
     inner;
     brand;
+    brandMark;
+    brandMarkDocs {
+      display: none;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      color: color.text;
+
+      @media (min-width: breakpoint.lg) {
+        display: inline-flex;
+      }
+    }
     brandText;
+    brandTextLink;
+    menuButton {
+      display: inline-flex;
+      flex-shrink: 0;
+
+      @media (min-width: breakpoint.lg) {
+        display: none;
+      }
+    }
     links;
     link;
     actions;
