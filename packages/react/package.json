@@ -1,6 +1,6 @@
 {
   "name": "@arvia-ui/react",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Beautiful, crafted React components built on Arvia.",
   "homepage": "https://github.com/arviahq/arvia-ui#readme",
   "bugs": {

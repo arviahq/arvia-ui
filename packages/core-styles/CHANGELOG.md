@@ -1,5 +1,14 @@
 # @arvia-ui/core-styles
 
+## 0.3.0
+
+### Minor Changes
+
+- a5f2928: - Upgrade to `@arviahq/compiler` and `@arviahq/vite-plugin-react` v2 (raw `@keyframes`, nested `@media` instead of `responsive` blocks).
+  - Switch default theme palette from teal/stone to indigo/zinc.
+  - Add Drawer, IconButton, ColorPicker, Textarea, Tag, and OTP components.
+  - Fix Tabs baseline with a full-width divider and left-aligned tabs; add `Tabs.List align="inline"` for compact layouts.
+
 ## 0.2.1
 
 ## 0.2.0
