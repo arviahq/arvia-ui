@@ -26,7 +26,8 @@ export function hexToRgb(hex: string): Rgb | null {
 }
 
 export function rgbToHex({ r, g, b }: Rgb): string {
-  const toHex = (channel: number) => clamp(Math.round(channel), 0, 255).toString(16).padStart(2, "0");
+  const toHex = (channel: number) =>
+    clamp(Math.round(channel), 0, 255).toString(16).padStart(2, "0");
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 

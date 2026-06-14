@@ -241,61 +241,61 @@ function ColorPickerPanel({ color, onChange, disabled, styles }: ColorPickerPane
 
       <div className={styles.inputs}>
         <div className={styles.channels}>
-          {format === "rgb"
-            ? (["r", "g", "b"] as const).map((channel) => (
-                <label key={channel} className={styles.channel}>
-                  <Input
-                    size="sm"
-                    type="number"
-                    min={0}
-                    max={255}
-                    value={String(rgb[channel])}
-                    disabled={disabled}
-                    aria-label={channel.toUpperCase()}
-                    style={{ textAlign: "center", paddingInline: 8 }}
-                    onChange={(event) => setRgbChannel(channel, event.target.value)}
-                  />
-                  <span className={styles.channelLabel}>{channel.toUpperCase()}</span>
-                </label>
-              ))
-            : format === "hsl"
-              ? (["h", "s", "l"] as const).map((channel) => (
-                  <label key={channel} className={styles.channel}>
-                    <Input
-                      size="sm"
-                      type="number"
-                      min={0}
-                      max={channel === "h" ? 360 : 100}
-                      value={String(Math.round(hsl[channel]))}
-                      disabled={disabled}
-                      aria-label={channel.toUpperCase()}
-                      style={{ textAlign: "center", paddingInline: 8 }}
-                      onChange={(event) => setHslChannel(channel, event.target.value)}
-                    />
-                    <span className={styles.channelLabel}>{channel.toUpperCase()}</span>
-                  </label>
-                ))
-              : (
-                <label className={styles.channel} style={{ flex: 3 }}>
-                  <Input
-                    size="sm"
-                    type="text"
-                    value={color}
-                    disabled={disabled}
-                    spellCheck={false}
-                    aria-label="Hex"
-                    style={{
-                      textAlign: "center",
-                      fontFamily: '"JetBrains Mono", ui-monospace, monospace',
-                    }}
-                    onChange={(event) => {
-                      const normalized = normalizeHex(event.target.value);
-                      if (normalized) commitHex(normalized);
-                    }}
-                  />
-                  <span className={styles.channelLabel}>Hex</span>
-                </label>
-              )}
+          {format === "rgb" ? (
+            (["r", "g", "b"] as const).map((channel) => (
+              <label key={channel} className={styles.channel}>
+                <Input
+                  size="sm"
+                  type="number"
+                  min={0}
+                  max={255}
+                  value={String(rgb[channel])}
+                  disabled={disabled}
+                  aria-label={channel.toUpperCase()}
+                  style={{ textAlign: "center", paddingInline: 8 }}
+                  onChange={(event) => setRgbChannel(channel, event.target.value)}
+                />
+                <span className={styles.channelLabel}>{channel.toUpperCase()}</span>
+              </label>
+            ))
+          ) : format === "hsl" ? (
+            (["h", "s", "l"] as const).map((channel) => (
+              <label key={channel} className={styles.channel}>
+                <Input
+                  size="sm"
+                  type="number"
+                  min={0}
+                  max={channel === "h" ? 360 : 100}
+                  value={String(Math.round(hsl[channel]))}
+                  disabled={disabled}
+                  aria-label={channel.toUpperCase()}
+                  style={{ textAlign: "center", paddingInline: 8 }}
+                  onChange={(event) => setHslChannel(channel, event.target.value)}
+                />
+                <span className={styles.channelLabel}>{channel.toUpperCase()}</span>
+              </label>
+            ))
+          ) : (
+            <label className={styles.channel} style={{ flex: 3 }}>
+              <Input
+                size="sm"
+                type="text"
+                value={color}
+                disabled={disabled}
+                spellCheck={false}
+                aria-label="Hex"
+                style={{
+                  textAlign: "center",
+                  fontFamily: '"JetBrains Mono", ui-monospace, monospace',
+                }}
+                onChange={(event) => {
+                  const normalized = normalizeHex(event.target.value);
+                  if (normalized) commitHex(normalized);
+                }}
+              />
+              <span className={styles.channelLabel}>Hex</span>
+            </label>
+          )}
         </div>
         <button
           type="button"

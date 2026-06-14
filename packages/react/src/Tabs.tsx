@@ -93,10 +93,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(function TabsList(
   }
 
   return (
-    <div
-      className={styles.listBar}
-      data-align={align === "inline" ? "inline" : undefined}
-    >
+    <div className={styles.listBar} data-align={align === "inline" ? "inline" : undefined}>
       <div
         ref={ref}
         role="tablist"

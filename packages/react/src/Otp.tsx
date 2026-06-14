@@ -141,7 +141,9 @@ export const Otp = forwardRef<HTMLDivElement, OtpProps>(function Otp(
       className={className ? `${styles.root} ${className}` : styles.root}
       onPaste={(event: ClipboardEvent<HTMLDivElement>) => {
         event.preventDefault();
-        const activeIndex = inputRefs.current.findIndex((input) => input === document.activeElement);
+        const activeIndex = inputRefs.current.findIndex(
+          (input) => input === document.activeElement,
+        );
         applyText(event.clipboardData.getData("text"), activeIndex >= 0 ? activeIndex : 0);
       }}
       {...props}
