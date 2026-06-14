@@ -75,6 +75,9 @@ importers:
       '@arvia-ui/core-styles':
         specifier: workspace:*
         version: link:../core-styles
+      '@arviahq/compiler':
+        specifier: ^0.6.1
+        version: 0.6.1
       '@arviahq/vite-plugin-react':
         specifier: ^0.6.0
         version: 0.6.1(typescript@5.9.3)(vite@7.3.5(jiti@2.7.0))
