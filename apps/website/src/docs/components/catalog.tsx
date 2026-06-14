@@ -1437,7 +1437,7 @@ toast({ title: "Saved", tone: "success" });`,
       );
     },
   },
-];
+].sort((a, b) => a.title.localeCompare(b.title));
 
 export const componentBySlug = Object.fromEntries(
   COMPONENT_DOCS.map((doc) => [doc.slug, doc]),
