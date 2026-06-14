@@ -1,0 +1,50 @@
+# Publishing `@arvia-ui` packages
+
+Manual steps required before the first release (cannot be automated in CI setup alone).
+
+## 1. Create the npm organization
+
+1. Sign in at [npmjs.com](https://www.npmjs.com/).
+2. Create org **`arvia-ui`**: [npmjs.com/org/create](https://www.npmjs.com/org/create).
+3. Confirm these package names are available under `@arvia-ui/`:
+   - `react`
+   - `core-styles`
+
+Both packages release in lockstep via Changesets (`fixed` group in [`.changeset/config.json`](.changeset/config.json)).
+
+## 2. GitHub secrets
+
+Add repository secrets (Settings → Secrets and variables → Actions):
+
+| Secret      | Purpose                                             |
+| ----------- | --------------------------------------------------- |
+| `NPM_TOKEN` | Automation token with publish access to `@arvia-ui` |
+
+## 3. GitHub Actions settings
+
+In Settings → Actions → General:
+
+1. Enable **Read and write permissions** for workflows.
+2. Enable **Allow GitHub Actions to create and approve pull requests**.
+
+## 4. Release workflow
+
+Releases use a two-PR Changesets flow:
+
+1. **Feature PR** — include your code changes and a changeset file:
+
+   ```bash
+   pnpm changeset
+   ```
+
+   Commit the generated file under `.changeset/` and open a PR.
+
+2. **Merge to `main`** — the [release workflow](.github/workflows/release.yml) runs and opens a **Version Packages** PR titled `chore: version packages` (or publishes if no pending changesets remain).
+
+3. **Merge the Version Packages PR** — CI runs `pnpm release` (`pnpm build && changeset publish`) and publishes to npm.
+
+For local testing without publishing:
+
+```bash
+pnpm pack:all
+```
