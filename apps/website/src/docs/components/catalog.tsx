@@ -10,6 +10,7 @@ import {
   CheckboxGroup,
   Dialog,
   Divider,
+  Drawer,
   Heading,
   Input,
   Link,
@@ -766,6 +767,79 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
           </Dialog.Footer>
         </Dialog.Content>
       </Dialog>
+    ),
+  },
+  {
+    slug: "drawer",
+    title: "Drawer",
+    description:
+      "Compound slide-over panel — portal, focus trap, scroll lock, and side variants (left, right, bottom).",
+    importName: "Drawer",
+    props: [
+      {
+        name: "side",
+        type: '"left" | "right" | "bottom"',
+        default: '"right"',
+        description: "Which edge the panel slides in from.",
+      },
+      { name: "open", type: "boolean", description: "Open state (controlled)." },
+      { name: "defaultOpen", type: "boolean", description: "Initial open state (uncontrolled)." },
+      {
+        name: "onChange",
+        type: "(open: boolean) => void",
+        description: "Called when the open state changes.",
+      },
+      {
+        name: "Drawer.Trigger",
+        type: "ReactElement",
+        description: "Clones its child element to open the drawer on click.",
+      },
+      {
+        name: "Drawer.Close asChild",
+        type: "boolean",
+        description: "Render the close behavior on a child element (e.g. a Button).",
+      },
+    ],
+    usage: `import { Drawer, Button } from "@arvia-ui/react";
+
+<Drawer side="right">
+  <Drawer.Trigger><Button>Open</Button></Drawer.Trigger>
+  <Drawer.Content>
+    <Drawer.Close />
+    <Drawer.Header>
+      <Drawer.Title>Title</Drawer.Title>
+      <Drawer.Description>Description</Drawer.Description>
+    </Drawer.Header>
+    <Drawer.Body>Body content</Drawer.Body>
+    <Drawer.Footer>
+      <Drawer.Close asChild><Button tone="secondary">Close</Button></Drawer.Close>
+    </Drawer.Footer>
+  </Drawer.Content>
+</Drawer>`,
+    Preview: () => (
+      <Drawer side="right">
+        <Drawer.Trigger>
+          <Button>Open drawer</Button>
+        </Drawer.Trigger>
+        <Drawer.Content>
+          <Drawer.Close />
+          <Drawer.Header>
+            <Drawer.Title>Filters</Drawer.Title>
+            <Drawer.Description>Refine the list without leaving the page.</Drawer.Description>
+          </Drawer.Header>
+          <Drawer.Body>
+            Adjust status, date range, and assignee. Changes apply when you close the drawer.
+          </Drawer.Body>
+          <Drawer.Footer>
+            <Drawer.Close asChild>
+              <Button tone="secondary">Cancel</Button>
+            </Drawer.Close>
+            <Drawer.Close asChild>
+              <Button>Apply</Button>
+            </Drawer.Close>
+          </Drawer.Footer>
+        </Drawer.Content>
+      </Drawer>
     ),
   },
   {

@@ -129,6 +129,21 @@ keyframes toastIn {
   to { opacity: 1; transform: translateY(0); }
 }
 
+keyframes drawerInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+keyframes drawerInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+keyframes drawerInBottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
 global {
   * {
     box-sizing: border-box;

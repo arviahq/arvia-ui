@@ -30,6 +30,13 @@ export {
   type DialogContentProps,
   type DialogCloseProps,
 } from "./Dialog";
+export {
+  Drawer,
+  type DrawerProps,
+  type DrawerTriggerProps,
+  type DrawerContentProps,
+  type DrawerCloseProps,
+} from "./Drawer";
 export { Avatar, type AvatarProps } from "./Avatar";
 export { Switch, type SwitchProps } from "./Switch";
 export { Checkbox, CheckboxGroup, type CheckboxProps, type CheckboxGroupProps } from "./Checkbox";

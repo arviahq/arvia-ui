@@ -68,6 +68,10 @@
       "types": "./.arvia/types/components/divider.arv.d.ts",
       "default": "./src/components/divider.arv"
     },
+    "./components/drawer.arv": {
+      "types": "./.arvia/types/components/drawer.arv.d.ts",
+      "default": "./src/components/drawer.arv"
+    },
     "./components/heading.arv": {
       "types": "./.arvia/types/components/heading.arv.d.ts",
       "default": "./src/components/heading.arv"
