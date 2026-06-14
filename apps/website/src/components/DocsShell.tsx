@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Heading, Stack, Text } from "@arvia-ui/react";
 import { DocsLayout } from "../site.arv";
-import { DocsNavLinks } from "./DocsNavLinks";
+import { DocsNavPanel } from "./DocsNavPanel";
 
 export function DocsShell(props: { activeSlug: string; children: ReactNode }) {
   const layout = DocsLayout();
@@ -9,7 +9,7 @@ export function DocsShell(props: { activeSlug: string; children: ReactNode }) {
   return (
     <div className={layout.root}>
       <aside className={layout.sidebar}>
-        <DocsNavLinks activeSlug={props.activeSlug} />
+        <DocsNavPanel activeSlug={props.activeSlug} />
       </aside>
       <article className={layout.content}>{props.children}</article>
     </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link as RouterLink, useRouterState } from "@tanstack/react-router";
 import { Button, Drawer, IconButton } from "@arvia-ui/react";
 import { SiteHeader } from "../site.arv";
-import { DocsNavLinks } from "./DocsNavLinks";
+import { DocsNavPanel } from "./DocsNavPanel";
 
 function MenuIcon() {
   return (
@@ -55,9 +55,7 @@ export function SiteNav(props: { theme: "light" | "dark"; onThemeToggle: () => v
                   <Drawer.Header>
                     <Drawer.Title>Documentation</Drawer.Title>
                   </Drawer.Header>
-                  <Drawer.Body>
-                    <DocsNavLinks activeSlug={activeSlug} onNavigate={() => setNavOpen(false)} />
-                  </Drawer.Body>
+                  <DocsNavPanel activeSlug={activeSlug} onNavigate={() => setNavOpen(false)} />
                 </Drawer.Content>
               </Drawer>
             </span>

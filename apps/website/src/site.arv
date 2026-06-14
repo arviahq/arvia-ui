@@ -517,12 +517,7 @@ component DocsLayout {
     root;
     sidebar {
       display: none;
-      position: sticky;
-      top: 64px;
-      align-self: start;
-      max-height: calc(100vh - 88px);
-      overflow-y: auto;
-      padding: space.2 space.4 space.6 0;
+      padding: space.3 space.4 space.6 0;
       border-right: 1px solid color.border;
 
       @media (min-width: breakpoint.lg) {
@@ -590,6 +585,44 @@ component DocsNav {
 
   slots {
     root;
+    search {
+      padding: space.2;
+    }
+    results {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    result {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 6px space.3;
+      border-radius: radius.md;
+      text-decoration: none;
+      transition: background-color duration.fast easing.default;
+
+      &:hover {
+        background: color-mix(in srgb, color.text 6%, transparent);
+      }
+    }
+    resultTitle {
+      font-size: font.sm;
+      font-weight: 500;
+      line-height: 1.4;
+      color: color.text;
+    }
+    resultDesc {
+      font-size: font.xs;
+      line-height: 1.4;
+      color: color.subtle;
+    }
+    empty {
+      margin: 0;
+      padding: 6px space.3;
+      font-size: font.sm;
+      color: color.muted;
+    }
     section;
     sectionTitle;
     list;
