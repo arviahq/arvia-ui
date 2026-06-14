@@ -63,7 +63,7 @@ component Checkbox {
   }
 
   slots {
-    root {}
-    control {}
+    root;
+    control;
   }
 }

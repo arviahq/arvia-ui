@@ -12,7 +12,9 @@ component Skeleton {
       yes {
         animation: keyframes.pulse 1.4s ease-in-out infinite alternate;
       }
-      no {}
+      no {
+        animation: none;
+      }
     }
   }
 
@@ -21,6 +23,6 @@ component Skeleton {
   }
 
   slots {
-    root {}
+    root;
   }
 }

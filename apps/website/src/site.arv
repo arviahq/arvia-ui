@@ -75,13 +75,13 @@ component SiteHeader {
   }
 
   slots {
-    root {}
-    inner {}
-    brand {}
-    brandText {}
-    links {}
-    link {}
-    actions {}
+    root;
+    inner;
+    brand;
+    brandText;
+    links;
+    link;
+    actions;
   }
 }
 
@@ -94,7 +94,7 @@ component HeroShell {
   }
 
   slots {
-    root {}
+    root;
     backdrop {
       position: absolute;
       inset: 0;
@@ -169,13 +169,13 @@ component Hero {
   }
 
   slots {
-    root {}
-    badge {}
-    title {}
-    lead {}
-    actions {}
-    meta {}
-    metaCmd {}
+    root;
+    badge;
+    title;
+    lead;
+    actions;
+    meta;
+    metaCmd;
   }
 }
 
@@ -261,10 +261,10 @@ component FeatureCard {
   }
 
   slots {
-    root {}
-    icon {}
-    title {}
-    body {}
+    root;
+    icon;
+    title;
+    body;
   }
 }
 
@@ -291,9 +291,9 @@ component SectionHead {
   }
 
   slots {
-    root {}
-    title {}
-    lead {}
+    root;
+    title;
+    lead;
   }
 }
 
@@ -383,12 +383,12 @@ component ComponentCard {
   }
 
   slots {
-    root {}
-    preview {}
-    info {}
-    title {}
-    desc {}
-    more {}
+    root;
+    preview;
+    info;
+    title;
+    desc;
+    more;
   }
 }
 
@@ -469,16 +469,16 @@ component SiteFooterBar {
   }
 
   slots {
-    root {}
-    inner {}
-    brand {}
-    brandText {}
-    tagline {}
-    cols {}
-    col {}
-    colTitle {}
-    link {}
-    bottom {}
+    root;
+    inner;
+    brand;
+    brandText;
+    tagline;
+    cols;
+    col;
+    colTitle;
+    link;
+    bottom;
   }
 }
 
@@ -493,7 +493,7 @@ component DocsLayout {
   }
 
   slots {
-    root {}
+    root;
     sidebar {
       position: sticky;
       top: 64px;
@@ -584,11 +584,11 @@ component DocsNav {
   }
 
   slots {
-    root {}
-    section {}
-    sectionTitle {}
-    list {}
-    link {}
+    root;
+    section;
+    sectionTitle;
+    list;
+    link;
   }
 }
 
@@ -653,14 +653,14 @@ component Prose {
   }
 
   slots {
-    root {}
-    h2 {}
-    h3 {}
-    p {}
-    ul {}
-    li {}
-    code {}
-    pre {}
+    root;
+    h2;
+    h3;
+    p;
+    ul;
+    li;
+    code;
+    pre;
   }
 }
 
@@ -689,9 +689,9 @@ component DemoPanel {
   }
 
   slots {
-    root {}
-    label {}
-    preview {}
+    root;
+    label;
+    preview;
   }
 }
 
@@ -835,22 +835,22 @@ component PropsTable {
   }
 
   slots {
-    root {}
-    header {}
-    title {}
-    count {}
-    list {}
-    row {}
-    main {}
-    nameRow {}
-    propName {}
-    badge {}
-    pills {}
-    tag {}
-    desc {}
-    defaultCol {}
-    defaultLabel {}
-    defaultEmpty {}
+    root;
+    header;
+    title;
+    count;
+    list;
+    row;
+    main;
+    nameRow;
+    propName;
+    badge;
+    pills;
+    tag;
+    desc;
+    defaultCol;
+    defaultLabel;
+    defaultEmpty;
   }
 }
 
@@ -1202,45 +1202,45 @@ component TokenReference {
   }
 
   slots {
-    root {}
-    tabs {}
-    tabsList {}
-    tab {}
-    body {}
-    note {}
-    list {}
-    item {}
-    stage {}
-    meta {}
-    head {}
-    name {}
-    copyBtn {}
-    varCode {}
-    valueCode {}
-    desc {}
-    colorDemo {}
-    colorPair {}
-    colorPairItem {}
-    colorLabel {}
-    spacingDemo {}
-    spacingBlock {}
-    radiusDemo {}
-    typeWrap {}
-    typeSample {}
-    typeSentence {}
-    shadowPair {}
-    shadowDemo {}
-    motionDuration {}
-    motionDurationBar {}
-    motionEase {}
-    motionEaseTrack {}
-    motionEaseDot {}
-    durationGrid {}
-    durationCard {}
-    durationHead {}
-    durationInfo {}
-    durationTrack {}
-    durationFill {}
+    root;
+    tabs;
+    tabsList;
+    tab;
+    body;
+    note;
+    list;
+    item;
+    stage;
+    meta;
+    head;
+    name;
+    copyBtn;
+    varCode;
+    valueCode;
+    desc;
+    colorDemo;
+    colorPair;
+    colorPairItem;
+    colorLabel;
+    spacingDemo;
+    spacingBlock;
+    radiusDemo;
+    typeWrap;
+    typeSample;
+    typeSentence;
+    shadowPair;
+    shadowDemo;
+    motionDuration;
+    motionDurationBar;
+    motionEase;
+    motionEaseTrack;
+    motionEaseDot;
+    durationGrid;
+    durationCard;
+    durationHead;
+    durationInfo;
+    durationTrack;
+    durationFill;
   }
 }
 
@@ -1332,13 +1332,13 @@ component Controls {
   }
 
   slots {
-    root {}
-    preview {}
-    panel {}
-    row {}
-    name {}
-    control {}
-    segmented {}
-    segment {}
+    root;
+    preview;
+    panel;
+    row;
+    name;
+    control;
+    segmented;
+    segment;
   }
 }

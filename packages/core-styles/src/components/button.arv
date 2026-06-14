@@ -34,9 +34,9 @@ component Button {
   }
 
   slots {
-    root {}
-    icon {}
-    label {}
+    root;
+    icon;
+    label;
   }
 
   variants {

@@ -57,9 +57,9 @@ component Tabs {
   }
 
   slots {
-    root {}
-    list {}
-    tab {}
-    panel {}
+    root;
+    list;
+    tab;
+    panel;
   }
 }

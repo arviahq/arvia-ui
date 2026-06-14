@@ -54,10 +54,10 @@ component Alert {
   }
 
   slots {
-    root {}
-    icon {}
-    content {}
-    title {}
-    body {}
+    root;
+    icon;
+    content;
+    title;
+    body;
   }
 }

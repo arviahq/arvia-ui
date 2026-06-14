@@ -25,7 +25,7 @@ component Tooltip {
   }
 
   slots {
-    root {}
-    bubble {}
+    root;
+    bubble;
   }
 }

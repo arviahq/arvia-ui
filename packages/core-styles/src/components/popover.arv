@@ -21,7 +21,7 @@ component Popover {
   }
 
   slots {
-    root {}
-    content {}
+    root;
+    content;
   }
 }

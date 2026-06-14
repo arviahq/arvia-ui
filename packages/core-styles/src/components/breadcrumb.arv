@@ -48,11 +48,11 @@ component Breadcrumb {
   }
 
   slots {
-    root {}
-    list {}
-    item {}
-    link {}
-    current {}
-    separator {}
+    root;
+    list;
+    item;
+    link;
+    current;
+    separator;
   }
 }

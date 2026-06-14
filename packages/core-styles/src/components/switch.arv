@@ -64,7 +64,7 @@ component Switch {
   }
 
   slots {
-    root {}
-    thumb {}
+    root;
+    thumb;
   }
 }

@@ -85,13 +85,13 @@ component Toast {
   }
 
   slots {
-    root {}
-    viewport {}
-    toast {}
-    icon {}
-    content {}
-    title {}
-    description {}
-    close {}
+    root;
+    viewport;
+    toast;
+    icon;
+    content;
+    title;
+    description;
+    close;
   }
 }

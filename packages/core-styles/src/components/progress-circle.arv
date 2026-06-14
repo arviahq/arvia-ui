@@ -35,8 +35,8 @@ component ProgressCircle {
   }
 
   slots {
-    root {}
-    track {}
-    indicator {}
+    root;
+    track;
+    indicator;
   }
 }

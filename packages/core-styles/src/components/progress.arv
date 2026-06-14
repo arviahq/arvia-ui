@@ -38,7 +38,7 @@ component Progress {
   }
 
   slots {
-    root {}
-    bar {}
+    root;
+    bar;
   }
 }

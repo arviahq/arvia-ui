@@ -53,9 +53,9 @@ component Slider {
   }
 
   slots {
-    root {}
-    track {}
-    range {}
-    thumb {}
+    root;
+    track;
+    range;
+    thumb;
   }
 }

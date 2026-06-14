@@ -98,14 +98,14 @@ component Dialog {
   }
 
   slots {
-    root {}
-    overlay {}
-    content {}
-    header {}
-    title {}
-    description {}
-    body {}
-    footer {}
-    close {}
+    root;
+    overlay;
+    content;
+    header;
+    title;
+    description;
+    body;
+    footer;
+    close;
   }
 }

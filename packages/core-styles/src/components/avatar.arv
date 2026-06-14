@@ -36,7 +36,7 @@ component Avatar {
   }
 
   slots {
-    root {}
-    image {}
+    root;
+    image;
   }
 }

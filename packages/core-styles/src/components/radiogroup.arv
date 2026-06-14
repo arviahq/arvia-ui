@@ -8,6 +8,6 @@ component RadioGroup {
   }
 
   slots {
-    root {}
+    root;
   }
 }

@@ -83,12 +83,12 @@ component Accordion {
   }
 
   slots {
-    root {}
-    item {}
-    trigger {}
-    icon {}
-    content {}
-    contentInner {}
-    contentBody {}
+    root;
+    item;
+    trigger;
+    icon;
+    content;
+    contentInner;
+    contentBody;
   }
 }

@@ -158,6 +158,6 @@
     "typecheck": "arvia gen src"
   },
   "devDependencies": {
-    "@arviahq/vite-plugin-react": "^0.7.0"
+    "@arviahq/vite-plugin-react": "^1.0.0"
   }
 }

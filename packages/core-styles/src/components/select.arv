@@ -102,11 +102,11 @@ component Select {
   }
 
   slots {
-    root {}
-    trigger {}
-    icon {}
-    content {}
-    option {}
-    native {}
+    root;
+    trigger;
+    icon;
+    content;
+    option;
+    native;
   }
 }

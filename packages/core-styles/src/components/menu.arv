@@ -65,10 +65,10 @@ component Menu {
   }
 
   slots {
-    root {}
-    content {}
-    item {}
-    separator {}
-    label {}
+    root;
+    content;
+    item;
+    separator;
+    label;
   }
 }

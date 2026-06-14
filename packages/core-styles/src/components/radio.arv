@@ -75,8 +75,8 @@ component Radio {
   }
 
   slots {
-    root {}
-    control {}
-    dot {}
+    root;
+    control;
+    dot;
   }
 }
