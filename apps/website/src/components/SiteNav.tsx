@@ -1,5 +1,5 @@
 import { Link as RouterLink, useRouterState } from "@tanstack/react-router";
-import { Button } from "@arviahq/ui-react";
+import { Button } from "@arvia-ui/react";
 import { SiteHeader } from "../site.arv";
 
 export function SiteNav(props: { theme: "light" | "dark"; onThemeToggle: () => void }) {

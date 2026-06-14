@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { setTheme, ToastProvider } from "@arviahq/ui-react";
+import { setTheme, ToastProvider } from "@arvia-ui/react";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteNav } from "../components/SiteNav";
 import { getStoredTheme, setStoredTheme, type SiteTheme } from "../preferences";

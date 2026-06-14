@@ -1,5 +1,5 @@
 import { createElement, useMemo, useState } from "react";
-import { Input, Switch } from "@arviahq/ui-react";
+import { Input, Switch } from "@arvia-ui/react";
 import { Controls as controlStyles } from "../site.arv";
 import { CodeBlock } from "./CodeBlock";
 import type { PlaygroundConfig, PropDefinition } from "../docs/components/types";

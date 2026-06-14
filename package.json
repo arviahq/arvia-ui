@@ -6,7 +6,7 @@
     "dev": "pnpm --filter website dev",
     "website": "pnpm --filter website dev",
     "website:build": "pnpm --filter website build",
-    "storybook": "pnpm --filter @arviahq/ui-react storybook",
+    "storybook": "pnpm --filter @arvia-ui/react storybook",
     "build": "pnpm -r build",
     "typecheck": "pnpm -r typecheck",
     "format": "oxfmt",

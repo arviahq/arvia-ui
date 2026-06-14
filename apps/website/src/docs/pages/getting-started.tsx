@@ -13,7 +13,7 @@ export function GettingStartedPage() {
     <DocProse>
       <DocHeader {...gettingStartedMeta} />
       <DocH2>Install</DocH2>
-      <DocPre>{`npm install @arviahq/ui-react`}</DocPre>
+      <DocPre>{`npm install @arvia-ui/react`}</DocPre>
       <DocP>
         That is all you need. Styles are pre-compiled and bundled with the package — no Vite plugin,
         no <code>vite.config.ts</code> change, and no theme import. React 18+ is the only peer
@@ -21,10 +21,10 @@ export function GettingStartedPage() {
       </DocP>
       <DocH2>Use components</DocH2>
       <DocP>
-        Importing from <code>@arviahq/ui-react</code> automatically includes the component styles
-        (via <code>sideEffects</code>):
+        Importing from <code>@arvia-ui/react</code> automatically includes the component styles (via{" "}
+        <code>sideEffects</code>):
       </DocP>
-      <DocPre>{`import { Button, Stack, Text } from "@arviahq/ui-react";
+      <DocPre>{`import { Button, Stack, Text } from "@arvia-ui/react";
 
 export function App() {
   return (
@@ -40,7 +40,7 @@ export function App() {
         <code>setTheme</code>, which sets <code>data-arvia-theme</code> on <code>&lt;html&gt;</code>
         :
       </DocP>
-      <DocPre>{`import { setTheme } from "@arviahq/ui-react";
+      <DocPre>{`import { setTheme } from "@arvia-ui/react";
 
 setTheme("dark");
 setTheme("light");`}</DocPre>

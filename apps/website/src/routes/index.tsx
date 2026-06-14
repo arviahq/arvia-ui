@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link as RouterLink, createFileRoute } from "@tanstack/react-router";
-import { Badge, Button } from "@arviahq/ui-react";
+import { Badge, Button } from "@arvia-ui/react";
 import { FeatureCard, FeatureGrid, Hero, HeroShell, SectionHead, SitePage } from "../site.arv";
 import { HeroBackground } from "../components/HeroBackground";
 import { usePageMeta } from "../page-meta";
@@ -37,7 +37,7 @@ const FEATURES: { icon: ReactNode; title: string; body: string }[] = [
       </Icon>
     ),
     title: "Zero-config install",
-    body: "npm install @arviahq/ui-react and import. Styles are pre-compiled and bundled — no Vite plugin, no theme import, no setup.",
+    body: "npm install @arvia-ui/react and import. Styles are pre-compiled and bundled — no Vite plugin, no theme import, no setup.",
   },
   {
     icon: (
@@ -136,7 +136,7 @@ function HomeRoute() {
             </a>
           </div>
           <p className={hero.meta}>
-            <span className={hero.metaCmd}>npm install @arviahq/ui-react</span>
+            <span className={hero.metaCmd}>npm install @arvia-ui/react</span>
             <span>· React 18+ · any bundler</span>
           </p>
         </section>

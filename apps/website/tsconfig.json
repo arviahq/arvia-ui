@@ -7,8 +7,8 @@
     "rootDirs": [
       "src",
       ".arvia/types",
-      "../../packages/styles/src",
-      "../../packages/styles/.arvia/types"
+      "../../packages/core-styles/src",
+      "../../packages/core-styles/.arvia/types"
     ]
   },
   "include": ["src", "vite.config.ts"]

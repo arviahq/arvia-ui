@@ -22,13 +22,13 @@ export function IntroductionPage() {
       <DocH2>One package to install</DocH2>
       <DocUl>
         <DocLi>
-          <strong>@arviahq/ui-react</strong> — the only package you install: React 18+ components
-          plus their bundled, pre-compiled CSS
+          <strong>@arvia-ui/react</strong> — the only package you install: React 18+ components plus
+          their bundled, pre-compiled CSS
         </DocLi>
         <DocLi>
-          <strong>@arviahq/ui-styles</strong> — the shared <code>.arv</code> theme tokens, recipes,
-          and component styles. Compiled into <code>@arviahq/ui-react</code> at publish time, so
-          consumers never install it directly
+          <strong>@arvia-ui/core-styles</strong> — the shared <code>.arv</code> theme tokens,
+          recipes, and component styles. Compiled into <code>@arvia-ui/react</code> at publish time,
+          so consumers never install it directly
         </DocLi>
       </DocUl>
       <DocP>

@@ -12,21 +12,21 @@ Storybook: `pnpm storybook` → [http://localhost:6007](http://localhost:6007)
 
 ## Packages
 
-| Package              | Import               | Status                           |
-| -------------------- | -------------------- | -------------------------------- |
-| `@arviahq/ui-styles` | internal             | Shared `.arv` theme + components |
-| `@arviahq/ui-react`  | `@arviahq/ui-react`  | React 18+ (v0.1)                 |
-| `@arviahq/ui-vue`    | `@arviahq/ui-vue`    | Planned                          |
-| `@arviahq/ui-preact` | `@arviahq/ui-preact` | Planned                          |
+| Package                 | Import               | Status                           |
+| ----------------------- | -------------------- | -------------------------------- |
+| `@arvia-ui/core-styles` | internal             | Shared `.arv` theme + components |
+| `@arvia-ui/react`       | `@arvia-ui/react`    | React 18+ (v0.1)                 |
+| `@arviahq/ui-vue`       | `@arviahq/ui-vue`    | Planned                          |
+| `@arviahq/ui-preact`    | `@arviahq/ui-preact` | Planned                          |
 
 ## Usage (React)
 
 ```bash
-npm install @arviahq/ui-react
+npm install @arvia-ui/react
 ```
 
 ```tsx
-import { Button, Stack, Text } from "@arviahq/ui-react";
+import { Button, Stack, Text } from "@arvia-ui/react";
 
 export function App() {
   return (
@@ -45,7 +45,7 @@ component pulls in the CSS automatically (via `sideEffects`). No Vite plugin, no
 Switch theme modes at runtime:
 
 ```tsx
-import { setTheme } from "@arviahq/ui-react";
+import { setTheme } from "@arvia-ui/react";
 
 setTheme("dark"); // sets data-arvia-theme on <html>; light/dark CSS is already bundled
 ```
@@ -67,10 +67,10 @@ This is for design-system authors — it is **not** required to use arvia-ui.
 ```
 arvia-ui/
   apps/
-    website/         # Marketing + docs site (dogfoods @arviahq/ui-react)
+    website/         # Marketing + docs site (dogfoods @arvia-ui/react)
   packages/
-    styles/          # @arviahq/ui-styles — shared theme.arv + components/*.arv
-    ui-react/        # @arviahq/ui-react — React wrappers + Storybook
+    core-styles/     # @arvia-ui/core-styles — shared theme.arv + components/*.arv
+    react/           # @arvia-ui/react — React wrappers + Storybook
     ui-vue/          # (planned)
     ui-preact/       # (planned)
 ```

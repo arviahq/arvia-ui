@@ -4,15 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "pretypecheck": "pnpm --filter @arviahq/ui-styles gen && pnpm exec arvia gen --theme ../../packages/styles/src/theme.arv src",
+    "pretypecheck": "pnpm --filter @arvia-ui/core-styles gen && pnpm exec arvia gen --theme ../../packages/core-styles/src/theme.arv src",
     "typecheck": "tsc --noEmit",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@arviahq/ui-react": "workspace:*",
-    "@arviahq/ui-styles": "workspace:*",
+    "@arvia-ui/core-styles": "workspace:*",
+    "@arvia-ui/react": "workspace:*",
     "@tanstack/react-router": "^1.170.15",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

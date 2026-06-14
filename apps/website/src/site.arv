@@ -1,4 +1,4 @@
-// Site-specific layout styles layered on @arviahq/ui-styles tokens.
+// Site-specific layout styles layered on @arvia-ui/core-styles tokens.
 // Marketing chrome (nav, hero, features, footer) mirrors arvia.dev's look;
 // the indigo/zinc palette comes from site-theme.css (website-only override).
 

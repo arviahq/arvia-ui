@@ -1,7 +1,7 @@
 /*
  * Docs-site-only palette: remaps the arvia-ui (teal/stone) theme variables to an
  * indigo/zinc brand matching arvia.dev. This only affects the website — the
- * published @arviahq/ui-react package keeps its teal brand. Imported after the
+ * published @arvia-ui/react package keeps its teal brand. Imported after the
  * theme in main.tsx so these win; the dark block uses :root[...] for specificity.
  */
 :root {

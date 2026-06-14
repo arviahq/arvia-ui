@@ -1,11 +1,11 @@
-import "@arviahq/ui-styles/theme.arv";
+import "@arvia-ui/core-styles/theme.arv";
 import "./site.arv";
 import "./site-theme.css";
 import "./code.css";
 import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { setTheme } from "@arviahq/ui-react";
+import { setTheme } from "@arvia-ui/react";
 import { getStoredTheme } from "./preferences";
 import { routeTree } from "./routeTree.gen";
 

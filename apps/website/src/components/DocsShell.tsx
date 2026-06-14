@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Link as RouterLink, useRouterState } from "@tanstack/react-router";
-import { Heading, Stack, Text } from "@arviahq/ui-react";
+import { Heading, Stack, Text } from "@arvia-ui/react";
 import { DocsLayout, DocsNav } from "../site.arv";
 import { DOC_NAV } from "../docs/registry";
 

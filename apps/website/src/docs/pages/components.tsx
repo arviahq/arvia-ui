@@ -19,7 +19,7 @@ export function ComponentsPage() {
       <DocHeader {...componentsMeta} />
       <DocP>
         Each card is a live, themed render — switch the site theme to see every component follow.
-        All components are imported from <code>@arviahq/ui-react</code>; click through for variant
+        All components are imported from <code>@arvia-ui/react</code>; click through for variant
         examples and a complete props table.
       </DocP>
 

@@ -30,7 +30,7 @@ import {
   Skeleton,
   Slider,
   useToast,
-} from "@arviahq/ui-react";
+} from "@arvia-ui/react";
 import { LivePreview } from "../../components/LivePreview";
 import type { ComponentDoc, PropDefinition } from "./types";
 
@@ -85,7 +85,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       htmlAttrs("Button"),
     ],
-    usage: `import { Button } from "@arviahq/ui-react";
+    usage: `import { Button } from "@arvia-ui/react";
 
 <Button tone="primary" size="md" icon="✦">
   Save changes
@@ -129,7 +129,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "className", type: "string", description: "Additional CSS class on the root span." },
       htmlAttrs("HTML"),
     ],
-    usage: `import { Badge } from "@arviahq/ui-react";
+    usage: `import { Badge } from "@arvia-ui/react";
 
 <Badge tone="success">Active</Badge>`,
     Preview: () => <Badge tone="primary">New</Badge>,
@@ -188,7 +188,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       htmlAttrs("HTML"),
     ],
-    usage: `import { Box } from "@arviahq/ui-react";
+    usage: `import { Box } from "@arvia-ui/react";
 
 <Box padding="4" radius="md" background="raised">
   Content
@@ -250,7 +250,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       htmlAttrs("HTML"),
     ],
-    usage: `import { Stack } from "@arviahq/ui-react";
+    usage: `import { Stack } from "@arvia-ui/react";
 
 <Stack direction="column" gap="4">
   <Text>One</Text>
@@ -324,7 +324,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       htmlAttrs("HTML"),
     ],
-    usage: `import { Text } from "@arviahq/ui-react";
+    usage: `import { Text } from "@arvia-ui/react";
 
 <Text size="md" tone="muted">Supporting copy</Text>`,
     Preview: () => <Text>Body text at the default size.</Text>,
@@ -365,7 +365,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Additional CSS class on the heading element.",
       },
     ],
-    usage: `import { Heading } from "@arviahq/ui-react";
+    usage: `import { Heading } from "@arvia-ui/react";
 
 <Heading level="2">Page title</Heading>`,
     Preview: () => <Heading level="2">Page title</Heading>,
@@ -398,7 +398,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "className", type: "string", description: "Additional CSS class on the anchor." },
       htmlAttrs("Anchor"),
     ],
-    usage: `import { Link } from "@arviahq/ui-react";
+    usage: `import { Link } from "@arvia-ui/react";
 
 <Link href="/docs" tone="primary">Read the docs</Link>`,
     Preview: () => <Link href="#">Primary link</Link>,
@@ -442,7 +442,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "className", type: "string", description: "Additional CSS class on the root div." },
       htmlAttrs("HTML"),
     ],
-    usage: `import { Card, Text } from "@arviahq/ui-react";
+    usage: `import { Card, Text } from "@arvia-ui/react";
 
 <Card padding="lg" shadow="md">
   <Text>Card content</Text>
@@ -495,7 +495,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Standard input attributes are forwarded.",
       },
     ],
-    usage: `import { Input } from "@arviahq/ui-react";
+    usage: `import { Input } from "@arvia-ui/react";
 
 <Input placeholder="you@example.com" type="email" size="md" />`,
     Preview: () => <Input placeholder="Email address" type="email" style={{ width: 280 }} />,
@@ -526,7 +526,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "className", type: "string", description: "Additional CSS class on the hr element." },
       htmlAttrs("HTML"),
     ],
-    usage: `import { Divider } from "@arviahq/ui-react";
+    usage: `import { Divider } from "@arvia-ui/react";
 
 <Divider spacing="md" />`,
     Preview: () => (
@@ -559,7 +559,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "className", type: "string", description: "Additional CSS class on the span." },
       htmlAttrs("HTML"),
     ],
-    usage: `import { Spinner } from "@arviahq/ui-react";
+    usage: `import { Spinner } from "@arvia-ui/react";
 
 <Spinner size="md" label="Loading results" />`,
     Preview: () => <Spinner size="md" />,
@@ -607,7 +607,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Additional CSS class on the part's root element.",
       },
     ],
-    usage: `import { Tabs } from "@arviahq/ui-react";
+    usage: `import { Tabs } from "@arvia-ui/react";
 
 <Tabs defaultValue="overview">
   <Tabs.List aria-label="Sections">
@@ -678,7 +678,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Required — identifies each item.",
       },
     ],
-    usage: `import { Accordion } from "@arviahq/ui-react";
+    usage: `import { Accordion } from "@arvia-ui/react";
 
 <Accordion type="single" defaultValue="a">
   <Accordion.Item value="a">
@@ -728,7 +728,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Render the close behavior on a child element (e.g. a Button).",
       },
     ],
-    usage: `import { Dialog, Button } from "@arviahq/ui-react";
+    usage: `import { Dialog, Button } from "@arvia-ui/react";
 
 <Dialog>
   <Dialog.Trigger><Button>Open</Button></Dialog.Trigger>
@@ -789,7 +789,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "alt", type: "string", description: "Image alt text." },
     ],
-    usage: `import { Avatar } from "@arviahq/ui-react";
+    usage: `import { Avatar } from "@arvia-ui/react";
 
 <Avatar name="Ada Lovelace" src="/ada.jpg" size="md" />`,
     Preview: () => (
@@ -822,7 +822,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "disabled", type: "boolean", description: "Disables the switch." },
     ],
-    usage: `import { Switch } from "@arviahq/ui-react";
+    usage: `import { Switch } from "@arvia-ui/react";
 
 <Switch defaultChecked onChange={(on) => console.log(on)} />`,
     Preview: () => (
@@ -863,7 +863,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Box size." },
       { name: "disabled", type: "boolean", description: "Disables the checkbox." },
     ],
-    usage: `import { Checkbox } from "@arviahq/ui-react";
+    usage: `import { Checkbox } from "@arvia-ui/react";
 
 <Checkbox defaultChecked size="md" onChange={(on) => console.log(on)} />`,
     Preview: () => (
@@ -912,7 +912,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Required value for each item.",
       },
     ],
-    usage: `import { CheckboxGroup } from "@arviahq/ui-react";
+    usage: `import { CheckboxGroup } from "@arvia-ui/react";
 
 <CheckboxGroup defaultValue={["email"]} onChange={setValues}>
   <Checkbox value="email">Email</Checkbox>
@@ -944,7 +944,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "label", type: "ReactNode", description: "Content shown on hover/focus." },
       { name: "children", type: "ReactNode", description: "The trigger element." },
     ],
-    usage: `import { Tooltip, Button } from "@arviahq/ui-react";
+    usage: `import { Tooltip, Button } from "@arvia-ui/react";
 
 <Tooltip label="Saves your changes">
   <Button>Save</Button>
@@ -975,7 +975,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "icon", type: "ReactNode", description: "Override the default tone icon." },
       { name: "children", type: "ReactNode", description: "Body content." },
     ],
-    usage: `import { Alert } from "@arviahq/ui-react";
+    usage: `import { Alert } from "@arvia-ui/react";
 
 <Alert tone="success" title="Saved">Your changes are live.</Alert>`,
     Preview: () => (
@@ -1030,7 +1030,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Required value for each radio.",
       },
     ],
-    usage: `import { RadioGroup } from "@arviahq/ui-react";
+    usage: `import { RadioGroup } from "@arvia-ui/react";
 
 <RadioGroup defaultValue="email">
   <Radio value="email">Email</Radio>
@@ -1093,7 +1093,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "max", type: "number", default: "100", description: "Maximum value." },
       { name: "step", type: "number", default: "1", description: "Step increment." },
     ],
-    usage: `import { Slider } from "@arviahq/ui-react";
+    usage: `import { Slider } from "@arvia-ui/react";
 
 <Slider defaultValue={40} onChange={setValue} />`,
     Preview: () => (
@@ -1125,7 +1125,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Marks the current page (aria-current).",
       },
     ],
-    usage: `import { Breadcrumb } from "@arviahq/ui-react";
+    usage: `import { Breadcrumb } from "@arvia-ui/react";
 
 <Breadcrumb>
   <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
@@ -1152,7 +1152,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       { name: "height", type: "number | string", description: "Height." },
       { name: "radius", type: "string", description: "Border-radius override." },
     ],
-    usage: `import { Skeleton } from "@arviahq/ui-react";
+    usage: `import { Skeleton } from "@arvia-ui/react";
 
 <Skeleton width={240} height={16} />`,
     Preview: () => (
@@ -1188,7 +1188,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "size", type: '"sm" | "md" | "lg"', default: '"md"', description: "Bar thickness." },
     ],
-    usage: `import { Progress } from "@arviahq/ui-react";
+    usage: `import { Progress } from "@arvia-ui/react";
 
 <Progress value={60} />`,
     Preview: () => (
@@ -1230,7 +1230,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Ring color.",
       },
     ],
-    usage: `import { ProgressCircle } from "@arviahq/ui-react";
+    usage: `import { ProgressCircle } from "@arvia-ui/react";
 
 <ProgressCircle value={72} size="md" />`,
     Preview: () => (
@@ -1260,7 +1260,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Clones its child to toggle the popover.",
       },
     ],
-    usage: `import { Popover, Button } from "@arviahq/ui-react";
+    usage: `import { Popover, Button } from "@arvia-ui/react";
 
 <Popover>
   <Popover.Trigger><Button>Open</Button></Popover.Trigger>
@@ -1297,7 +1297,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
       },
       { name: "Menu.Item danger", type: "boolean", description: "Destructive styling." },
     ],
-    usage: `import { Menu, Button } from "@arviahq/ui-react";
+    usage: `import { Menu, Button } from "@arvia-ui/react";
 
 <Menu>
   <Menu.Trigger><Button>Actions</Button></Menu.Trigger>
@@ -1345,7 +1345,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Option value; children are the label.",
       },
     ],
-    usage: `import { Select } from "@arviahq/ui-react";
+    usage: `import { Select } from "@arvia-ui/react";
 
 <Select defaultValue="apple" placeholder="Pick a fruit">
   <Select.Option value="apple">Apple</Select.Option>
@@ -1398,7 +1398,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
         description: "Toast accent.",
       },
     ],
-    usage: `import { ToastProvider, useToast } from "@arviahq/ui-react";
+    usage: `import { ToastProvider, useToast } from "@arvia-ui/react";
 
 // Wrap your app once:
 <ToastProvider><App /></ToastProvider>
