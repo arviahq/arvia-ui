@@ -36,8 +36,6 @@ export function ComponentDocPage(props: { doc: ComponentDoc }) {
         </>
       ) : null}
 
-      <DocH2>Props</DocH2>
-      <DocP>All variant props are typed string unions — pass them as strings, not numbers.</DocP>
       <PropsTable rows={doc.props} />
 
       <DocH2>Usage</DocH2>
