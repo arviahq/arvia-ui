@@ -934,7 +934,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     playground: {
       controls: ["label", "children"],
       args: { label: "Saves your changes", children: "Hover me" },
-      render: (a) => (
+      render: (a: Record<string, unknown>) => (
         <Tooltip label={String(a.label ?? "")}>
           <Button tone="secondary">{String(a.children ?? "")}</Button>
         </Tooltip>
@@ -1067,7 +1067,7 @@ export const COMPONENT_DOCS: ComponentDoc[] = [
     playground: {
       controls: ["value", "min", "max", "step", "disabled"],
       args: { value: 40 },
-      render: (a) => (
+      render: (a: Record<string, unknown>) => (
         <div style={{ width: 260 }}>
           <Slider
             value={Number(a.value)}
